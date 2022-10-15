@@ -1,0 +1,116 @@
+//@mixin aFontSize($fontSize) {
+//    $screenWidth: $screenWidth;
+//
+//    font-size: ($fontSize + px) !important;
+//
+//    @media screen and (max-width: $screenWidth + px) {
+//        font-size: calc(100vw / (#{$screenWidth} / #{$fontSize})) !important;
+//    }
+//}
+//
+//@function hpx($value) {
+//    @return percentage($screenWidth / $screenHeight) / $screenWidth * $value;
+//}
+//
+//@function vwpx($value) {
+//    @return calc(100vw / (#{$screenWidth} / #{$value}));
+//}
+//
+//@function aW($value) {
+//    @return percentage($value / $screenWidth);
+//}
+//
+//@mixin adaptive($parameter, $value) {
+//    $screenWidth: $screenWidth;
+//    #{$parameter}: ($value + px);
+//    @media screen and (max-width: $screenWidth + px) {
+//        #{$parameter}: vwpx($value);
+//    }
+//}
+
+
+@function vwpx($value) {
+    @return calc(100vw / (#{$defaultWidth} / #{$value}));
+}
+
+@mixin aFontSize($fontSize) {
+    //font-size: $fontSize + px;
+    //@media screen and (max-width: $maxScreenWidth + px) {
+    font-size: calc(100vw / (#{$maxWidth} / #{$fontSize}));
+    //}
+    @media screen and (max-width: $mobileWidth + px) {
+        font-size: calc(100vw / (#{$mobileWidth} / #{$fontSize + 12}));
+    }
+}
+
+
+
+
+
+
+
+@mixin adaptive($parameter, $value1, $value2) {
+    #{$parameter}: calc(100vw / (#{$defaultWidth} / #{$value1}));
+    @media (min-aspect-ratio: 21/9) {
+        #{$parameter}: calc(75vw / (#{$defaultWidth} / #{$value1}));
+    }
+    @media screen and (max-width: $mobileWidth + px) {
+        #{$parameter}: calc(100vw / (#{$mobileWidth} / #{$value2}));
+        @media (min-aspect-ratio: 21/9) {
+            #{$parameter}: calc(75vw / (#{$mobileWidth} / #{$value2}));
+        }
+    }
+}
+
+%defaultPaddings {
+    @include adaptive(padding-left, 40, 20);
+    @include adaptive(padding-right, 40, 20);
+}
+
+%alternatePaddings {
+    @include adaptive(padding-left, 30, 10);
+    @include adaptive(padding-right, 30, 10);
+}
+
+%flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flexSpaceBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+%flexStart {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+%absDefault {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+%centerXY {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+
+@mixin textBorder($borderSize: 0, $borderColor: white) {
+    text-shadow: -#{$borderSize} -#{$borderSize} 0 $borderColor, $borderSize -#{$borderSize} 0 $borderColor, -#{$borderSize} $borderSize 0 $borderColor, $borderSize $borderSize 0 $borderColor
+}

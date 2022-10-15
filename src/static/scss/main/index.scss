@@ -1,0 +1,144 @@
+.index {
+  .decor {
+    &._1 {
+      @include adaptive(margin-top, 900, 1200);
+      left: 54%;
+    }
+    &._2 {
+      @include adaptive(margin-top, 4500, 6050);
+      left: -20%;
+      @media screen and (max-width: $mobileWidth + px) {
+        left: -100%;
+      }
+    }
+  }
+  .page-head {
+    @include adaptive(height, 817, 690);
+    position: relative;
+    //z-index: 2;
+  }
+  .page-head-background {
+    @extend %absDefault;
+    img {
+      @extend %centerXY;
+      height: 100%;
+      width: auto;
+    }
+  }
+  .page-head-info {
+    display: flex;
+    align-items: flex-end;
+    @include adaptive(padding-left, 40, 20);
+    height: 100%;
+    width: 50%;
+    h1 {
+      margin-bottom: 8%;
+    }
+    p {
+      @include adaptive(font-size, 47, 24);
+      text-align: right;
+    }
+    @media screen and (max-width: $mobileWidth + px) {
+      @include adaptive(padding-right, 40, 20);
+      width: 100%;
+    }
+  }
+  .section-1 {
+    .box-item {
+      width: 46%;
+      @media screen and (max-width: $mobileWidth + px) {
+        width: 92%;
+      }
+    }
+  }
+  .section-2 {
+    p {
+      @include adaptive(padding-right, 40, 0);
+      @include adaptive(padding-left, 40, 0);
+    }
+    > .box {
+      > .box-item {
+        &:nth-child(1) {
+          order: 1;
+          @media screen and (max-width: $mobileWidth + px) {
+            order: 2;
+          }
+        }
+        &:nth-child(2) {
+          order: 2;
+          @media screen and (max-width: $mobileWidth + px) {
+            order: 1;
+          }
+        }
+      }
+    }
+    .box-item {
+      &._width77 {
+        @include adaptive(height, 290, 290);
+        .box._directionColumn._wrap {
+          height: 100%;
+          @extend %flexStart;
+        }
+        @media screen and (max-width: $mobileWidth + px) {
+          height: auto !important;
+          width: 77%;
+        }
+      }
+      &._width33 {
+        @media screen and (max-width: $mobileWidth + px) {
+          width: 33%;
+        }
+      }
+      ._width50 {
+        @media screen and (max-width: $mobileWidth + px) {
+          width: 100%;
+        }
+      }
+      .button-arrow {
+        @include adaptive(width, 290, 140);
+        @include adaptive(height, 290, 140);
+        //@include adaptive(padding, 78, 36);
+        background: url('../../img/arrow-1_white_border_large.svg') center /100% auto no-repeat;
+      }
+    }
+  }
+  .section-3 {
+    .box {
+      h1 {
+        @include adaptive(font-size, 118, 118);
+        color: $color01;
+        text-shadow: 0 0 50px rgba(56, 50, 212, 0.5);
+      }
+      .box-item {
+        overflow-wrap: break-word;
+        word-break: break-word;
+        //&:nth-child(5n+5) {
+        //  padding: 0;
+        //}
+        @media screen and (max-width: $mobileWidth + px) {
+          width: 50%;
+          padding-right: 8%;
+          &:nth-child(even) {
+            @include adaptive(padding-right, 10, 10);
+            padding-left: 8%;
+          }
+        }
+      }
+    }
+  }
+  .section-4 {
+    .box-item {
+      @include adaptive(height, 360, 250);
+    }
+  }
+  .section-5 {
+    .box-item {
+      @include adaptive(height, 447, 500);
+    }
+  }
+  .section-6 {
+    .box-item {
+      @include adaptive(height, 125, 62);
+    }
+  }
+}

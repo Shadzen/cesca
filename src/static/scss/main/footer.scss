@@ -1,0 +1,105 @@
+.footer {
+  @extend %alternatePaddings;
+  @include adaptive(height, 440, 440);
+  position: relative;
+  width: 100%;
+  z-index: 99;
+  @media screen and (max-width: $mobileWidth + px) {
+    height: auto !important;
+  }
+  .box._directionColumn._wrap {
+    height: 100%;
+    justify-content: flex-start;
+    @media screen and (max-width: $mobileWidth + px) {
+      > .box-item {
+        &:nth-child(1) {
+          display: flex;
+          justify-content: space-between;
+          order: 1;
+        }
+        &:nth-child(2) {
+          order: 3;
+        }
+        &:nth-child(3) {
+          order: 2;
+        }
+      }
+    }
+  }
+  .logo {
+    @include adaptive(margin-bottom, 30, 30);
+  }
+  .langs {
+    justify-content: flex-start;
+    @include adaptive(margin-bottom, 30, 30);
+  }
+  a.button._type-1 {
+    @include adaptive(margin-bottom, 30, 50);
+  }
+  .mail-links, .mail-links a {
+    @include adaptive(font-size, 14, 14);
+    font-family: $RalewayRegular;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 115%;
+  }
+  .mail-links, .mail-link {
+    display: flex;
+    flex-direction: column;
+  }
+  .mail-links {
+    width: 100%;
+    justify-content: space-between;
+    @media screen and (max-width: $mobileWidth + px) {
+      flex-direction: row;
+    }
+  }
+  .mail-link {
+    @include adaptive(margin-bottom, 20, 50);
+  }
+  .copyright {
+    @include adaptive(font-size, 12, 12);
+    font-family: $RalewayRegular;
+    color: #fff;
+    line-height: 115%;
+  }
+
+
+
+  .box._menu-links {
+    justify-content: flex-start;
+    .box-item {
+      padding: 0 !important;
+      display: flex;
+      flex-direction: column;
+      @media screen and (max-width: $mobileWidth + px) {
+        width: 50%;
+        @include adaptive(margin-bottom, 30, 30);
+      }
+    }
+
+    .links-title, .link {
+      font-family: $RalewayRegular;
+      text-decoration: none;
+    }
+    .links-title {
+      @include adaptive(font-size, 20, 20);
+      text-transform: uppercase;
+      color: $color01;
+      line-height: 115%;
+      @include adaptive(margin-bottom, 4, 4);
+    }
+    .link {
+      color: #fff;
+      @include adaptive(font-size, 14, 14);
+      @include adaptive(margin-top, 16, 16);
+      line-height: 100%;
+      @media screen and (max-width: $mobileWidth + px) {
+        display: none;
+      }
+    }
+  }
+
+
+}

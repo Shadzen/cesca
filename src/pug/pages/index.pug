@@ -1,0 +1,100 @@
+extends ../layout/layout.pug
+block vars
+    - var title = 'CESCA'
+    - var bodyClass = "black"
+block header
+    - var name = "index"
+    include ../includes/header.pug
+block main
+    main.index
+        .decor._1
+        .decor._2
+        .page-head
+            .page-head-background
+                img(src="./img/index/page-head.jpg", alt=".")
+            .page-head-info
+                article
+                    h1 ИТ-решения
+                    p для вашего бизнеса
+        .separator._horizontal._large._transparent
+        section.section-1._with-box
+            .box
+                .box-item
+                    h3 CESCA – инновационный ИТ-интегратор, представленный на рынке ИТ-услуг широкого профиля с 2014 года.
+        .separator._horizontal._small._transparent
+        section.section-2._with-box
+            .box
+                .box-item._width33
+                    a.button-arrow._type-1._border(href='#')
+                .box-item._width77
+                    .box._directionColumn._wrap
+                        p.box-item._width50 Компания CESCA специализируется на разработке передовых решений для бизнеса и реализации проектов любой сложности с учетом всех пожеланий клиента.
+                        p.box-item._width50 Миссия CESCA состоит в создании надежной высокотехнологичной основы, которая поможет клиентам развивать, масштабировать и совершенствовать свой бизнес.
+                        p.box-item._width50 Каждый проект — это уникальное решение, позволяющее обеспечить основу для успешного развития любого бизнеса.
+                        p.box-item._width50 CESCA не ищет ответы там, где находят их другие. Мы стираем границы и создаем новую реальность.
+        .separator._horizontal._large
+        section.section-3._with-box
+            h4 Наша специализация
+            .separator._horizontal._small._transparent
+            .box._wrap
+                mixin indexSec3BoxItem(number, text)
+                    .box-item._width20
+                        article
+                            h1= number
+                            p= text
+                +indexSec3BoxItem('1', 'Создание уникальных ИТ-продуктов')
+                +indexSec3BoxItem('2', 'Разработка программно-аппаратных комплексов')
+                +indexSec3BoxItem('3', 'Внедрение современных ИТ-решений в бизнес')
+                +indexSec3BoxItem('4', 'Техническая поддержка ИТ-инфраструктуры')
+                +indexSec3BoxItem('5', 'Автоматизированные системы управления зданием')
+                +indexSec3BoxItem('6', 'Инженерные проекты любого уровня сложности')
+                +indexSec3BoxItem('7', 'Аудит, консалтинг, экспертиза в сфере ИТ')
+                +indexSec3BoxItem('8', 'Комплексный сервис и ИТ-аутсорсинг')
+                +indexSec3BoxItem('9', 'Поставка и обслуживание оборудования')
+                +indexSec3BoxItem('10', 'Информационная безопасность')
+        .separator._horizontal._large
+        section.section-4._with-box
+            h4 Направления деятельности
+            .separator._horizontal._small._transparent
+            .box._wrap
+                mixin indexSec4BoxItem(classes, text, href, image)
+                    if href
+                        a.box-item(class=classes)(href=`${href}`)
+                            .box-item-inner
+                                .box-item-image(style=`${image ? `background-image: url(${image})` : ``}`)
+                                if text
+                                    .box-item-content
+                                        p._p1= text
+                                        .button-arrow._type-1._border
+                    else
+                        .box-item(class=classes)
+                            .box-item-inner
+                                .box-item-image(style=`${image ? `background-image: url(${image})` : ``}`)
+                                if text
+                                    .box-item-content
+                                        p._p1= text
+                                        .button-arrow._type-1._border
+                +indexSec4BoxItem('_width50', 'Инфраструктурные решения', '#')
+                +indexSec4BoxItem('_width25 _image', 'Строительство', '#', './img/index/directions-1.jpg')
+                +indexSec4BoxItem('_width25 _image', 'Интеграция, управление и безопасность', '#', './img/index/directions-2.jpg')
+                +indexSec4BoxItem('_width25 _image _darken', 'Прикладные и бизнес-решения', '#', './img/index/directions-3.jpg')
+                +indexSec4BoxItem('_width50 _image', 'Комплексные аппаратные решения', '#', './img/index/directions-4.jpg')
+                +indexSec4BoxItem('_width25', 'ИТ-услуги', '#')
+        .separator._horizontal._small._transparent
+        section.section-5._with-box
+            h4 Наши продукты
+            .separator._horizontal._small._transparent
+            .box._wrap
+                +indexSec4BoxItem('_width100 _image', 'Система мониторинга климатических условий серверной стойки и управления доступом AURA', '#', './img/index/products-1.jpg')
+                +indexSec4BoxItem('_width100 _image', 'CELERI – комплекс управления группой дронов', '#', './img/index/products-2.jpg')
+        .separator._horizontal._medium._transparent
+        section.section-6._with-box
+            h4 Партнеры CESCA
+            .separator._horizontal._small._transparent
+            .box._wrap
+                - var n = 1
+                while n < 13
+                    +indexSec4BoxItem('_width16 _image', null, null, `./img/index/partners/partner-${n++}.png`)
+        .separator._horizontal._large
+block footer
+    include ../includes/footer.pug
