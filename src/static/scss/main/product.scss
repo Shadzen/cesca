@@ -15,7 +15,7 @@
   }
   .section-downloads {
     .box-item {
-      @include adaptive(height, 184, 500);
+      @include adaptive(height, 184, 200);
       .box-item-info-icon img {
         @include adaptive(height, 28, 28);
         width: auto;
