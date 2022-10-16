@@ -1,0 +1,34 @@
+extends ../layout/layout.pug
+block vars
+    - var title = 'CESCA - Продукты'
+    - var bodyClass = "black"
+block header
+    - var name = "products"
+    include ../includes/header.pug
+    include ../includes/mixins.pug
+block main
+    main.products
+        .page-head
+            .page-head-background
+                img(src="./img/products/page-head.jpg", alt=".")
+        .separator._horizontal._small._transparent
+        section.section-1._page-title._with-box
+            .box
+                .box-item
+                    h2 Уникальные ИТ&#8209;продукты для вашего бизнеса
+        .separator._horizontal._medium._transparent
+        section.section-1._with-box
+            .box._wrap._page-info
+                .box-item._width25
+                    p CESCA занимается разработкой и дальнейшей технической поддержкой многопрофильных технологических решений, которые автоматизируют и упрощают бизнес-процессы заказчика.
+                .box-item._width75
+                    a.button._type-1._size-2(href='#')
+                        span Индивидуальная разработка
+        .separator._horizontal._medium
+        section.section-2._with-box
+            .box._wrap
+                +boxItem('_width100 _image', 'Система мониторинга климатических условий серверной стойки и управления доступом AURA', 'product.html', './img/index/products-1.jpg')
+                +boxItem('_width100 _image', 'CELERI – комплекс управления группой дронов', 'product.html', './img/index/products-2.jpg')
+        .separator._horizontal._large
+block footer
+    include ../includes/footer.pug

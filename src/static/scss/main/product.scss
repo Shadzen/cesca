@@ -1,0 +1,25 @@
+.product {
+  .section-2 {
+    .box-item {
+      @include adaptive(height, 600, 500);
+    }
+  }
+  .section-3 {
+    .box-item {
+      @include adaptive(height, 290, 240);
+      .box-item-info-icon img {
+        @include adaptive(height, 55, 55);
+        width: auto;
+      }
+    }
+  }
+  .section-downloads {
+    .box-item {
+      @include adaptive(height, 184, 500);
+      .box-item-info-icon img {
+        @include adaptive(height, 28, 28);
+        width: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,196 @@
+extends ../layout/layout.pug
+block vars
+    - var title = 'CESCA - Продукт'
+    - var bodyClass = "black"
+block header
+    - var name = "product"
+    include ../includes/header.pug
+    include ../includes/mixins.pug
+block main
+    main.product
+        .page-head
+            .page-head-background
+                img(src="./img/product/page-head.jpg", alt=".")
+        .separator._horizontal._small._transparent
+        section.section-1._page-title-large._with-box
+            .box
+                .box-item
+                    h2 Система мониторинга климатических условий серверной стойки и управления доступом AURA
+        .separator._horizontal._medium._transparent
+        section.section-1._with-box
+            .box._wrap._page-info
+                .box-item._width25
+                    p Предназначена для отслеживания параметров доступа и мониторинга климатических условий в серверном шкафу.
+                .box-item._width25
+                    p Для реализации мониторинга к контроллеру подключаются датчики, сигналы которых обеспечивают оперативное реагирование на внештатные ситуации. Контроллер AURA&#8209;MS&#8209;CTR мгновенно отправляет данные с датчиков на сервер системы.
+                .box-item._width25
+                    p Обслуживающий персонал оперативно получает информацию об инцидентах по средствам оповещения через интерфейс ПО.
+                    p Система преобразует все полученные данные в электронные архивы в виде наглядных таблиц и графиков.
+                .box-item._width25
+                    a.button._type-1._size-2(href='#')
+                        span Запросить цену
+        .separator._horizontal._medium
+        section.section-2._with-box
+            .box._wrap
+                .box-item._width50._no-back
+                    .box-item-inner
+                        article.box-item-info
+                            h4.box-item-info-title Функции продукта
+                            span.box-item-info-text
+                                p Мониторинг климатического состояния серверного шкафа
+                                p Контроль и управление доступом в серверный шкаф
+                .box-item._width50._image
+                    .box-item-inner
+                        .box-item-image(style='background-image: url(./img/product/product-1.jpg)')
+                .box-item._width100._image
+                    .box-item-inner
+                        .box-item-image(style='background-image: url(./img/product/product-2.jpg)')
+                        article.box-item-info
+                            h4.box-item-info-title Сферы применения
+                            span.box-item-info-text
+                                p коммерческие дата-центры, корпоративные центры обработки данных, хостинговые дата-центры
+                .box-item._width50._image
+                    .box-item-inner
+                        .box-item-image(style='background-image: url(./img/product/product-3.jpg)')
+                .box-item._width25._image
+                    .box-item-inner
+                        .box-item-image(style='background-image: url(./img/product/product-4.jpg)')
+                .box-item._width75._image
+                    .box-item-inner
+                        .box-item-image(style='background-image: url(./img/product/product-2.jpg)')
+                        article.box-item-info
+                            h4.box-item-info-title Пример
+                            span.box-item-info-text
+                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illum ipsa minima nisi quaerat
+                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illum ipsa minima nisi quaerat
+                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illum ipsa minima nisi quaerat
+                .box-item._width25._image._darken
+                    .box-item-inner
+                        .box-item-image(style='background-image: url(./img/product/product-4.jpg)')
+                        article.box-item-info
+                            h4.box-item-info-title Пример
+                            span.box-item-info-text
+                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illum ipsa minima nisi quaerat
+        .separator._horizontal._small._transparent
+        section.section-3._with-box
+            .box._wrap
+                .box-item._width33._border
+                    .box-item-inner
+                        .box-item-info
+                            .box-item-info-icon
+                                img(src="./img/product/icon-1.svg", alt=".")
+                            span.box-item-info-text
+                                p Простое управление системой из WEB-браузера путем перехода по IP-адресу или FQDN-имени системы
+                .box-item._width33._border
+                    .box-item-inner
+                        .box-item-info
+                            .box-item-info-icon
+                                img(src="./img/product/icon-2.svg", alt=".")
+                            span.box-item-info-text
+                                p Интуитивный интерфейс
+                .box-item._width33._border
+                    .box-item-inner
+                        .box-item-info
+                            .box-item-info-icon
+                                img(src="./img/product/icon-3.svg", alt=".")
+                            span.box-item-info-text
+                                p Гибкая адаптация под потребности заказчика
+                .box-item._width33._border
+                    .box-item-inner
+                        .box-item-info
+                            .box-item-info-icon
+                                img(src="./img/product/icon-4.svg", alt=".")
+                            span.box-item-info-text
+                                p Универсальность сферы использования
+                .box-item._width33._border
+                    .box-item-inner
+                        .box-item-info
+                            .box-item-info-icon
+                                img(src="./img/product/icon-5.svg", alt=".")
+                            span.box-item-info-text
+                                p Снижение совокупной стоимости владения системой за счет постоянного мониторинга энергопотребления
+                .box-item._width33._border
+                    .box-item-inner
+                        .box-item-info
+                            .box-item-info-icon
+                                img(src="./img/product/icon-6.svg", alt=".")
+                            span.box-item-info-text
+                                p Возможность синхронизации с системами заказчика
+        .separator._horizontal._small._transparent
+        section.section._with-box
+            .box._wrap
+                .box-item._width30
+                    h4 Основные технические характеристики контроллера AURA&#8209;MS&#8209;CTR
+                .box-item._width20._empty
+                .box-item._width50
+                    img(src="./img/product/table-1.png", alt=".")
+        .separator._horizontal._small-top
+        section.section._with-box
+            .box._wrap
+                .box-item._width30
+                    h4 Ручка AURA-MS-CH
+                .box-item._width20._empty
+                .box-item._width50
+                    img(src="./img/product/table-2.png", alt=".")
+        .separator._horizontal._small-top
+        section.section._with-box
+            .box._wrap
+                .box-item._width30
+                    h4 Датчика температуры AURA-MS-TS
+                .box-item._width20._empty
+                .box-item._width50
+                    img(src="./img/product/table-3.png", alt=".")
+        .separator._horizontal._small-top
+        section.section._with-box
+            .box._wrap
+                .box-item._width30
+                    h4 Датчика протечки AURA-MS-LS
+                .box-item._width20._empty
+                .box-item._width50
+                    img(src="./img/product/table-4.png", alt=".")
+        .separator._horizontal._large._transparent
+        section.section-downloads._with-box
+            .box._wrap
+                a.box-item._width20._center-content._border._round-corners(href='#')
+                    .box-item-inner
+                        .box-item-info
+                            .box-item-info-icon
+                                img(src="./img/dl-icon.svg", alt=".")
+                            span.box-item-info-text
+                                p Инструкция (инженеры)
+                a.box-item._width20._center-content._border._round-corners(href='#')
+                    .box-item-inner
+                        .box-item-info
+                            .box-item-info-icon
+                                img(src="./img/dl-icon.svg", alt=".")
+                            span.box-item-info-text
+                                p Инструкция (операторы)
+                a.box-item._width20._center-content._border._round-corners(href='#')
+                    .box-item-inner
+                        .box-item-info
+                            .box-item-info-icon
+                                img(src="./img/dl-icon.svg", alt=".")
+                            span.box-item-info-text
+                                p Инструкция (суперпользователи)
+                a.box-item._width20._center-content._border._round-corners(href='#')
+                    .box-item-inner
+                        .box-item-info
+                            .box-item-info-icon
+                                img(src="./img/dl-icon.svg", alt=".")
+                            span.box-item-info-text
+                                p Функциональные характеристики сервера управления
+                a.box-item._width20._center-content._border._round-corners(href='#')
+                    .box-item-inner
+                        .box-item-info
+                            .box-item-info-icon
+                                img(src="./img/dl-icon.svg", alt=".")
+                            span.box-item-info-text
+                                p Лицензионное соглашение
+
+
+
+
+
+        .separator._horizontal._large
+block footer
+    include ../includes/footer.pug

@@ -1,10 +1,11 @@
 .header {
   position: fixed;
+  top: 0;
   @include adaptive(height, 130, 96);
   @include adaptive(width, 1920, 480);
   @extend %flexCenter;
   margin: 0 auto;
-  z-index: 100;
+  z-index: 1000;
   @media screen and (max-width: $mobileWidth + px) {
     overflow: hidden;
   }
@@ -18,6 +19,7 @@
 .header-main {
   position: relative;
   @extend %flexSpaceBetween;
+  align-items: center;
   @extend %defaultPaddings;
   width: 100%;
   z-index: 90;
@@ -26,6 +28,7 @@
 .header-main-middle,
 .header-main-right {
   @extend %flexSpaceBetween;
+  align-items: center;
 }
 
 .header-main-left {

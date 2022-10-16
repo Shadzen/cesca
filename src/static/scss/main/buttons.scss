@@ -1,9 +1,7 @@
 .button {
   @extend %flexCenter;
-  @include adaptive(width, 290, 290);
-  @include adaptive(height, 50, 50);
   @include adaptive(font-size, 24, 24);
-  @include adaptive(border-radius, 25, 25);
+  @include adaptive(border-radius, 60, 60);
   font-family: $RalewayMedium;
   text-align: center;
   text-decoration: none;
@@ -14,6 +12,15 @@
   &._type-1 {
     background: linear-gradient(180deg, #2E27EB 0%, #3631B2 100%);
     color: #fff;
+  }
+  &._size-1 {
+    @include adaptive(width, 290, 290);
+    @include adaptive(height, 50, 50);
+  }
+  &._size-2 {
+    width: 100%;
+    @include adaptive(max-width, 540, 440);
+    @include adaptive(height, 84, 64);
   }
 }
 

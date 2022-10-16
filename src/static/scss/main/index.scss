@@ -14,16 +14,6 @@
   }
   .page-head {
     @include adaptive(height, 817, 690);
-    position: relative;
-    //z-index: 2;
-  }
-  .page-head-background {
-    @extend %absDefault;
-    img {
-      @extend %centerXY;
-      height: 100%;
-      width: auto;
-    }
   }
   .page-head-info {
     display: flex;
@@ -41,14 +31,6 @@
     @media screen and (max-width: $mobileWidth + px) {
       @include adaptive(padding-right, 40, 20);
       width: 100%;
-    }
-  }
-  .section-1 {
-    .box-item {
-      width: 46%;
-      @media screen and (max-width: $mobileWidth + px) {
-        width: 92%;
-      }
     }
   }
   .section-2 {

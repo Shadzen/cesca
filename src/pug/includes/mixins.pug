@@ -1,0 +1,17 @@
+mixin boxItem(classes, text, href, image)
+    if href
+        a.box-item(class=classes href=`${href}`)
+            .box-item-inner
+                .box-item-image(style=`${image ? `background-image: url(${image})` : ``}`)
+                if text
+                    .box-item-content
+                        p._p1= text
+                        .button-arrow._type-1._border
+    else
+        .box-item(class=classes)
+            .box-item-inner
+                .box-item-image(style=`${image ? `background-image: url(${image})` : ``}`)
+                if text
+                    .box-item-content
+                        p._p1= text
+                        .button-arrow._type-1._border

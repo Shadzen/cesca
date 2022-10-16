@@ -49,9 +49,6 @@ section {
 h1, h2, h3, h4 {
   font-family: $RalewayMedium;
   color: #fff;
-  //line-height: 100%;
-  //text-transform: uppercase;
-  //font-weight: 100;
   margin: 0;
   //letter-spacing: 0.01em;
 }
@@ -61,12 +58,10 @@ h1 {
   line-height: 105%;
 }
 
-//h2 {
-//  @include aFontSize(59);
-//  @media screen and (max-width: $mobileWidth + px) {
-//    @include aFontSize(52);
-//  }
-//}
+h2 {
+  @include adaptive(font-size, 92, 46);
+  line-height: 105%;
+}
 
 h3 {
   @include adaptive(font-size, 58, 36);
@@ -77,14 +72,6 @@ h4 {
   @include adaptive(font-size, 47, 32);
   line-height: 118%;
 }
-
-//h4 {
-//  @include aFontSize(27);
-//}
-//
-//h5 {
-//  @include aFontSize(18);
-//}
 
 p {
   font-family: $RalewayRegular;
@@ -196,8 +183,12 @@ p {
       @include adaptive(margin-top, 60, 30);
       @include adaptive(margin-bottom, 60, 30);
     }
-    &._small{
+    &._small {
       @include adaptive(margin-top, 30, 15);
+      @include adaptive(margin-bottom, 30, 15);
+    }
+    &._small-top {
+      @include adaptive(margin-top, 10, 30);
       @include adaptive(margin-bottom, 30, 15);
     }
   }
@@ -208,19 +199,66 @@ p {
   }
 }
 
+.page-head {
+  @include adaptive(height, 420, 320);
+  position: relative;
+  .page-head-background {
+    @extend %absDefault;
+    img {
+      @extend %centerXY;
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+
+._page-title {
+  .box-item {
+    width: 53%;
+    @media screen and (max-width: $mobileWidth + px) {
+      width: 92%;
+    }
+  }
+}
+
+._page-title-large {
+  .box-item {
+    width: 80%;
+    @media screen and (max-width: $mobileWidth + px) {
+      width: 100%;
+    }
+  }
+}
+
 body {
   position: relative;
   margin: 0;
   overflow-x: hidden;
-  @extend %flexSpaceBetween;
-  flex-direction: column;
-  min-height: 100vh;
-  &:before {
+  //@extend %flexSpaceBetween;
+  //flex-direction: column;
+  //min-height: 100vh;
+  //&:before {
+  //  content: '';
+  //  flex-grow: 1;
+  //}
+  &:after {
     content: '';
-    flex-grow: 1;
+    display: block;
+    @extend %absDefault;
+    background: #000;
+    opacity: 0;
+    transition: all .25s ease;
+    pointer-events: none;
+    z-index: 900;
   }
   @media (min-aspect-ratio: 21/9) {
     padding: 0 12.5%;
+  }
+  &._lock {
+    &:after {
+      opacity: 0.8;
+      pointer-events: all;
+    }
   }
   &.black {
     background-color: #000;
@@ -253,7 +291,6 @@ main {
   //background: url('../img/main-bg.jpg') 50% 50% /100% auto repeat-y;
   position: relative;
   //margin: 0 auto;
-  //background-color: #68676C;
   @include adaptive(padding-top, 130, 96);
 }
 
@@ -263,64 +300,15 @@ main {
 //    border-radius: vwpx(160);
 //  }
 //}
-//
-//.container {
-//  padding: 0 0 0 18%;
-//  width: 100%;
-//  height: 100%;
-//  overflow: hidden;
-//  @media screen and (max-width: $mobileWidth + px) {
-//    padding: 20% 0 0;
-//  }
-//}
 
-//.content {
-//  @extend %flexCenter;
-//  flex-direction: column;
-//  position: relative;
-//  padding: 4.764% 9.528%;
-//  height: 100%;
-//  @media screen and (max-width: $mobileWidth + px) {
-//    padding: 9.4% 6.7%;
-//  }
-//  .content-title {
-//    @extend %flexCenter;
-//    flex-direction: column;
-//    text-align: center;
-//    margin-bottom: 2%;
-//    p {
-//      width: 65%;
-//    }
-//    @media screen and (max-width: $mobileWidth + px) {
-//      p {
-//        width: 100%;
-//      }
-//    }
-//  }
-//}
+
 
 //@import "main/elements";
 //@import "main/slider";
 @import "main/index";
-//@import "main/technology";
-//@import "main/advantages";
-//@import "main/assortment";
-//@import "main/blog";
-//@import "main/collaboration";
-//@import "main/contacts";
-//@import "main/404";
-//
-//.decors {
-//  @extend %absDefault;
-//  height: 100vh;
-//  @media screen and (max-width: $mobileWidth + px) {
-//    height: 100%;
-//  }
-//}
+@import "main/products";
+@import "main/product";
 
-//form, .close {
-//  z-index: 10;
-//}
 
 //.contacts,
 //.collaboration {

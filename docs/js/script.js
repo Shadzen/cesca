@@ -104,6 +104,7 @@
 
 $('.menu-button').on('click', function (e) {
     $(this).toggleClass('menu-open');
+    $('body').toggleClass('_lock');
     $('.header').toggleClass('_show-menu');
 });
 

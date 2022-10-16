@@ -1,0 +1,7 @@
+.products {
+  .section-2 {
+    .box-item {
+      @include adaptive(height, 447, 500);
+    }
+  }
+}
