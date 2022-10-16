@@ -102,14 +102,65 @@
 //     }
 // });
 
+function createEl({where = document.body, tag = 'div', elId,  classes, styles, innerHTML, innerText}) {
+    let el = document.createElement(tag)
+    if (elId) el.id = elId
+    if (classes) el.className = classes
+    if (styles) el.style.cssText = styles
+    if (innerHTML) el.innerHTML = innerHTML
+    if (innerText) el.innerText = innerText
+    where.appendChild(el)
+    return el
+}
+
+var popupOwners = document.querySelectorAll('._has-popup');
+
+popupOwners.forEach(owner => {
+    $(owner).on('click', e => {
+        e.preventDefault();
+        let popupBlock = owner.querySelector('.popup-content-inner');
+        if (!popupBlock) return;
+        let popupContent = popupBlock.innerHTML;
+        if (popupContent) {
+            let shadowLayer = createEl({
+                classes: 'shadow-layer',
+            });
+            let popup = createEl({
+                classes: 'popup-content',
+            });
+            let popupCloseButton = createEl({
+                where: popup,
+                classes: 'close-button',
+            });
+            createEl({
+                where: popup,
+                classes: 'popup-content-inner',
+                innerHTML: popupContent,
+            });
+            $('body').addClass('_show-popup');
+            let closePopup = () => {
+                $('body').removeClass('_show-popup');
+                shadowLayer.remove();
+                popup.remove();
+            }
+            shadowLayer.onclick = () => closePopup();
+            popupCloseButton.onclick = () => closePopup();
+        }
+    });
+});
+
+
+
+
+
 $('.menu-button').on('click', function (e) {
     $(this).toggleClass('menu-open');
     $('body').toggleClass('_lock');
     $('.header').toggleClass('_show-menu');
 });
 
-var submenuLinks = document.querySelectorAll('._submenu');
-var submenus = document.querySelectorAll('.header-menu-submenu');
+let submenuLinks = document.querySelectorAll('._submenu');
+let submenus = document.querySelectorAll('.header-menu-submenu');
 
 submenuLinks.forEach((link, idx) => {
     $(link).on('click', e => {

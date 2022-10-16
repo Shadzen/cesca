@@ -48,7 +48,6 @@ section {
 
 h1, h2, h3, h4 {
   font-family: $RalewayMedium;
-  color: #fff;
   margin: 0;
   //letter-spacing: 0.01em;
 }
@@ -73,9 +72,8 @@ h4 {
   line-height: 118%;
 }
 
-p {
+p, ul, li {
   font-family: $RalewayRegular;
-  color: #fff;
   margin: 0;
   line-height: 130%;
   @include adaptive(font-size, 22, 22);
@@ -87,6 +85,15 @@ p {
   //a {
   //  color: $color02;
   //}
+}
+
+ul {
+  padding: 0;
+  margin-left: 7%;
+}
+
+._bold {
+  font-weight: 600;
 }
 
 //a {
@@ -105,6 +112,7 @@ p {
 @import "fonts";
 @import "main/buttons";
 @import "main/box";
+@import "main/popup";
 @import "main/header";
 @import "main/footer";
 
@@ -119,7 +127,9 @@ p {
   border-radius: 160px;
   @include adaptive(padding-right, 46, 23);
   @include adaptive(padding-left, 46, 23);
-  color: #fff !important;
+   * {
+     color: #fff !important;
+   }
 }
 
 .langs {
@@ -186,6 +196,9 @@ p {
     &._large {
       @include adaptive(margin-top, 90, 45);
       @include adaptive(margin-bottom, 90, 45);
+      &._box-adjustment {
+        @include adaptive(margin-top, 40, 45);
+      }
     }
     &._medium {
       @include adaptive(margin-top, 60, 30);
@@ -238,6 +251,17 @@ p {
   }
 }
 
+.shadow-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  opacity: 0.8;
+  z-index: 2000;
+}
+
 body {
   position: relative;
   margin: 0;
@@ -262,6 +286,9 @@ body {
   @media (min-aspect-ratio: 21/9) {
     padding: 0 12.5%;
   }
+  &._show-popup {
+    overflow: hidden;
+  }
   &._lock {
     &:after {
       opacity: 0.8;
@@ -270,26 +297,48 @@ body {
   }
   &.black {
     background-color: #000;
+    h1, h2, h3, h4, p, ul, li,
+    .lang._current,
+    .header-main-links a,
+    .mail-links, .mail-links a,
+    .copyright,
+    .box._menu-links .link {
+      color: #fff;
+    }
     .logo {
       background: url('../img/logo_white.svg') 0 0 /100% auto no-repeat;
     }
     .logo-2 {
       background: #2E27EB;
     }
-    .langs .separator {
-      background: #fff;
-    }
-    .separator._horizontal:before {
+    .separator._horizontal:before
+    .langs .separator, {
       background: #fff;
     }
   }
   &.white {
     background-color: #F6F6FF;
+    h1, h2, h3, h4, p, ul, li,
+    .lang._current,
+    .header-main-links a,
+    .mail-links, .mail-links a,
+    .copyright,
+    .box._menu-links .link {
+      color: #2B333A;
+    }
+    .section-news .box-item-content {
+      h1, h2, h3, h4, p {
+        color: #fff;
+      }
+    }
     .logo {
       background: url('../img/logo_black.svg') 0 0 /100% auto no-repeat;
     }
     .logo-2 {
       background: linear-gradient(260.37deg, #FFB7DE 2.77%, rgba(74, 69, 149, 0) 119.07%), #0CBDFF;
+    }
+    .langs .separator {
+      background: #2B333A;
     }
     .separator._horizontal:before {
       background: $color01;
@@ -308,21 +357,12 @@ main {
   @include adaptive(padding-top, 130, 96);
 }
 
-//%border-radius-35 {
-//  border-radius: vwpx(35);
-//  @media screen and (max-width: $mobileWidth + px) {
-//    border-radius: vwpx(160);
-//  }
-//}
-
-
-
-//@import "main/elements";
 //@import "main/slider";
 @import "main/index";
 @import "main/products";
 @import "main/product";
 @import "main/projects";
+@import "main/news";
 
 
 //.contacts,

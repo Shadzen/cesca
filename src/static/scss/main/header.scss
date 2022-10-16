@@ -58,7 +58,6 @@
   a {
     @include adaptive(font-size, 18, 18);
     font-family: $RalewayRegular;
-    color: #fff;
     text-decoration: none;
     margin-right: 8%;
   }

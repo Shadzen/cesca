@@ -1,0 +1,62 @@
+.popup-content {
+  position: fixed;
+  @extend %centerXY;
+  @include adaptive(width, 1480, 1480);
+  //@include adaptive(height, 752, 752);
+  @include adaptive(padding-top, 38, 18);
+  @include adaptive(padding-bottom, 38, 18);
+  @include adaptive(padding-left, 28, 8);
+  @include adaptive(padding-right, 28, 8);
+  min-height: 20vh;
+  max-height: 100vh;
+  z-index: 2050;
+  .popup-content-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  @media screen and (max-width: $mobileWidth + px) {
+    width: 100%;
+    height: 100vh;
+    .popup-content-inner {
+    }
+  }
+  h1, h2, h3, h4, p, span, a, ul, li {
+    color: #2B333A !important;
+  }
+  h1, h2, h3, h4 {
+    @include adaptive(margin-bottom, 20, 20);
+    width: 60%;
+    @media screen and (max-width: $mobileWidth + px) {
+      width: 100%;
+    }
+  }
+  p {
+    display: flex;
+    flex-direction: column;
+  }
+  .box .box-item > .project-logo {
+    @include adaptive(height, 70, 70);
+    @include adaptive(margin-bottom, 40, 40);
+    width: auto;
+  }
+}
+
+body {
+  &.black {
+    .popup-content {
+      background: #fff;
+      @include adaptive(border-radius, 60, 30);
+      p, ul, li {
+        @include adaptive(font-size, 18, 18);
+      }
+    }
+  }
+  &.white {
+    .popup-content {
+      background: #F6F6FF;
+    }
+  }
+}

@@ -17,6 +17,7 @@
     @include adaptive(padding-left, 10, 10);
     @include adaptive(padding-right, 10, 10);
     @include adaptive(margin-bottom, 20, 15);
+    transition: all 0.25s ease;
     .box-item-inner {
       @extend %flexCenter;
       position: relative;
@@ -71,6 +72,17 @@
           @include adaptive(margin-top, 14, 14);
         }
       }
+    }
+    .box-item-date {
+      display: block;
+      font-family: $RalewayRegular;
+      line-height: 110%;
+      @include adaptive(font-size, 12, 12);
+      @include adaptive(margin-bottom, 20, 20);
+      color: #fff;
+    }
+    .popup-content, .popup-content-inner {
+      display: none;
     }
     &._center-content {
       .box-item-content {
@@ -141,7 +153,7 @@
     }
     &._round-corners {
       .box-item-inner {
-        border-radius: 60px;
+        @include adaptive(border-radius, 60, 60);
       }
     }
     &._darken {
@@ -252,7 +264,7 @@
       &._width100 {
         width: 100%;
         .box-item-content {
-          width: 70%;
+          width: 80%;
         }
         .box-item-info-title {
           width: 80%;
@@ -288,7 +300,7 @@
     &._width50 {
       &:hover {
         img, .box-item-image {
-          transform: translate(-50%, -50%) scale(1.08);
+          transform: translate(-50%, -50%) scale(1.07);
         }
       }
     }
@@ -296,13 +308,19 @@
       &:hover {
         img, .box-item-image {
           transform: translate(-50%, -50%) scale(1.06);
+          @media screen and (max-width: $mobileWidth + px) {
+            transform: translate(-50%, -50%) scale(1.07);
+          }
         }
       }
     }
     &._width100 {
       &:hover {
         img, .box-item-image {
-          transform: translate(-50%, -50%) scale(1.04);
+          transform: translate(-50%, -50%) scale(1.05);
+          @media screen and (max-width: $mobileWidth + px) {
+            transform: translate(-50%, -50%) scale(1.07);
+          }
         }
       }
     }
@@ -329,6 +347,9 @@
   a.box-item {
     &._glow:hover {
       filter: drop-shadow(0 0 20px rgba(46, 39, 235, 1));
+    }
+    &:active {
+      transform: scale(0.98) !important;
     }
   }
 }

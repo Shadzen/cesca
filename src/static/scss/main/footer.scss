@@ -39,7 +39,6 @@
   .mail-links, .mail-links a {
     @include adaptive(font-size, 14, 14);
     font-family: $RalewayRegular;
-    color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     line-height: 115%;
@@ -61,12 +60,8 @@
   .copyright {
     @include adaptive(font-size, 12, 12);
     font-family: $RalewayRegular;
-    color: #fff;
     line-height: 115%;
   }
-
-
-
   .box._menu-links {
     justify-content: flex-start;
     .box-item {
@@ -78,7 +73,6 @@
         @include adaptive(margin-bottom, 30, 30);
       }
     }
-
     .links-title, .link {
       font-family: $RalewayRegular;
       text-decoration: none;
@@ -91,7 +85,6 @@
       @include adaptive(margin-bottom, 4, 4);
     }
     .link {
-      color: #fff;
       @include adaptive(font-size, 14, 14);
       @include adaptive(margin-top, 16, 16);
       line-height: 100%;
