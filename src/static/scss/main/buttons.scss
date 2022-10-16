@@ -29,19 +29,28 @@
   position: relative;
   text-decoration: none;
   transition: transform .2s ease;
+  flex-shrink: 0;
+  //&:after {
+  //  content: '';
+  //  width: 100%;
+  //  height: 100%;
+  //}
   &._type-1 {
-    &:after {
-      content: '';
-      width: 100%;
-      height: 100%;
-      //@extend %absDefault;
-    }
+    background: url('../../img/arrow-1_white_medium.svg') center /100% auto no-repeat;
+  }
+  &._size-1 {
+    @include adaptive(width, 100, 64);
+    @include adaptive(height, 100, 64);
+  }
+  &._size-2 {
+    @include adaptive(width, 64, 52);
+    @include adaptive(height, 56, 40);
   }
   &._border {
     background: url('../../img/arrow-1_white_border_medium.svg') center /100% auto no-repeat;
-    @media screen and (max-width: $mobileWidth + px) {
-      background: url('../../img/arrow-1_white_border_small.svg') center /100% auto no-repeat;
-    }
+    //@media screen and (max-width: $mobileWidth + px) {
+    //  background: url('../../img/arrow-1_white_border_small.svg') center /100% auto no-repeat;
+    //}
   }
   &:active {
     transform: scale(0.98) !important;

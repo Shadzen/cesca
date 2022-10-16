@@ -1,0 +1,7 @@
+.projects {
+  .section-2 {
+    .box-item {
+      @include adaptive(height, 256, 220);
+    }
+  }
+}

@@ -114,6 +114,14 @@ p {
   @include adaptive(height, 35, 35);
 }
 
+.logo-2 {
+  display: inline-block;
+  border-radius: 160px;
+  @include adaptive(padding-right, 46, 23);
+  @include adaptive(padding-left, 46, 23);
+  color: #fff !important;
+}
+
 .langs {
   @extend %flexCenter;
   .separator {
@@ -265,6 +273,9 @@ body {
     .logo {
       background: url('../img/logo_white.svg') 0 0 /100% auto no-repeat;
     }
+    .logo-2 {
+      background: #2E27EB;
+    }
     .langs .separator {
       background: #fff;
     }
@@ -276,6 +287,9 @@ body {
     background-color: #F6F6FF;
     .logo {
       background: url('../img/logo_black.svg') 0 0 /100% auto no-repeat;
+    }
+    .logo-2 {
+      background: linear-gradient(260.37deg, #FFB7DE 2.77%, rgba(74, 69, 149, 0) 119.07%), #0CBDFF;
     }
     .separator._horizontal:before {
       background: $color01;
@@ -308,6 +322,7 @@ main {
 @import "main/index";
 @import "main/products";
 @import "main/product";
+@import "main/projects";
 
 
 //.contacts,

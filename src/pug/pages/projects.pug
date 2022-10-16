@@ -1,0 +1,35 @@
+extends ../layout/layout.pug
+block vars
+    - var title = 'CESCA - Проекты'
+    - var bodyClass = "black"
+block header
+    - var name = "projects"
+    include ../includes/header.pug
+    include ../includes/mixins.pug
+block main
+    main.projects
+        .page-head
+            .page-head-background
+                img(src="./img/projects/page-head.jpg", alt=".")
+        .separator._horizontal._small._transparent
+        section.section-1._page-title._with-box
+            .box
+                .box-item
+                    h2 Проекты
+                    span.logo-2
+                        h2 CESCA
+        .separator._horizontal._medium
+        section.section-2._with-box
+            .box._wrap
+                a.box-item._width33._center-content._row._with-popup(href=`#`)
+                    .box-item-inner
+                        .box-item-content
+                            img(src="./img/projects/project-1.png", alt=".")
+                            .button-arrow._type-1._size-2
+
+
+
+
+        .separator._horizontal._large
+block footer
+    include ../includes/footer.pug
