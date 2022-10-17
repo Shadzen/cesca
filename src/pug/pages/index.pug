@@ -94,8 +94,18 @@ block main
             h4 Наши продукты
             .separator._horizontal._small._transparent
             .box._wrap
-                +boxItem('_width100 _image', 'Система мониторинга климатических условий серверной стойки и управления доступом AURA', 'product.html', './img/index/products-1.jpg')
-                +boxItem('_width100 _image', 'CELERI – комплекс управления группой дронов', 'product.html', './img/index/products-2.jpg')
+                a.box-item._width100._image(href='product.html')
+                    .box-item-inner
+                        .box-item-image(style='background-image: url(./img/index/products-1.jpg)')
+                        .box-item-content
+                            p._p1 Система мониторинга климатических условий серверной стойки и управления доступом AURA
+                            .button-arrow._type-2._size-1
+                a.box-item._width100._image(href='product.html')
+                    .box-item-inner
+                        .box-item-image(style='background-image: url(./img/index/products-2.jpg)')
+                        .box-item-content
+                            p._p1 CELERI – комплекс управления группой дронов
+                            .button-arrow._type-2._size-1
         .separator._horizontal._medium._transparent
         section.section-6._with-box
             h4 Партнеры CESCA
