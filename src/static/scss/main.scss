@@ -21,11 +21,6 @@ html {
   }
 }
 
-input:focus::placeholder {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
 article {
   position: relative;
   width: 100%;
@@ -49,6 +44,7 @@ section {
 h1, h2, h3, h4 {
   font-family: $RalewayMedium;
   margin: 0;
+  font-weight: 500;
   //letter-spacing: 0.01em;
 }
 
@@ -72,19 +68,16 @@ h4 {
   line-height: 118%;
 }
 
-p, ul, li {
+p, ul, li, input, textarea {
   font-family: $RalewayRegular;
   margin: 0;
   line-height: 130%;
+  font-weight: 400;
   @include adaptive(font-size, 22, 22);
   @include adaptive(margin-bottom, 14, 14);
   &._p1 {
     @include adaptive(font-size, 32, 24);
   }
-  //letter-spacing: 0.01em;
-  //a {
-  //  color: $color02;
-  //}
 }
 
 ul {
@@ -96,25 +89,13 @@ ul {
   font-weight: 600;
 }
 
-//a {
-//  @include aFontSize(19);
-//  font-family: $font01;
-//  letter-spacing: 0.01em;
-//  text-decoration: none;
-//  color: #fff;
-//  text-align: center;
-//}
-
-//img {
-//  height: auto;
-//}
-
 @import "fonts";
 @import "main/buttons";
 @import "main/box";
 @import "main/popup";
 @import "main/header";
 @import "main/footer";
+@import "main/forms";
 
 .logo {
   display: block;
@@ -298,10 +279,12 @@ body {
   &.black {
     background-color: #000;
     h1, h2, h3, h4, p, ul, li,
+    input, textarea,
     .lang._current,
     .header-main-links a,
     .mail-links, .mail-links a,
     .copyright,
+    .tel-link,
     .box._menu-links .link {
       color: #fff;
     }
@@ -315,14 +298,21 @@ body {
     .langs .separator, {
       background: #fff;
     }
+    form {
+      input, textarea {
+        border-color: #fff;
+      }
+    }
   }
   &.white {
     background-color: #F6F6FF;
     h1, h2, h3, h4, p, ul, li,
+    input, textarea,
     .lang._current,
     .header-main-links a,
     .mail-links, .mail-links a,
     .copyright,
+    .tel-link,
     .box._menu-links .link {
       color: #2B333A;
     }
@@ -364,181 +354,4 @@ main {
 @import "main/projects";
 @import "main/news";
 @import "main/vacancies";
-
-
-//.contacts,
-//.collaboration {
-//  form {
-//    position: relative;
-//    width: 100%;
-//    //margin-bottom: 8%;
-//    @extend %flexCenter;
-//    .form-box {
-//      position: relative;
-//      width: 37%;
-//      @extend %flexCenter;
-//      flex-direction: column;
-//      //padding-bottom: 4.8%;
-//      padding: 4% 5.4% 2%;
-//      border: 2px solid #4FAC25;
-//      @extend %border-radius-35;
-//      background: rgba(255, 255, 255, 0.85);
-//      @media screen and (max-width: $mobileWidth + px) {
-//        width: 100%;
-//      }
-//    }
-//    input, textarea {
-//      //@extend %absDefault;
-//      width: 100%;
-//      background: rgba(255, 255, 255, 0.85);
-//      border: 2px solid #4FAC25;
-//      @extend %border-radius-35;
-//      outline: 0;
-//      @include aFontSize(17);
-//      font-family: $font01;
-//      padding: 6% 8%;
-//      margin-bottom: 10%;
-//      resize: none;
-//      &::placeholder {
-//        @include aFontSize(17);
-//        font-family: $font01;
-//        letter-spacing: 0.01em;
-//        color: #B1B1B1;
-//      }
-//      @media screen and (max-width: $mobileWidth + px) {
-//        text-align: center;
-//      }
-//    }
-//    .btn {
-//      position: relative;
-//      width: 65%;
-//      padding-bottom: 16%;
-//      margin-bottom: 10%;
-//      @media screen and (max-width: $mobileWidth + px) {
-//        width: 100%;
-//        padding-bottom: 18.4%;
-//      }
-//    }
-//    .policy {
-//      font-family: $font01;
-//      color: #B1B1B1;
-//      @include aFontSize(15);
-//      text-align: center;
-//      .policy-link {
-//        color: inherit;
-//        @include aFontSize(15);
-//        text-decoration: underline;
-//        cursor: pointer;
-//      }
-//    }
-//  }
-//}
-
-//.collaboration {
-//  form {
-//    position: absolute;
-//    top: 50%;
-//    left: 50%;
-//    transform: translate(-50%, -50%);
-//    .form-box {
-//      width: 25%;
-//      padding: 3%;
-//      .close {
-//        top: 3%;
-//        right: 5%;
-//        width: 5.8%;
-//        padding-bottom: 5.8%;
-//      }
-//      p {
-//        text-align: center;
-//        width: 75%;
-//        margin: 0 0 8%;
-//      }
-//      @media screen and (max-width: $mobileWidth + px) {
-//        width: 100%;
-//        padding: 6%;
-//        p {
-//          margin: 0 0 4%;
-//        }
-//        .close {
-//          top: 0;
-//        }
-//        input, textarea, .btn {
-//          margin-bottom: 6%;
-//        }
-//      }
-//    }
-//  }
-//}
-
-//.popup {
-//  //@extend %flexCenter;
-//  position: fixed;
-//  z-index: 1002;
-//  top: 0;
-//  left: 0;
-//  width: 100%;
-//  height: 100%;
-//  background: rgba(0,0,0,0.8);
-//  display: none;
-//  .close {
-//    position: absolute;
-//    top: 4%;
-//    right: 2%;
-//    width: 2.8%;
-//    padding-bottom: 2.8%;
-//    cursor: pointer;
-//    background: url("../img/cross.svg") 50% 50% /100% auto no-repeat;
-//  }
-//  .popup-inner {
-//    position: absolute;
-//    top: 50%;
-//    left: 50%;
-//    transform: translate(-50%, -50%);
-//    width: 70%;
-//    height: 80%;
-//    padding: 3% 2% 3% 3%;
-//    border: 2px solid #4FAC25;
-//    @extend %border-radius-35;
-//    background: rgba(255, 255, 255, 0.85);
-//    article {
-//      height: 100%;
-//      overflow: hidden;
-//      h4 {
-//        text-align: center;
-//        margin-bottom: 2%;
-//      }
-//      .popup-text {
-//        display: inline-block;
-//        overflow-y: scroll;
-//        width: 100%;
-//        height: 92%;
-//        padding-right: 2%;
-//      }
-//      p {
-//        color: #000;
-//        text-indent: 2%;
-//      }
-//    }
-//  }
-//  @media screen and (max-width: $mobileWidth + px) {
-//    .popup-inner {
-//      width: 100%;
-//      height: 100%;
-//    }
-//    .close {
-//      top: 0;
-//      margin-top: 4%;
-//      right: 3%;
-//      width: 6%;
-//      padding-bottom: 6%;
-//    }
-//  }
-//}
-//
-//._disable-scroll {
-//  overflow: hidden;
-//  @media screen and (min-width: $mobileWidth + px) {
-//    padding-right: 17px;
-//  }
-//}
+@import "main/contacts";

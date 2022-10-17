@@ -6,6 +6,8 @@
   text-align: center;
   text-decoration: none;
   transition: transform .2s ease;
+  cursor: pointer;
+  border: none;
   &:active {
     transform: scale(0.98) !important;
   }

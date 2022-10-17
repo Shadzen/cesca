@@ -1,0 +1,55 @@
+extends ../layout/layout.pug
+block vars
+    - var title = 'CESCA - Контакты'
+    - var bodyClass = "white"
+block header
+    - var name = "contacts"
+    include ../includes/header.pug
+    include ../includes/mixins.pug
+block main
+    main.contacts
+        .page-head
+            .page-head-background
+                img(src="./img/news/page-head.jpg", alt=".")
+        .separator._horizontal._small._transparent
+        section.section-1._page-title._with-box
+            .box
+                .box-item
+                    h2 Контакты
+                    span.logo-2
+                        h2 CESCA
+        .separator._horizontal._small
+        section.section-map._with-box
+            .box._wrap
+                .box-item._width25._no-back
+                    .box-item-inner
+                        article.box-item-info
+                            h4.box-item-info-title Адрес
+                            span.box-item-info-text
+                                p 127006, г. Москва, Малая Дмитровка, 25, строение 2
+                .box-item._width75._image
+                    .box-item-inner
+                        .box-item-image(style='background-image: url(./img/contacts/map.jpg)')
+        .separator._horizontal._small
+        section.section-form._with-box
+            .box._directionColumn._wrap
+                .box-item._width30
+                    h4 Остались вопросы напишите нам
+                .box-item._width50
+                    p или позвоните
+                    h4
+                        a.tel-link(href='tel:+74951503845') +7 (495) 150-38-45
+                .box-item._width50
+                    form.contacts-form
+                        input(type='text' placeholder='Имя' required='required')
+                        input(type='text' placeholder='Электронная почта' required='required')
+                        textarea(placeholder='Сообщение' required='required' rows='1')
+                        button.button._type-2._active._size-4
+                            span Подписаться
+
+
+
+
+        .separator._horizontal._large
+block footer
+    include ../includes/footer.pug

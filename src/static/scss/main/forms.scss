@@ -1,0 +1,39 @@
+//input, textarea {
+//  &:focus::-webkit-input-placeholder  {
+//    transition: opacity 0.5s ease!important;
+//    opacity: 0;
+//  }
+//}
+
+form {
+  input, textarea {
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    @include adaptive(padding, 28, 20);
+    transition: all 0.5s ease;
+    &::placeholder {
+      transition: opacity 0.5s ease;
+    }
+    &:focus {
+      border-color: $color01 !important;
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+  textarea {
+    resize: none;
+  }
+}
+
+.contacts-form {
+  .button {
+    width: 50%;
+    @media screen and (max-width: $mobileWidth + px) {
+      width: 100%;
+    }
+  }
+}
