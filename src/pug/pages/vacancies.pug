@@ -1,0 +1,117 @@
+extends ../layout/layout.pug
+block vars
+    - var title = 'CESCA - Вакансии'
+    - var bodyClass = "white"
+block header
+    - var name = "vacancies"
+    include ../includes/header.pug
+    include ../includes/mixins.pug
+block main
+    main.vacancies
+        .page-head
+            .page-head-background
+                img(src="./img/vacancies/page-head.jpg", alt=".")
+        .separator._horizontal._small._transparent
+        section.section-1._page-title._with-box
+            .box
+                .box-item
+                    h2 Приходите к нам работать
+        .separator._horizontal._medium._transparent
+        .separator._horizontal._small
+        section.section-2._with-box
+            .box._wrap
+                .box-item._width25._no-back
+                    .box-item-inner
+                        .box-item-info
+                            h4.box-item-info-title Мы молоды, адаптивны и открыты к диалогу
+                .box-item._width75._image
+                    .box-item-inner
+                        .box-item-image(style='background-image: url(./img/vacancies/image-1.jpg)')
+        section.section-3._with-box
+            .box._wrap
+                .box-item._width25._image
+                    .box-item-inner
+                        .box-item-info
+                        .box-item-image(style='background-image: url(./img/vacancies/image-2.jpg)')
+                .box-item._width75._box-in-box-item
+                    .box._wrap
+                        .box-item._width33._border
+                            .box-item-inner
+                                .box-item-info
+                                    .box-item-info-icon
+                                        img(src="./img/vacancies/icon-1.svg", alt=".")
+                                    span.box-item-info-text
+                                        p Работа в соответствии с ТК
+                        .box-item._width33._border
+                            .box-item-inner
+                                .box-item-info
+                                    .box-item-info-icon
+                                        img(src="./img/vacancies/icon-2.svg", alt=".")
+                                    span.box-item-info-text
+                                        p Достойный уровень заработной платы
+                        .box-item._width33._border
+                            .box-item-inner
+                                .box-item-info
+                                    .box-item-info-icon
+                                        img(src="./img/vacancies/icon-3.svg", alt=".")
+                                    span.box-item-info-text
+                                        p ДМС
+                        .box-item._width33._border
+                            .box-item-inner
+                                .box-item-info
+                                    .box-item-info-icon
+                                        img(src="./img/vacancies/icon-4.svg", alt=".")
+                                    span.box-item-info-text
+                                        p Возможность реализовать свои яркие идеи
+                        .box-item._width33._border
+                            .box-item-inner
+                                .box-item-info
+                                    .box-item-info-icon
+                                        img(src="./img/vacancies/icon-5.svg", alt=".")
+                                    span.box-item-info-text
+                                        p Возможность обучения и карьерного роста
+        .separator._horizontal._medium
+            section.section-4._with-box
+                .box._wrap
+                    .box-item._width25
+                        h4 Robotics Software Engineer
+                    .box-item._width25
+                        p
+                            span Основные обязанности:
+                        ul
+                            li Участие в разработке автономных беспилотных систем;
+                            li Поиск методов и разработка архитектуры решений;
+                            li Практическая реализация алгоритмов обработки данных, полученных с камер, радаров и лидаров с целью распознавания и идентификации объектов и автоматизации беспилотных систем.
+                    .box-item._width25
+                        p
+                            span Требования:
+                        ul
+                            li Опыт в разработке программно-аппаратных комплексов (роботы, автономные беспилотники);
+                            li Опыт разработки, моделирования и программирования систем управления робототехническими системами;
+                            li Опыт написания ПО для обработки данных, полученных с камер, радаров и лидаров.
+                            li Опыт разработки в ROS
+                            li Знания: Computer Vision, Data Analysis, Machine Learning, Neural Network, PyTorch/tensorflow, Artificial Intelligence, Open CV, Python, C++, Linux, Docker, Знание математики, ООП, MathLab
+                    .box-item._width25
+                        p
+                            span Условия:
+                        ul
+                            li Интересные масштабные проекты;
+                            li Стабильная «белая» заработная плата - обсуждается индивидуально;
+                            li Оформление по ТК РФ;
+                            li График работы 5/2, с 9:00-18:00 или с 10:00 -19:00;
+                            li ДМС после прохождения испытательного срока;
+                            li Творческая команда единомышленников;
+                            li Возможность профессионального развития в рамках всей компании;
+                            li Обучение за счет компании.
+
+
+
+
+
+
+
+
+
+        .separator._horizontal._large
+block footer
+    include ../includes/footer.pug

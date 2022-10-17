@@ -165,7 +165,7 @@ ul {
   @include adaptive(width, 878, 878);
   @include adaptive(height, 878, 878);
   background: $color01;
-  filter: blur(650px);
+  filter: blur(vwpx(650));
   opacity: 0.8;
   //width: 1780px;
   //height: 1780px;
@@ -363,6 +363,7 @@ main {
 @import "main/product";
 @import "main/projects";
 @import "main/news";
+@import "main/vacancies";
 
 
 //.contacts,

@@ -1,0 +1,27 @@
+.vacancies {
+  .section-2 {
+    .box-item {
+      @include adaptive(height, 552, 236);
+      //@media screen and (max-width: $mobileWidth + px) {
+      //  &:nth-child(1) {
+      //    order: 2;
+      //  }
+      //  &:nth-child(2) {
+      //    order: 1;
+      //  }
+      //}
+    }
+  }
+  .section-3 {
+    .box-item {
+      @include adaptive(height, 986, 336);
+      &._box-in-box-item .box-item {
+        @include adaptive(height, 356, 236);
+        .box-item-info-icon img {
+          @include adaptive(height, 55, 55);
+          width: auto;
+        }
+      }
+    }
+  }
+}

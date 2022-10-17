@@ -24,7 +24,7 @@
       </div>
       <div class="header-menu">
         <div class="header-menu-left">
-          <nav class="header-menu-links"><span class="header-menu-link _submenu">Направления</span><span class="header-menu-link _submenu">Разработки</span><a class="header-menu-link" href="products.html">Продукты</a><a class="header-menu-link" href="projects.html">проекты</a><a class="header-menu-link" href="news.html">Новости</a><a class="header-menu-link" href="#">вакансии</a><a class="header-menu-link" href="#">контакты</a></nav><span class="separator _vertical"></span>
+          <nav class="header-menu-links"><span class="header-menu-link _submenu">Направления</span><span class="header-menu-link _submenu">Разработки</span><a class="header-menu-link" href="products.html">Продукты</a><a class="header-menu-link" href="projects.html">проекты</a><a class="header-menu-link" href="news.html">Новости</a><a class="header-menu-link" href="vacancies.html">вакансии</a><a class="header-menu-link" href="#">контакты</a></nav><span class="separator _vertical"></span>
         </div>
         <div class="header-menu-right">
           <nav class="header-menu-submenu"><span class="header-menu-link-wrap"><a class="header-menu-link" href="#">ИКТ и инженерная инфраструктура</a></span><span class="header-menu-link-wrap"><a class="header-menu-link" href="#">Разработка программного обеспечения</a></span><span class="header-menu-link-wrap"><a class="header-menu-link" href="#">Интеграция, управление и безопасность</a></span><span class="header-menu-link-wrap"><a class="header-menu-link" href="#">Поставка IT и телеком оборудования</a></span><span class="header-menu-link-wrap"><a class="header-menu-link" href="#">Прикладные и бизнес-решения</a></span><span class="header-menu-link-wrap"><a class="header-menu-link" href="#">Разработка высокотехнологичного адаптивного оборудования</a></span></nav>
@@ -89,17 +89,53 @@
             </div></a></div>
       </section>
       <section class="section"><a class="button _type-2 _active _size-4 _align-center" href="#"><span>загрузить еще новости</span></a></section>
-      <section class="section-30 _with-box">
-        <div class="box _wrap">
-          <!--+projectsBoxItem('1')-->
-          <!--+projectsBoxItem('2')-->
-          <!--+projectsBoxItem('3')-->
-          <!--+projectsBoxItem('2')-->
-          <!--+projectsBoxItem('4')-->
-          <!--+projectsBoxItem('2')-->
-        </div>
-      </section>
-      <div class="separator _horizontal _large _box-adjustment"></div>
+      <!--section.section-30._with-box-->
+      <!--    .box._wrap-->
+      <!--        mixin projectsBoxItem(number)-->
+      <!--            a.box-item._width33._center-content._row._has-popup(href=`#`)-->
+      <!--                .box-item-inner-->
+      <!--                    .box-item-content-->
+      <!--                        img(src=`./img/projects/project-${number}.png`, alt=".")-->
+      <!--                        .button-arrow._type-1._size-2-->
+      <!--                        .popup-content-inner-->
+      <!--                            .box._wrap-->
+      <!--                                .box-item._width100-->
+      <!--                                    img.project-logo(src="./img/projects/project-1-1.png", alt=".")-->
+      <!--                                    h4 Стратегия развития региональных отделений АО «Россельхозбанк»-->
+      <!--                                .box-item._width33-->
+      <!--                                    p-->
+      <!--                                        span._bold Заказчик:-->
+      <!--                                        span АО «Россельхозбанк»-->
+      <!--                                    p-->
+      <!--                                        span._bold Год:-->
+      <!--                                        span 2017-2020г-->
+      <!--                                    p-->
+      <!--                                        span._bold Цель:-->
+      <!--                                        span Организация пространства региональных отделений банка для эффективного функционирования.-->
+      <!--                                .box-item._width33-->
+      <!--                                    p-->
+      <!--                                        span._bold Задачи:-->
+      <!--                                    ul-->
+      <!--                                        li Проведение архитектурных и инженерных работ;-->
+      <!--                                        li Разработка проектной документации;-->
+      <!--                                        li Проведение ремонтно-строительных работ;-->
+      <!--                                        li Перепланировка помещений в соответствии с существующим законодательством;-->
+      <!--                                        li Монтаж систем инженерно- технического обеспечения в офисах банка;-->
+      <!--                                        li Закупка IT оборудования;-->
+      <!--                                        li Проведение испытаний оборудования и введенных в работу всех систем.-->
+      <!--                                .box-item._width33-->
+      <!--                                    p-->
+      <!--                                        span._bold Результат:-->
+      <!--                                    p-->
+      <!--                                        span В рамках долговременного сотрудничества с АО «Россельхозбанк» специалисты CESCA в полном объеме реализовали стратегию развития региональных отделений организации. В результате работы над совместным проектом были открыты новые отделения банка по всей России: в Москве, Абинске, Канске, Оренбурге и других городах. Также был произведён ряд ремонтно-строительных работ в ранее открытых офисах.
+      //+projectsBoxItem('1')
+      //+projectsBoxItem('2')
+      //+projectsBoxItem('3')
+      //+projectsBoxItem('2')
+      //+projectsBoxItem('4')
+      //+projectsBoxItem('2')
+      -->
+      <div class="separator _horizontal _large"></div>
     </main>
     <footer class="footer">
       <div class="box _directionColumn _wrap">
@@ -116,8 +152,8 @@
         <div class="box-item _width50">
           <div class="box _wrap _menu-links">
             <div class="box-item _width33"><a class="links-title" href="#">Направления</a><a class="link" href="#">Инфраструктурные решения</a><a class="link" href="#">Строительство</a><a class="link" href="#">Интеграция, управление и безопасность</a><a class="link" href="#">Прикладные и бизнес-решения</a><a class="link" href="#">Комплексные аппаратные решения</a><a class="link" href="#">ИТ&#8209;услуги</a></div>
-            <div class="box-item _width33"><a class="links-title" href="#">вакансии</a></div>
-            <div class="box-item _width33"><a class="links-title" href="products.html">Продукты</a><a class="link" href="#">Система мониторинга климатических условий серверной стойки и управления доступом AURA</a><a class="link" href="#">CELERI – комплекс управления группой дронов</a></div>
+            <div class="box-item _width33"><a class="links-title" href="vacancies.html">вакансии</a></div>
+            <div class="box-item _width33"><a class="links-title" href="products.html">Продукты</a><a class="link" href="product.html">Система мониторинга климатических условий серверной стойки и управления доступом AURA</a><a class="link" href="product.html">CELERI – комплекс управления группой дронов</a></div>
             <div class="box-item _width33"><a class="links-title" href="projects.html">Проекты</a><a class="link" href="#">Битрикс24</a></div>
             <div class="box-item _width33"><a class="links-title" href="news.html">Новости</a></div>
             <div class="box-item _width33"><a class="links-title" href="#">контакты</a></div>

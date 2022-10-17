@@ -40,7 +40,7 @@
     @include adaptive(padding-left, 60, 30);
   }
   &._size-4 {
-    @include adaptive(margin-top, 20, 40);
+    @include adaptive(margin-top, 70, 40);
     @include adaptive(width, 600, 600);
     @include adaptive(height, 72, 72);
     max-width: 100%;
@@ -78,6 +78,10 @@
   &._size-2 {
     @include adaptive(width, 64, 52);
     @include adaptive(height, 56, 40);
+  }
+  &._size-3 {
+    @include adaptive(width, 108, 66);
+    @include adaptive(height, 66, 40);
   }
   &._border {
     background: url('../img/arrow-1_white_border_medium.svg') center /100% auto no-repeat;
