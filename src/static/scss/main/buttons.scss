@@ -45,6 +45,13 @@
     @include adaptive(height, 72, 72);
     max-width: 100%;
   }
+  &._size-5 {
+    width: calc(25% - 40px);
+    @include adaptive(height, 84, 64);
+    @media screen and (max-width: $mobileWidth + px) {
+      width: 100%;
+    }
+  }
   &._align-center {
     margin-right: auto;
     margin-left: auto;

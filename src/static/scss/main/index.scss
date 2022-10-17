@@ -55,7 +55,7 @@
       }
     }
     .box-item {
-      &._width77 {
+      &._width70 {
         @include adaptive(height, 290, 290);
         .box._directionColumn._wrap {
           height: 100%;
@@ -63,12 +63,12 @@
         }
         @media screen and (max-width: $mobileWidth + px) {
           height: auto !important;
-          width: 77%;
+          width: 70%;
         }
       }
-      &._width33 {
+      &._width30 {
         @media screen and (max-width: $mobileWidth + px) {
-          width: 33%;
+          width: 30%;
         }
       }
       ._width50 {
