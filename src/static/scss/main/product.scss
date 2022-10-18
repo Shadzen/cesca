@@ -16,6 +16,11 @@
   .section-downloads {
     .box-item {
       @include adaptive(height, 184, 200);
+      @media screen and (max-width: $mobileWidth + px) {
+        &._width20 {
+          width: 100% !important;
+        }
+      }
       .box-item-info-icon img {
         @include adaptive(height, 28, 28);
         width: auto;

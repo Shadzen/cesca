@@ -237,6 +237,25 @@ ul {
   z-index: 2000;
 }
 
+.dancing-number {
+  @include adaptive(margin-bottom, 10, 10);
+  &._3 {
+    transform: translateY(-10%);
+  }
+  &._4 {
+    transform: translateY(-10%);
+  }
+  &._5 {
+    transform: translateY(-10%);
+  }
+  &._7 {
+    transform: translateY(-13%);
+  }
+  &._9 {
+    transform: translateY(-10%);
+  }
+}
+
 body {
   position: relative;
   margin: 0;

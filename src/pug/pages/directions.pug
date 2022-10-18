@@ -78,19 +78,19 @@ block main
                         .separator._horizontal._small._transparent
                         section.section-switch-2._with-box
                             .box._wrap
-                                mixin sectionSwitch2BoxItem(number, text)
+                                mixin sectionSwitch2BoxItem(number, text, classes)
                                     .box-item._width16._center-content._border._round-corners
                                         .box-item-inner
                                             .box-item-info
-                                                h1.box-item-info-title= number
+                                                h1.box-item-info-title(class=classes)= number
                                                 span.box-item-info-text
                                                     p= text
-                                +sectionSwitch2BoxItem('1', 'Бесперебойная работа сервисов')
-                                +sectionSwitch2BoxItem('2', 'Оптимизация расходов на инфраструктуру')
-                                +sectionSwitch2BoxItem('3', 'Единый центр управления')
-                                +sectionSwitch2BoxItem('4', 'Безопасное хранение данных')
-                                +sectionSwitch2BoxItem('5', 'Автономность')
-                                +sectionSwitch2BoxItem('6', 'Гибкость')
+                                +sectionSwitch2BoxItem('1', 'Бесперебойная работа сервисов', 'dancing-number _1')
+                                +sectionSwitch2BoxItem('2', 'Оптимизация расходов на инфраструктуру', 'dancing-number _2')
+                                +sectionSwitch2BoxItem('3', 'Единый центр управления', 'dancing-number _3')
+                                +sectionSwitch2BoxItem('4', 'Безопасное хранение данных', 'dancing-number _4')
+                                +sectionSwitch2BoxItem('5', 'Автономность', 'dancing-number _5')
+                                +sectionSwitch2BoxItem('6', 'Гибкость', 'dancing-number _6')
                         .separator._horizontal._small._transparent
                         section.section-switch-3._with-box
                             h4 Проекты
@@ -192,10 +192,10 @@ block main
                                                 h1.box-item-info-title= number
                                                 span.box-item-info-text
                                                     p= text
-                                +sectionSwitch2BoxItem('1', 'Бесперебойная работа сервисов')
-                                +sectionSwitch2BoxItem('2', 'Оптимизация расходов на инфраструктуру')
-                                +sectionSwitch2BoxItem('3', 'Единый центр управления')
-                                +sectionSwitch2BoxItem('4', 'Безопасное хранение данных')
+                                +sectionSwitch2BoxItem('1', 'Бесперебойная работа сервисов', 'dancing-number _1')
+                                +sectionSwitch2BoxItem('2', 'Оптимизация расходов на инфраструктуру', 'dancing-number _2')
+                                +sectionSwitch2BoxItem('3', 'Единый центр управления', 'dancing-number _3')
+                                +sectionSwitch2BoxItem('4', 'Безопасное хранение данных', 'dancing-number _4')
                         .separator._horizontal._small._transparent
                         section.section-switch-3._with-box
                             h4 Проекты
