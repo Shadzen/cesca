@@ -1,5 +1,6 @@
 $(document).ready(function () {
-   $('.slider-directions-nav').slick({
+    const sliderDirectionsNav = $('.slider-directions-nav')
+    sliderDirectionsNav.slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
@@ -27,7 +28,7 @@ $(document).ready(function () {
         sliderDirectionsContentSlides = sliderDirectionsContent.querySelectorAll('.slide')
     }
 
-    $('.slider-directions-nav').on('click', function(e) {
+    sliderDirectionsNav.on('click', function(e) {
         let activeSlide = $(this).find('.slick-active').attr('data-slick-index')
         if (sliderDirectionsInfoSlides) {
             sliderDirectionsInfoSlides.forEach(slide => slide.style.display = 'none')
@@ -73,7 +74,7 @@ $(document).ready(function () {
     })
 
     $(window).on('resize orientationchange', function() {
-        $('.slider-directions-nav')[0].slick.refresh()
+        if (sliderDirectionsNav && sliderDirectionsNav[0]) sliderDirectionsNav[0].slick.refresh()
     })
 })
 

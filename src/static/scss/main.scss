@@ -15,7 +15,7 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
   //overflow-y: scroll;
-  //touch-action: manipulation;
+  touch-action: manipulation;
   &::-webkit-scrollbar {
     display: none;
   }

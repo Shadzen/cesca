@@ -416,6 +416,10 @@
   }
 }
 
+.box, .box-item, .box-item-inner, .box-item-content, .box-item-info, .box-item-image {
+  outline: none;
+}
+
 body {
   &.black {
     .header-background {
