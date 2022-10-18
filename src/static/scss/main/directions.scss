@@ -27,9 +27,18 @@
     @media screen and (max-width: $mobileWidth + px) {
       width: 100%;
     }
+    .slide {
+      display: none;
+      animation: opacity0to1 0.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+    }
     .slide-info {
       margin-bottom: 0;
       @include adaptive(margin-top, 14, 14);
+    }
+    .slick-track {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
     }
   }
   .slider-directions-nav {
@@ -37,6 +46,9 @@
     @extend %flexCenter;
     @media screen and (max-width: $mobileWidth + px) {
       @include adaptive(margin-bottom, 80, 80);
+    }
+    .slick-list {
+      @include adaptive(border-radius, 40, 40);
     }
     .slide {
       position: relative;
@@ -82,6 +94,18 @@
     }
   }
 
+  .slider-directions-content {
+    .slide-direction-content {
+      display: none;
+      animation: opacity0to1 0.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+      .switch-content-box {
+        .switch-content {
+          display: none;
+          animation: opacity0to1 0.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+        }
+      }
+    }
+  }
 
 
   .section-switch-1 {

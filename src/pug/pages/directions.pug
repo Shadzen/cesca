@@ -24,7 +24,7 @@ block main
             .box._wrap
                 .box-item._width50
                     .slider.slider-directions-info
-                        .slide
+                        .slide(style='display: block;')
                             p.slide-info Компания CESCA создает уникальные инфраструктурные решения, учитывая актуальные запросы рынка. Внедряемые решения позволяют автоматизировать бизнес-процессы, повысить эффективность сотрудников и вывести предприятие на качественно новый уровень.
                         .slide
                             p.slide-info Описание: Специалисты CESCA обладают обширным практическим опытом в ведении масштабных строительных проектов с крупнейшими игроками на рынке. В процессе строительства используются широкий спектр современных технологий, таких как: BIM, цифровые двойники, андроидизированные системы, роботизированные системы, IoT.
@@ -42,8 +42,8 @@ block main
 
 
 
-        .slider-directions-content
-            .slide
+        .slider.slider-directions-content
+            .slide.slide-direction-content(style='display: block;')
                 section.section._with-box
                     .box._wrap
                         a.button._type-3._width50._active._content-switcher(href='#')
@@ -58,102 +58,207 @@ block main
                             span Системы искусственного интеллекта
                 .separator._horizontal._small._transparent
 
-                .switch-content
-                    section.section._with-box
-                        .box._wrap
-                            .box-item._width100
-                                h4 Современные облачные решения позволяют эффективно реализовывать цифровые проекты организации. Решения позволяют уменьшить время запуска клиентских серверов, обеспечить безопасное хранение данных и сократить расходы на обслуживание.
-                    .separator._horizontal._small
-                    section.section-switch-1._with-box
-                        .box._wrap
-                            .box-item._width44._no-back._info-text-overlapping
-                                .box-item-inner
-                                    article.box-item-info
-                                        h4.box-item-info-title
-                                            span.logo-2._no-margin-left CESCA
-                                            | создает инфраструктуры различного уровня сложности на базе частных и гибридных облаков:
-                                        span.box-item-info-text
-                                            p Частные облака строятся на базе готовых аппаратно-программных решений на стороне клиента.
-                                            p Гибридные облака представляют собой гибкое сочетание сервисов облачных вычислений.
-                            .box-item._width56._image
-                                .box-item-inner
-                                    .box-item-image(style='background-image: url(./img/directions/direction-1.jpg)')
-                    .separator._horizontal._small._transparent
-                    section.section-switch-2._with-box
-                        .box._wrap
-                            mixin sectionSwitch2BoxItem(number, text)
-                                .box-item._width16._center-content._border._round-corners
+                .switch-content-box
+                    .switch-content(style='display: block;')
+                        section.section._with-box
+                            .box._wrap
+                                .box-item._width100
+                                    h4 Современные облачные решения позволяют эффективно реализовывать цифровые проекты организации. Решения позволяют уменьшить время запуска клиентских серверов, обеспечить безопасное хранение данных и сократить расходы на обслуживание.
+                        .separator._horizontal._small
+                        section.section-switch-1._with-box
+                            .box._wrap
+                                .box-item._width44._no-back._info-text-overlapping
+                                    .box-item-inner
+                                        article.box-item-info
+                                            h4.box-item-info-title
+                                                span.logo-2._no-margin-left CESCA
+                                                | создает инфраструктуры различного уровня сложности на базе частных и гибридных облаков:
+                                            span.box-item-info-text
+                                                p Частные облака строятся на базе готовых аппаратно-программных решений на стороне клиента.
+                                                p Гибридные облака представляют собой гибкое сочетание сервисов облачных вычислений.
+                                .box-item._width56._image
+                                    .box-item-inner
+                                        .box-item-image(style='background-image: url(./img/directions/direction-1.jpg)')
+                        .separator._horizontal._small._transparent
+                        section.section-switch-2._with-box
+                            .box._wrap
+                                mixin sectionSwitch2BoxItem(number, text)
+                                    .box-item._width16._center-content._border._round-corners
+                                        .box-item-inner
+                                            .box-item-info
+                                                h1.box-item-info-title= number
+                                                span.box-item-info-text
+                                                    p= text
+                                +sectionSwitch2BoxItem('1', 'Бесперебойная работа сервисов')
+                                +sectionSwitch2BoxItem('2', 'Оптимизация расходов на инфраструктуру')
+                                +sectionSwitch2BoxItem('3', 'Единый центр управления')
+                                +sectionSwitch2BoxItem('4', 'Безопасное хранение данных')
+                                +sectionSwitch2BoxItem('5', 'Автономность')
+                                +sectionSwitch2BoxItem('6', 'Гибкость')
+                        .separator._horizontal._small._transparent
+                        section.section-switch-3._with-box
+                            h4 Проекты
+                            .separator._horizontal._smaller._transparent
+                            .box._wrap
+                                a.box-item._width33._center-content._row(href=`#`)
+                                    .box-item-inner
+                                        .box-item-content
+                                            img(src=`./img/index/partners/partner-8.png`, alt=".")
+                                            .button-arrow._type-1._size-2
+                                a.box-item._width33._center-content._row(href=`#`)
+                                    .box-item-inner
+                                        .box-item-content
+                                            img(src=`./img/index/partners/partner-5.png`, alt=".")
+                                            .button-arrow._type-1._size-2
+                        .separator._horizontal._small._transparent
+                        section.section-switch-4._with-box
+                            h4 Продукты
+                            .separator._horizontal._smaller._transparent
+                            .box._wrap
+                                a.box-item._width33._border(href=`#`)
                                     .box-item-inner
                                         .box-item-info
-                                            h1.box-item-info-title= number
                                             span.box-item-info-text
-                                                p= text
-                            +sectionSwitch2BoxItem('1', 'Бесперебойная работа сервисов')
-                            +sectionSwitch2BoxItem('2', 'Оптимизация расходов на инфраструктуру')
-                            +sectionSwitch2BoxItem('3', 'Единый центр управления')
-                            +sectionSwitch2BoxItem('4', 'Безопасное хранение данных')
-                            +sectionSwitch2BoxItem('5', 'Автономность')
-                            +sectionSwitch2BoxItem('6', 'Гибкость')
-                    .separator._horizontal._small._transparent
-                    section.section-switch-3._with-box
-                        h4 Проекты
-                        .separator._horizontal._smaller._transparent
-                        .box._wrap
-                            a.box-item._width33._center-content._row(href=`#`)
-                                .box-item-inner
-                                    .box-item-content
-                                        img(src=`./img/index/partners/partner-8.png`, alt=".")
-                                        .button-arrow._type-1._size-2
-                            a.box-item._width33._center-content._row(href=`#`)
-                                .box-item-inner
-                                    .box-item-content
-                                        img(src=`./img/index/partners/partner-5.png`, alt=".")
-                                        .button-arrow._type-1._size-2
-                    .separator._horizontal._small._transparent
-                    section.section-switch-4._with-box
-                        h4 Продукты
-                        .separator._horizontal._smaller._transparent
-                        .box._wrap
-                            a.box-item._width33._border(href=`#`)
-                                .box-item-inner
-                                    .box-item-info
-                                        span.box-item-info-text
-                                            p._no-margin-top EMC Vblock
-                            a.box-item._width33._border(href=`#`)
-                                .box-item-inner
-                                    .box-item-info
-                                        span.box-item-info-text
-                                            p._no-margin-top NetApp FlexPod
-                            a.box-item._width33._border(href=`#`)
-                                .box-item-inner
-                                    .box-item-info
-                                        span.box-item-info-text
-                                            p._no-margin-top Интеграция ПО управления
-                                        span.box-item-info-text
-                                            p._p2 открытая платформа OpenStack от Mirantis, HP, RedHat, продукты от BMC, VMware, Microsoft, Parallels
+                                                p._no-margin-top EMC Vblock
+                                a.box-item._width33._border(href=`#`)
+                                    .box-item-inner
+                                        .box-item-info
+                                            span.box-item-info-text
+                                                p._no-margin-top NetApp FlexPod
+                                a.box-item._width33._border(href=`#`)
+                                    .box-item-inner
+                                        .box-item-info
+                                            span.box-item-info-text
+                                                p._no-margin-top Интеграция ПО управления
+                                            span.box-item-info-text
+                                                p._p2 открытая платформа OpenStack от Mirantis, HP, RedHat, продукты от BMC, VMware, Microsoft, Parallels
+
+                    .switch-content
+                        section.section._with-box
+                            .box._wrap
+                                .box-item._width100
+                                    h4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam error, iure libero quasi similique soluta tempore ullam velit veritatis voluptatibus.
+                        .separator._horizontal._small
+                        section.section-switch-1._with-box
+                            .box._wrap
+                                .box-item._width44._no-back._info-text-overlapping
+                                    .box-item-inner
+                                        article.box-item-info
+                                            h4.box-item-info-title
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, necessitatibus.
+                                                span.logo-2 CESCA
+                                                | Lorem ipsum dolor sit.
+                                            span.box-item-info-text
+                                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, impedit ipsam modi quibusdam quod voluptate.
+                                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem esse, fuga laborum praesentium repellat. Aliquam corporis cumque repellat veritatis.
+                                .box-item._width56._image._darken
+                                    .box-item-inner
+                                        .box-item-image(style='background-image: url(./img/product/product-3.jpg)')
 
 
-                //.switch-content
-                //    section.section._with-box
-                //        .box._wrap
-                //            .box-item._width100
-                //                h4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam error, iure libero quasi similique soluta tempore ullam velit veritatis voluptatibus.
-                //    .separator._horizontal._small
-                //    section.section-switch-1._with-box
-                //        .box._wrap
-                //            .box-item._width44._no-back._info-text-overlapping
-                //                .box-item-inner
-                //                    article.box-item-info
-                //                        h4.box-item-info-title
-                //                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, necessitatibus.
-                //                            span.logo-2 CESCA
-                //                            | Lorem ipsum dolor sit.
-                //                        span.box-item-info-text
-                //                            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, impedit ipsam modi quibusdam quod voluptate.
-                //                            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem esse, fuga laborum praesentium repellat. Aliquam corporis cumque repellat veritatis.
-                //            .box-item._width56._image._darken
-                //                .box-item-inner
-                //                    .box-item-image(style='background-image: url(./img/product/product-3.jpg)')
+            .slide.slide-direction-content
+                section.section._with-box
+                    .box._wrap
+                        a.button._type-3._width50._active._content-switcher(href='#')
+                            span Switch 1
+                        a.button._type-3._width25._square._content-switcher(href='#')
+                            span Switch 2
+                .separator._horizontal._small._transparent
+
+                .switch-content-box
+                    .switch-content(style='display: block;')
+                        section.section._with-box
+                            .box._wrap
+                                .box-item._width100
+                                    h4 Современные облачные решения позволяют эффективно реализовывать цифровые проекты организации. Решения позволяют уменьшить время запуска клиентских серверов, обеспечить безопасное хранение данных и сократить расходы на обслуживание.
+                        .separator._horizontal._small
+                        section.section-switch-1._with-box
+                            .box._wrap
+                                .box-item._width44._no-back._info-text-overlapping
+                                    .box-item-inner
+                                        article.box-item-info
+                                            h4.box-item-info-title
+                                                span.logo-2._no-margin-left CESCA
+                                                | создает инфраструктуры различного уровня сложности на базе частных и гибридных облаков:
+                                            span.box-item-info-text
+                                                p Частные облака строятся на базе готовых аппаратно-программных решений на стороне клиента.
+                                                p Гибридные облака представляют собой гибкое сочетание сервисов облачных вычислений.
+                                .box-item._width56._image
+                                    .box-item-inner
+                                        .box-item-image(style='background-image: url(./img/directions/direction-1.jpg)')
+                        .separator._horizontal._small._transparent
+                        section.section-switch-2._with-box
+                            .box._wrap
+                                mixin sectionSwitch2BoxItem(number, text)
+                                    .box-item._width16._center-content._border._round-corners
+                                        .box-item-inner
+                                            .box-item-info
+                                                h1.box-item-info-title= number
+                                                span.box-item-info-text
+                                                    p= text
+                                +sectionSwitch2BoxItem('1', 'Бесперебойная работа сервисов')
+                                +sectionSwitch2BoxItem('2', 'Оптимизация расходов на инфраструктуру')
+                                +sectionSwitch2BoxItem('3', 'Единый центр управления')
+                                +sectionSwitch2BoxItem('4', 'Безопасное хранение данных')
+                        .separator._horizontal._small._transparent
+                        section.section-switch-3._with-box
+                            h4 Проекты
+                            .separator._horizontal._smaller._transparent
+                            .box._wrap
+                                a.box-item._width33._center-content._row(href=`#`)
+                                    .box-item-inner
+                                        .box-item-content
+                                            img(src=`./img/index/partners/partner-8.png`, alt=".")
+                                            .button-arrow._type-1._size-2
+                                a.box-item._width33._center-content._row(href=`#`)
+                                    .box-item-inner
+                                        .box-item-content
+                                            img(src=`./img/index/partners/partner-5.png`, alt=".")
+                                            .button-arrow._type-1._size-2
+                                a.box-item._width33._center-content._row(href=`#`)
+                                    .box-item-inner
+                                        .box-item-content
+                                            img(src=`./img/index/partners/partner-8.png`, alt=".")
+                                            .button-arrow._type-1._size-2
+                        .separator._horizontal._small._transparent
+                        section.section-switch-4._with-box
+                            h4 Продукты
+                            .separator._horizontal._smaller._transparent
+                            .box._wrap
+                                a.box-item._width33._border(href=`#`)
+                                    .box-item-inner
+                                        .box-item-info
+                                            span.box-item-info-text
+                                                p._no-margin-top NetApp FlexPod
+                                a.box-item._width33._border(href=`#`)
+                                    .box-item-inner
+                                        .box-item-info
+                                            span.box-item-info-text
+                                                p._no-margin-top Интеграция ПО управления
+                                            span.box-item-info-text
+                                                p._p2 открытая платформа OpenStack от Mirantis, HP, RedHat, продукты от BMC, VMware, Microsoft, Parallels
+
+                    .switch-content
+                        section.section._with-box
+                            .box._wrap
+                                .box-item._width100
+                                    h4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam error, iure libero quasi similique soluta tempore ullam velit veritatis voluptatibus.
+                        .separator._horizontal._small
+                        section.section-switch-1._with-box
+                            .box._wrap
+                                .box-item._width44._no-back._info-text-overlapping
+                                    .box-item-inner
+                                        article.box-item-info
+                                            h4.box-item-info-title
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, necessitatibus.
+                                                span.logo-2 CESCA
+                                                | Lorem ipsum dolor sit.
+                                            span.box-item-info-text
+                                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, impedit ipsam modi quibusdam quod voluptate.
+                                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem esse, fuga laborum praesentium repellat. Aliquam corporis cumque repellat veritatis.
+                                .box-item._width56._image._darken
+                                    .box-item-inner
+                                        .box-item-image(style='background-image: url(./img/product/product-3.jpg)')
 
 
         .separator._horizontal._large
