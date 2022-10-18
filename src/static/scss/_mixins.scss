@@ -33,21 +33,19 @@
     @return calc(100vw / (#{$defaultWidth} / #{$value}));
 }
 
-@mixin aFontSize($fontSize) {
-    //font-size: $fontSize + px;
-    //@media screen and (max-width: $maxScreenWidth + px) {
-    font-size: calc(100vw / (#{$maxWidth} / #{$fontSize}));
-    //}
+
+@mixin adaptiveStrict($parameter, $value1, $value2) {
+    #{$parameter}: calc(100vw / (#{$defaultWidth} / #{$value1})) !important;
+    @media (min-aspect-ratio: 21/9) {
+        #{$parameter}: calc(75vw / (#{$defaultWidth} / #{$value1})) !important;
+    }
     @media screen and (max-width: $mobileWidth + px) {
-        font-size: calc(100vw / (#{$mobileWidth} / #{$fontSize + 12}));
+        #{$parameter}: calc(100vw / (#{$mobileWidth} / #{$value2})) !important;
+        @media (min-aspect-ratio: 21/9) {
+            #{$parameter}: calc(75vw / (#{$mobileWidth} / #{$value2})) !important;
+        }
     }
 }
-
-
-
-
-
-
 
 @mixin adaptive($parameter, $value1, $value2) {
     #{$parameter}: calc(100vw / (#{$defaultWidth} / #{$value1}));

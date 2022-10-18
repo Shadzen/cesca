@@ -78,6 +78,10 @@ p, ul, li, input, textarea {
   &._p1 {
     @include adaptive(font-size, 32, 24);
   }
+  &._p2 {
+    @include adaptive(font-size, 18, 18);
+    color: #8F8F8F !important;
+  }
 }
 
 ul {
@@ -106,11 +110,19 @@ ul {
 .logo-2 {
   display: inline-block;
   border-radius: 160px;
-  @include adaptive(padding-right, 46, 23);
-  @include adaptive(padding-left, 46, 23);
+  padding: 0 2%;
+  margin: 0 2%;
    * {
      color: #fff !important;
    }
+}
+
+._no-margin-top {
+  margin-top: 0 !important;
+}
+
+._no-margin-left {
+  margin-left: 0 !important;
 }
 
 .langs {
@@ -157,12 +169,6 @@ ul {
 .separator {
   display: inline-block;
   position: relative;
-  //&._vertical {
-  //  @include adaptive(height, 34, 34);
-  //  @include adaptive(margin-right, 18, 18);
-  //  @include adaptive(margin-left, 18, 18);
-  //  width: 2px;
-  //}
   z-index: 2;
   &._horizontal {
     height: 1px;
@@ -189,6 +195,10 @@ ul {
       @include adaptive(margin-top, 30, 15);
       @include adaptive(margin-bottom, 30, 15);
     }
+    &._smaller {
+      @include adaptive(margin-top, 15, 10);
+      @include adaptive(margin-bottom, 15, 10);
+    }
     &._small-top {
       @include adaptive(margin-top, 10, 30);
       @include adaptive(margin-bottom, 30, 15);
@@ -210,24 +220,6 @@ ul {
       @extend %centerXY;
       height: 100%;
       width: auto;
-    }
-  }
-}
-
-._page-title {
-  .box-item {
-    width: 53%;
-    @media screen and (max-width: $mobileWidth + px) {
-      width: 92%;
-    }
-  }
-}
-
-._page-title-large {
-  .box-item {
-    width: 80%;
-    @media screen and (max-width: $mobileWidth + px) {
-      width: 100%;
     }
   }
 }
@@ -347,7 +339,7 @@ main {
   @include adaptive(padding-top, 130, 96);
 }
 
-//@import "main/slider";
+@import "main/slider";
 @import "main/index";
 @import "main/products";
 @import "main/product";
@@ -355,3 +347,4 @@ main {
 @import "main/news";
 @import "main/vacancies";
 @import "main/contacts";
+@import "main/directions";

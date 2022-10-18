@@ -215,6 +215,9 @@
     &._width40 {
       width: 40%;
     }
+    &._width44 {
+      width: 44%;
+    }
     &._width50 {
       width: 50%;
       > .box-item-inner .box-item-content {
@@ -226,6 +229,9 @@
       > .box-item-inner .box-item-info-text p {
         width: 44%;
       }
+    }
+    &._width56 {
+      width: 56%;
     }
     &._width60 {
       width: 60%;
@@ -260,6 +266,29 @@
         width: 22%;
       }
     }
+    &._info-text-overlapping {
+      > .box-item-inner {
+        overflow: visible;
+        .box-item-info {
+          @include adaptiveStrict(padding-bottom, 60, 0);
+        }
+        .box-item-info-text {
+          width: 140%;
+          @media screen and (max-width: $mobileWidth + px) {
+            width: 100%;
+          }
+          &:after {
+            display: none;
+          }
+          p {
+            width: 43%;
+            @media screen and (max-width: $mobileWidth + px) {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
     @media screen and (max-width: $mobileWidth + px) {
       &:last-child {
         margin-bottom: 0 !important;
@@ -273,7 +302,9 @@
       &._width30,
       &._width33,
       &._width40,
+      &._width44,
       &._width50,
+      &._width56,
       &._width60,
       &._width70,
       &._width75,

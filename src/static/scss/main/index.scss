@@ -33,6 +33,14 @@
       width: 100%;
     }
   }
+  .section-1 {
+    ._width50 {
+      width: 53%;
+      @media screen and (max-width: $mobileWidth + px) {
+        width: 92% !important;
+      }
+    }
+  }
   .section-2 {
     p {
       @include adaptive(padding-right, 40, 0);

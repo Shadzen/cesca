@@ -11,7 +11,7 @@
   &:active {
     transform: scale(0.98) !important;
   }
-  &._type-1 {
+  &._type-1, &._type-3._active {
     background: linear-gradient(180deg, #2E27EB 0%, #3631B2 100%);
     color: #fff;
   }
@@ -25,6 +25,16 @@
       color: #fff;
       outline-color: transparent;
     }
+  }
+  &._type-3 {
+    color: #fff;
+    border: 1px solid $color01;
+    &._active {
+      border-color: transparent;
+    }
+  }
+  &._square {
+    border-radius: 0 !important;
   }
   &._size-1 {
     @include adaptive(width, 290, 290);
@@ -50,6 +60,25 @@
   &._size-5 {
     width: calc(25% - 40px);
     @include adaptive(height, 84, 64);
+    @media screen and (max-width: $mobileWidth + px) {
+      width: 100%;
+    }
+  }
+  &._size-6 {
+    @include adaptive(margin-top, 60, 30);
+    @include adaptive(width, 312, 260);
+    @include adaptive(height, 84, 64,);
+  }
+  &._width50 {
+    width: 50%;
+    @include adaptive(height, 112, 64);
+    @media screen and (max-width: $mobileWidth + px) {
+      width: 100%;
+    }
+  }
+  &._width25 {
+    width: 25%;
+    @include adaptive(height, 112, 64);
     @media screen and (max-width: $mobileWidth + px) {
       width: 100%;
     }
