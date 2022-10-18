@@ -43,8 +43,8 @@
   }
   .section-2 {
     p {
-      @include adaptive(padding-right, 40, 0);
-      @include adaptive(padding-left, 40, 0);
+      @include adaptive(padding-right, 40, 10);
+      @include adaptive(padding-left, 40, 10);
     }
     > .box {
       > .box-item {

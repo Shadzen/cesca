@@ -142,6 +142,12 @@ const popupOwners = document.querySelectorAll('._has-popup')
 popupOwners.forEach(owner => {
     $(owner).on('click', e => {
         e.preventDefault()
+        let additionalPopupClasses = ''
+        let popupContentBackground = ''
+        if (owner.classList.contains('_news')) {
+            additionalPopupClasses += ' _news _darken'
+            popupContentBackground = owner.querySelector('.box-item-image').style.backgroundImage
+        }
         let popupBlock = owner.querySelector('.popup-content-inner')
         if (!popupBlock) return
         let popupContent = popupBlock.innerHTML
@@ -150,7 +156,10 @@ popupOwners.forEach(owner => {
                 classes: 'shadow-layer',
             })
             let popup = createEl({
-                classes: 'popup-content',
+                classes: 'popup-content' + additionalPopupClasses,
+                styles: `
+                    background-image: ${popupContentBackground};
+                `,
             })
             let popupCloseButton = createEl({
                 where: popup,

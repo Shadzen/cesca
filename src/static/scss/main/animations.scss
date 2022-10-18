@@ -7,6 +7,15 @@
   }
 }
 
+@keyframes scale05to1 {
+  from {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 @keyframes arrowRotate {
   from {
     transform: rotate(0);

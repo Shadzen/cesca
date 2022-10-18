@@ -231,8 +231,9 @@ ul {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  animation: opacity0to1 0.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  background: rgba(0, 0, 0, 0.9);
+  //animation: opacity0to1 0.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  animation: opacity0to1 0.5s ease forwards;
   z-index: 2000;
 }
 

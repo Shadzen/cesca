@@ -17,7 +17,7 @@
     @include adaptive(padding-left, 10, 10);
     @include adaptive(padding-right, 10, 10);
     @include adaptive(margin-bottom, 20, 15);
-    transition: all 0.35s ease;
+    transition: all 0.25s ease;
     .box-item-inner {
       @extend %flexCenter;
       position: relative;
@@ -153,7 +153,6 @@
     }
     &._glow {
       filter: drop-shadow(0 0 20px rgba(46, 39, 235, 0.5));
-      transition: filter .25s ease;
     }
     &._round-corners {
       .box-item-inner {
@@ -269,7 +268,7 @@
     &._padding-bottom {
       > .box-item-inner {
           .box-item-info {
-            @include adaptiveStrict(padding-bottom, 60, 0);
+            @include adaptiveStrict(padding-bottom, 60, 10);
           }
       }
     }
@@ -316,10 +315,10 @@
       &._width100 {
         width: 100% !important;
         .box-item-content {
-          width: 80% !important;
+          width: 90% !important;
         }
         .box-item-info-title {
-          width: 80% !important;
+          width: 90% !important;
         }
         .box-item-info-text p {
           width: 100% !important;
