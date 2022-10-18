@@ -10,6 +10,7 @@
   min-height: 20vh;
   max-height: 100vh;
   z-index: 2050;
+  animation: opacity0to1 0.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
   .popup-content-inner {
     position: relative;
     width: 100%;

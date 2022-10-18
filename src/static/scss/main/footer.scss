@@ -1,6 +1,6 @@
 .footer {
   @extend %alternatePaddings;
-  @include adaptive(height, 440, 440);
+  @include adaptive(height, 390, 390);
   position: relative;
   width: 100%;
   z-index: 99;

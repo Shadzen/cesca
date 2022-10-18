@@ -10,7 +10,11 @@ block main
     main.product
         .page-head
             .page-head-background
-                img(src="./img/product/page-head.jpg", alt=".")
+                //img(src="./img/product/page-head.jpg", alt=".")
+                //video#background-video(autoplay='' loop='' muted='' poster='https://assets.codepen.io/6093409/river.jpg')
+                //  source(src='https://assets.codepen.io/6093409/river.mp4' type='video/mp4')
+                video(autoplay='' loop='' muted='' poster='./img/product/page-head.jpg')
+                    source(src='./video/product/page-head.mp4' type='video/mp4')
         .separator._horizontal._small._transparent
         section.section._with-box
             .box
@@ -32,7 +36,7 @@ block main
         .separator._horizontal._medium
         section.section-2._with-box
             .box._wrap
-                .box-item._width50._no-back
+                .box-item._width50._no-back._padding-bottom
                     .box-item-inner
                         article.box-item-info
                             h4.box-item-info-title Функции продукта
@@ -55,22 +59,6 @@ block main
                 .box-item._width25._image
                     .box-item-inner
                         .box-item-image(style='background-image: url(./img/product/product-4.jpg)')
-                .box-item._width75._image
-                    .box-item-inner
-                        .box-item-image(style='background-image: url(./img/product/product-2.jpg)')
-                        article.box-item-info
-                            h4.box-item-info-title Пример
-                            span.box-item-info-text
-                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illum ipsa minima nisi quaerat
-                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illum ipsa minima nisi quaerat
-                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illum ipsa minima nisi quaerat
-                .box-item._width25._image._darken
-                    .box-item-inner
-                        .box-item-image(style='background-image: url(./img/product/product-4.jpg)')
-                        article.box-item-info
-                            h4.box-item-info-title Пример
-                            span.box-item-info-text
-                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illum ipsa minima nisi quaerat
         .separator._horizontal._small._transparent
         section.section-3._with-box
             .box._wrap
@@ -123,7 +111,27 @@ block main
                     h4 Основные технические характеристики контроллера AURA&#8209;MS&#8209;CTR
                 .box-item._width20._empty
                 .box-item._width50
-                    img(src="./img/product/table-1.png", alt=".")
+                    .table
+                        .table-row._head
+                            span Характеристики
+                            span Количество и значение характеристик
+                            span Ед. изм.
+                        .table-row
+                            span Исполнение корпуса
+                            span Герметичный маталлический корпус
+                            span -
+                        .table-row
+                            span Диапазон измерения температуры
+                            span от -55 до +125
+                            span 0С
+                        .table-row
+                            span Точность измерения температуры
+                            span ±
+                            span 0С
+                        .table-row
+                            span Количество универсальных портов (подключение датчиков протечки или ручек шкафа со встроенным считываетлем карт доступа и замком или модулей расширения)
+                            span 8 (с возможностью расширения до 100 шт. при использовании модулей расширения)
+                            span шт
         .separator._horizontal._small-top
         section.section._with-box
             .box._wrap
@@ -131,7 +139,19 @@ block main
                     h4 Ручка AURA-MS-CH
                 .box-item._width20._empty
                 .box-item._width50
-                    img(src="./img/product/table-2.png", alt=".")
+                    .table
+                        .table-row._head
+                            span Характеристики
+                            span Количество и значение характеристик
+                            span Ед. изм.
+                        .table-row
+                            span Исполнение корпуса
+                            span Герметичный маталлический корпус
+                            span -
+                        .table-row
+                            span Диапазон измерения температуры
+                            span от -55 до +125
+                            span 0С
         .separator._horizontal._small-top
         section.section._with-box
             .box._wrap
@@ -139,7 +159,23 @@ block main
                     h4 Датчика температуры AURA-MS-TS
                 .box-item._width20._empty
                 .box-item._width50
-                    img(src="./img/product/table-3.png", alt=".")
+                    .table
+                        .table-row._head
+                            span Характеристики
+                            span Количество и значение характеристик
+                            span Ед. изм.
+                        .table-row
+                            span Исполнение корпуса
+                            span Герметичный маталлический корпус
+                            span -
+                        .table-row
+                            span Диапазон измерения температуры
+                            span от -55 до +125
+                            span 0С
+                        .table-row
+                            span Точность измерения температуры
+                            span ±
+                            span 0С
         .separator._horizontal._small-top
         section.section._with-box
             .box._wrap
@@ -147,7 +183,27 @@ block main
                     h4 Датчика протечки AURA-MS-LS
                 .box-item._width20._empty
                 .box-item._width50
-                    img(src="./img/product/table-4.png", alt=".")
+                    .table
+                        .table-row._head
+                            span Характеристики
+                            span Количество и значение характеристик
+                            span Ед. изм.
+                        .table-row
+                            span Исполнение корпуса
+                            span Герметичный маталлический корпус
+                            span -
+                        .table-row
+                            span Диапазон измерения температуры
+                            span от -55 до +125
+                            span 0С
+                        .table-row
+                            span Точность измерения температуры
+                            span ±
+                            span 0С
+                        .table-row
+                            span Количество универсальных портов (подключение датчиков протечки или ручек шкафа со встроенным считываетлем карт доступа и замком или модулей расширения)
+                            span 8 (с возможностью расширения до 100 шт. при использовании модулей расширения)
+                            span шт
         .separator._horizontal._small._transparent
         section.section-downloads._with-box
             .box._wrap

@@ -1,39 +1,3 @@
-//@mixin aFontSize($fontSize) {
-//    $screenWidth: $screenWidth;
-//
-//    font-size: ($fontSize + px) !important;
-//
-//    @media screen and (max-width: $screenWidth + px) {
-//        font-size: calc(100vw / (#{$screenWidth} / #{$fontSize})) !important;
-//    }
-//}
-//
-//@function hpx($value) {
-//    @return percentage($screenWidth / $screenHeight) / $screenWidth * $value;
-//}
-//
-//@function vwpx($value) {
-//    @return calc(100vw / (#{$screenWidth} / #{$value}));
-//}
-//
-//@function aW($value) {
-//    @return percentage($value / $screenWidth);
-//}
-//
-//@mixin adaptive($parameter, $value) {
-//    $screenWidth: $screenWidth;
-//    #{$parameter}: ($value + px);
-//    @media screen and (max-width: $screenWidth + px) {
-//        #{$parameter}: vwpx($value);
-//    }
-//}
-
-
-@function vwpx($value) {
-    @return calc(100vw / (#{$defaultWidth} / #{$value}));
-}
-
-
 @mixin adaptiveStrict($parameter, $value1, $value2) {
     #{$parameter}: calc(100vw / (#{$defaultWidth} / #{$value1})) !important;
     @media (min-aspect-ratio: 21/9) {
@@ -101,14 +65,4 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-}
-
-
-
-
-
-
-
-@mixin textBorder($borderSize: 0, $borderColor: white) {
-    text-shadow: -#{$borderSize} -#{$borderSize} 0 $borderColor, $borderSize -#{$borderSize} 0 $borderColor, -#{$borderSize} $borderSize 0 $borderColor, $borderSize $borderSize 0 $borderColor
 }
