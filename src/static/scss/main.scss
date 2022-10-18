@@ -100,6 +100,7 @@ ul {
 @import "main/header";
 @import "main/footer";
 @import "main/forms";
+@import "main/table";
 
 .logo {
   display: block;
@@ -158,7 +159,7 @@ ul {
   @include adaptive(width, 878, 878);
   @include adaptive(height, 878, 878);
   background: $color01;
-  filter: blur(vwpx(650));
+  filter: blur(650px);
   opacity: 0.8;
   //width: 1780px;
   //height: 1780px;
@@ -216,7 +217,7 @@ ul {
   position: relative;
   .page-head-background {
     @extend %absDefault;
-    img {
+    img, video {
       @extend %centerXY;
       height: 100%;
       width: auto;
@@ -230,8 +231,8 @@ ul {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #000;
-  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.8);
+  animation: opacity0to1 0.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
   z-index: 2000;
 }
 

@@ -1,0 +1,44 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  span {
+    @extend %flexCenter;
+    font-family: $RalewayRegular;
+    line-height: 135%;
+    font-weight: 400;
+    @include adaptive(font-size, 14, 14);
+    color: #fff;
+    text-align: center;
+  }
+  .table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px;
+    @include adaptive(padding, 20, 10);
+    border-bottom: 1px solid $color01;
+    span:nth-child(1) {
+      width: 38%;
+    }
+    span:nth-child(2) {
+      width: 42%;
+    }
+    span:nth-child(3) {
+      width: 9%;
+    }
+    &._head {
+      background: $color01;
+      border-color: transparent;
+      span {
+        font-family: $RalewayMedium;
+        line-height: 145%;
+        font-weight: 500;
+        @include adaptive(font-size, 18, 18);
+      }
+    }
+  }
+  .table-column {
+
+  }
+}

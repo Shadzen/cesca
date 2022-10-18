@@ -1,19 +1,41 @@
 .button {
+  position: relative;
   @extend %flexCenter;
   @include adaptive(font-size, 24, 24);
   @include adaptive(border-radius, 60, 60);
   font-family: $RalewayMedium;
   text-align: center;
   text-decoration: none;
-  transition: transform .2s ease;
+  transition: transform .25s ease;
   cursor: pointer;
   border: none;
+  outline: none;
+  span {
+    position: relative;
+    z-index: 10;
+  }
+  &:before {
+    content: '';
+    @extend %absDefault;
+    @include adaptive(border-radius, 60, 60);
+    opacity: 0;
+    transition: all 1s ease;
+    z-index: 1;
+  }
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
   &:active {
     transform: scale(0.98) !important;
   }
   &._type-1, &._type-3._active {
     background: linear-gradient(180deg, #2E27EB 0%, #3631B2 100%);
     color: #fff;
+    &:before {
+      background: linear-gradient(180deg, #3631B2 0%, #2E27EB 100%);
+    }
   }
   &._type-2 {
     color: #2B333A;
@@ -24,13 +46,16 @@
       background: linear-gradient(260.37deg, #FFB7DE 2.77%, rgba(74, 69, 149, 0) 119.07%), #0CBDFF;
       color: #fff;
       outline-color: transparent;
+      &:before {
+        background: linear-gradient(260.37deg, rgba(74, 69, 149, 0) 2.77%, #FFB7DE 97.63%), #0CBDFF;
+      }
     }
   }
   &._type-3 {
     color: #fff;
     border: 1px solid $color01;
     &._active {
-      border-color: transparent;
+      border: none;
     }
   }
   &._square {
@@ -93,7 +118,7 @@
   @extend %flexCenter;
   position: relative;
   text-decoration: none;
-  transition: transform .2s ease;
+  transition: transform .25s ease;
   flex-shrink: 0;
   //&:after {
   //  content: '';

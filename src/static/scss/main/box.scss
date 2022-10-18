@@ -266,12 +266,16 @@
         width: 22%;
       }
     }
+    &._padding-bottom {
+      > .box-item-inner {
+          .box-item-info {
+            @include adaptiveStrict(padding-bottom, 60, 0);
+          }
+      }
+    }
     &._info-text-overlapping {
       > .box-item-inner {
         overflow: visible;
-        .box-item-info {
-          @include adaptiveStrict(padding-bottom, 60, 0);
-        }
         .box-item-info-text {
           width: 140%;
           @media screen and (max-width: $mobileWidth + px) {

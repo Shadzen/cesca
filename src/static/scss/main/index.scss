@@ -88,7 +88,7 @@
         @include adaptive(width, 290, 140);
         @include adaptive(height, 290, 140);
         //@include adaptive(padding, 78, 36);
-        background: url('../../img/arrow-1_white_border_large.svg') center /100% auto no-repeat;
+        background: url('../img/arrow-1_white_border_large.svg') center /100% auto no-repeat;
       }
     }
   }
