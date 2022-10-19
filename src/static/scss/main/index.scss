@@ -1,17 +1,17 @@
 .index {
-  .decor {
-    &._1 {
-      @include adaptive(margin-top, 900, 1200);
-      left: 54%;
-    }
-    &._2 {
-      @include adaptive(margin-top, 4500, 6050);
-      left: -20%;
-      @media screen and (max-width: $mobileWidth + px) {
-        left: -100%;
-      }
-    }
-  }
+  //.decor {
+  //  &._1 {
+  //    @include adaptive(margin-top, 900, 1200);
+  //    left: 54%;
+  //  }
+  //  &._2 {
+  //    @include adaptive(margin-top, 4500, 6050);
+  //    left: -20%;
+  //    @media screen and (max-width: $mobileWidth + px) {
+  //      left: -100%;
+  //    }
+  //  }
+  //}
   .page-head {
     @include adaptive(height, 817, 690);
   }

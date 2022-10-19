@@ -8,8 +8,8 @@ block header
     include ../includes/mixins.pug
 block main
     main.index
-        .decor._1
-        .decor._2
+        //.decor._1
+        //.decor._2
         .page-head
             .page-head-background
                 img(src="./img/index/page-head.jpg", alt=".")
@@ -24,6 +24,11 @@ block main
                     h3 CESCA – инновационный ИТ&#8209;интегратор, представленный на рынке ИТ&#8209;услуг широкого профиля с 2014 года.
         .separator._horizontal._small._transparent
         section.section-2._with-box
+            .decor._bottom._right
+                .decor-part
+                .decor-part
+                .decor-part
+                .decor-part
             .box
                 .box-item._width30
                     a.button-arrow._type-1._size-1._border(href='projects.html')
@@ -107,7 +112,12 @@ block main
                             p._p1 CELERI – комплекс управления группой дронов
                             .button-arrow._type-2._size-3
         .separator._horizontal._medium._transparent
-        section.section-6._with-box
+        section.section-6._with-box._minus-z
+            .decor._bottom._left
+                .decor-part
+                .decor-part
+                .decor-part
+            .decor-part
             h4 Партнеры CESCA
             .separator._horizontal._small._transparent
             .box._wrap

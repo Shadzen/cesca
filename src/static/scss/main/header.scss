@@ -50,6 +50,9 @@
 
 .header-main-right {
   width: 12.7%;
+  @media screen and (max-width: $mobileWidth + px) {
+    display: none;
+  }
 }
 
 .header-main-links {

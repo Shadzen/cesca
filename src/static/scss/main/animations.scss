@@ -7,12 +7,39 @@
   }
 }
 
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes scale05to1 {
   from {
     transform: translate(-50%, -50%) scale(0.5);
   }
   to {
     transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fromWhiteToBlue {
+  from {
+    background-color: #fff;
+  }
+  to {
+    background-color: $color01;
+  }
+}
+
+@keyframes fromBlueToGray {
+  from {
+    background-color: $color01;
+  }
+  to {
+    background-color: #2B333A;
   }
 }
 

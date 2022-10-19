@@ -31,7 +31,7 @@ section {
   position: relative;
   width: 100%;
   @extend %defaultPaddings;
-  z-index: 2;
+  z-index: 8;
   &._with-box {
     @extend %alternatePaddings;
   }
@@ -39,13 +39,24 @@ section {
     @include adaptive(padding-left, 10, 10);
     @include adaptive(padding-right, 10, 10);
   }
+  &._minus-z {
+    z-index: 4;
+  }
 }
+
+//@for $i from 1 through 20 {
+//  .section-#{$i} {
+//    z-index: 20 - $i;
+//  }
+//}
 
 h1, h2, h3, h4 {
   font-family: $RalewayMedium;
   margin: 0;
   font-weight: 500;
   //letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -73,6 +84,8 @@ p, ul, li, input, textarea {
   margin: 0;
   line-height: 130%;
   font-weight: 400;
+  position: relative;
+  z-index: 1;
   @include adaptive(font-size, 22, 22);
   @include adaptive(margin-bottom, 14, 14);
   &._p1 {
@@ -151,26 +164,103 @@ ul {
 }
 
 .decor {
+  $animationDuration: 10;
   position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  z-index: 1;
   @include adaptive(width, 878, 878);
   @include adaptive(height, 878, 878);
-  background: $color01;
-  filter: blur(650px);
-  opacity: 0.8;
-  //width: 1780px;
-  //height: 1780px;
-  //
-  //background: radial-gradient(37.41% 37.41% at 50% 50%, #2E27EB 21.25%, rgba(46, 39, 235, 0) 100%);
+  z-index: 1;
+  &._top {
+
+  }
+  &._bottom {
+    bottom: -20%;
+  }
+  &._right {
+    right: -1%;
+  }
+  &._left {
+    left: -12%;
+  }
+  .decor-part {
+    position: absolute;
+    background: #2E27EB;
+    border-radius: 50%;
+    transform-origin: 37% 50%;
+    opacity: 0.25;
+    animation: rotate360 5s linear infinite;
+    filter: blur(650px);
+    &:nth-child(1) {
+      animation-duration: $animationDuration + s;
+      width: 115%;
+      height: 115%;
+    }
+    &:nth-child(2) {
+      animation-duration: $animationDuration * 2 + s;
+      width: 105%;
+      height: 105%;
+    }
+    &:nth-child(3) {
+      animation-duration: $animationDuration * 3 + s;
+      width: 110%;
+      height: 110%;
+    }
+    &:nth-child(4) {
+      animation-duration: $animationDuration * 4 + s;
+      width: 120%;
+      height: 120%;
+    }
+    &:nth-child(even) {
+      animation-direction: reverse;
+    }
+  }
 }
+
+
+//section._decor {
+//  //position: absolute;
+//  //top: 0;
+//  //left: 0;
+//  //border-radius: 50%;
+//  //z-index: 1;
+//
+//  //@include adaptive(width, 878, 878);
+//  //@include adaptive(height, 878, 878);
+//
+//  //background: $color01;
+//  //filter: blur(650px);
+//  //opacity: 0.8;
+//
+//  //background: radial-gradient(37.41% 37.41% at 50% 50%, #2E27EB 21.25%, rgba(46, 39, 235, 0) 100%);
+//
+//
+//
+//  &:before {
+//    content: '';
+//    position: absolute;
+//    display: block;
+//    pointer-events: none;
+//    @include adaptive(width, 1800, 1800);
+//    @include adaptive(height, 1800, 1800);
+//    //width: 1800px;
+//    //height: 1800px;
+//    background: url('../img/decor-1.svg') center /100% auto no-repeat;
+//  }
+//
+//  &._right:before {
+//    right: -25%;
+//  }
+//  &._left:before {
+//    left: -25%;
+//  }
+//  &._bottom:before {
+//    top: -150%;
+//  }
+//}
 
 .separator {
   display: inline-block;
   position: relative;
-  z-index: 2;
+  z-index: 9;
   &._horizontal {
     height: 1px;
     width: 100%;
@@ -309,7 +399,10 @@ body {
     }
     .separator._horizontal:before,
     .langs .separator, {
-      background: #fff;
+      background-color: #fff;
+    }
+    .separator._horizontal:before {
+      animation: fromWhiteToBlue 5s linear alternate infinite;
     }
     form {
       input, textarea {
@@ -344,7 +437,8 @@ body {
       background: #2B333A;
     }
     .separator._horizontal:before {
-      background: $color01;
+      background-color: $color01;
+      animation: fromBlueToGray 5s linear alternate infinite;
     }
   }
 }

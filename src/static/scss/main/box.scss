@@ -1,7 +1,9 @@
 .box {
+  position: relative;
   @extend %flexStart;
   align-items: flex-start;
   width: 100%;
+  z-index: 2;
   &._directionColumn {
     flex-direction: column;
   }
