@@ -424,9 +424,6 @@
 
 body {
   &.black {
-    .header-background {
-      background: #000;
-    }
     .box {
       .box-item {
         &._glow {
@@ -438,9 +435,6 @@ body {
     }
   }
   &.white {
-    .header-background {
-      background: #F6F6FF;
-    }
     .box {
       .box-item {
         &._glow {
