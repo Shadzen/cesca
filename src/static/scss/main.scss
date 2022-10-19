@@ -298,6 +298,7 @@ ul {
   &._transparent {
     &:before {
       background: transparent !important;
+      animation: none !important;
     }
   }
 }
