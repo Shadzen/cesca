@@ -188,7 +188,7 @@ ul {
     transform-origin: 37% 50%;
     opacity: 0.25;
     animation: rotate360 5s linear infinite;
-    filter: blur(650px);
+    filter: blur(100px);
     &:nth-child(1) {
       animation-duration: $animationDuration + s;
       width: 115%;
