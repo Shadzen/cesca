@@ -24,6 +24,19 @@
     }
 }
 
+@mixin adaptiveBoxShadow($value1, $value2, $color) {
+    box-shadow: inset 0 0 calc(100vw / (#{$defaultWidth} / #{$value1})) $color;
+    //@media (min-aspect-ratio: 21/9) {
+    //    #{$parameter}: calc(75vw / (#{$defaultWidth} / #{$value1}));
+    //}
+    //@media screen and (max-width: $mobileWidth + px) {
+    //    #{$parameter}: calc(100vw / (#{$mobileWidth} / #{$value2}));
+    //    @media (min-aspect-ratio: 21/9) {
+    //        #{$parameter}: calc(75vw / (#{$mobileWidth} / #{$value2}));
+    //    }
+    //}
+}
+
 %defaultPaddings {
     @include adaptive(padding-left, 40, 20);
     @include adaptive(padding-right, 40, 20);

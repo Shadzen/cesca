@@ -97,6 +97,10 @@ p, ul, li, input, textarea {
   }
 }
 
+a {
+  outline: none;
+}
+
 ul {
   padding: 0;
   margin-left: 7%;
@@ -297,6 +301,7 @@ ul {
   }
   &._transparent {
     &:before {
+      height: 0 !important;
       background: transparent !important;
       animation: none !important;
     }

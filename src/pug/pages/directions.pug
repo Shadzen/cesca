@@ -21,7 +21,7 @@ block main
                     a.button._type-1._size-6(href='#')
                         span Задать вопрос
         .separator._horizontal._medium._transparent
-        section.section-slider-nav._with-box
+        section.section-slider-nav._with-box._minus-z
             .box._wrap
                 .box-item._width50
                     .slider.slider-directions-info
@@ -186,11 +186,11 @@ block main
                         .separator._horizontal._small._transparent
                         section.section-switch-2._with-box
                             .box._wrap
-                                mixin sectionSwitch2BoxItem(number, text)
+                                mixin sectionSwitch2BoxItem(number, text, classes)
                                     .box-item._width16._center-content._border._round-corners
                                         .box-item-inner
                                             .box-item-info
-                                                h1.box-item-info-title= number
+                                                h1.box-item-info-title(class=classes)= number
                                                 span.box-item-info-text
                                                     p= text
                                 +sectionSwitch2BoxItem('1', 'Бесперебойная работа сервисов', 'dancing-number _1')
