@@ -48,13 +48,10 @@
     transform: rotate(0);
   }
   25% {
-    transform: rotate(20deg);
-  }
-  50% {
-    transform: rotate(0);
+    transform: rotate(10deg);
   }
   75% {
-    transform: rotate(-20deg);
+    transform: rotate(-10deg);
   }
   to {
     transform: rotate(0);

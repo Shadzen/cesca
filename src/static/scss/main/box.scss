@@ -88,12 +88,12 @@
     }
     &._center-content {
       .box-item-content {
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         img {
           height: auto;
-          width: 100%;
-          margin-right: 7%;
+          width: 80%;
+          //margin-right: 7%;
         }
       }
       .box-item-info {
@@ -319,7 +319,7 @@
       &._width100 {
         width: 100% !important;
         .box-item-content {
-          width: 90% !important;
+          width: 100% !important;
         }
         .box-item-info-title {
           width: 90% !important;

@@ -24,17 +24,30 @@
     }
 }
 
-@mixin adaptiveBoxShadow($value1, $value2, $color) {
-    box-shadow: inset 0 0 calc(100vw / (#{$defaultWidth} / #{$value1})) $color;
-    //@media (min-aspect-ratio: 21/9) {
-    //    #{$parameter}: calc(75vw / (#{$defaultWidth} / #{$value1}));
-    //}
-    //@media screen and (max-width: $mobileWidth + px) {
-    //    #{$parameter}: calc(100vw / (#{$mobileWidth} / #{$value2}));
-    //    @media (min-aspect-ratio: 21/9) {
-    //        #{$parameter}: calc(75vw / (#{$mobileWidth} / #{$value2}));
-    //    }
-    //}
+//@mixin adaptiveBoxShadow($value1, $value2, $color) {
+//    box-shadow: inset 0 0 calc(100vw / (#{$defaultWidth} / #{$value1})) $color;
+//    @media (min-aspect-ratio: 21/9) {
+//        box-shadow: inset 0 0 calc(75vw / (#{$defaultWidth} / #{$value1})) $color;
+//    }
+//    @media screen and (max-width: $mobileWidth + px) {
+//        box-shadow: inset 0 0 calc(100vw / (#{$mobileWidth} / #{$value2})) $color;
+//        @media (min-aspect-ratio: 21/9) {
+//            box-shadow: inset 0 0 calc(75vw / (#{$mobileWidth} / #{$value2})) $color;
+//        }
+//    }
+//}
+
+@mixin adaptiveBlur($value1, $value2) {
+    filter: blur( calc(100vw / (#{$defaultWidth} / #{$value1})));
+    @media (min-aspect-ratio: 21/9) {
+        filter: blur( calc(75vw / (#{$defaultWidth} / #{$value1})));
+    }
+    @media screen and (max-width: $mobileWidth + px) {
+        filter: blur( calc(100vw / (#{$mobileWidth} / #{$value2})));
+        @media (min-aspect-ratio: 21/9) {
+            filter: blur( calc(75vw / (#{$mobileWidth} / #{$value2})));
+        }
+    }
 }
 
 %defaultPaddings {

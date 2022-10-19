@@ -170,20 +170,35 @@ ul {
 .decor {
   $animationDuration: 10;
   position: absolute;
-  @include adaptive(width, 878, 878);
-  @include adaptive(height, 878, 878);
+  @include adaptive(width, 1200, 800);
+  @include adaptive(height, 1200, 800);
   z-index: 1;
   &._top {
 
   }
+  //&._bottom {
+  //  bottom: -130%;
+  //}
+  //&._right {
+  //  right: -40%;
+  //}
   &._bottom {
-    bottom: -20%;
+    bottom: 0;
+    margin-bottom: -25%;
   }
   &._right {
-    right: -1%;
+    right: 0;
+    margin-right: -40%;
+    @media screen and (max-width: $mobileWidth + px) {
+      margin-right: -100%;
+    }
   }
   &._left {
-    left: -12%;
+    left: 0;
+    margin-left: -40%;
+    @media screen and (max-width: $mobileWidth + px) {
+      margin-left: -100%;
+    }
   }
   .decor-part {
     position: absolute;
@@ -192,7 +207,8 @@ ul {
     transform-origin: 37% 50%;
     opacity: 0.25;
     animation: rotate360 5s linear infinite;
-    filter: blur(300px);
+    //filter: blur(800px);
+    @include adaptiveBlur(200, 100);
     &:nth-child(1) {
       animation-duration: $animationDuration + s;
       width: 115%;
