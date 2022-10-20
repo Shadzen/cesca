@@ -301,16 +301,24 @@
 }
 
 .menu-button {
+  $width: 54;
+  $height: 22;
   position: relative;
-  @include adaptive(width, 54, 54);
-  @include adaptive(height, 22, 22);
-  //width: 54px;
-  //height: 22px;
+  @include adaptive(width, $width, $width);
+  @include adaptive(height, $width, $width);
+  @include adaptive(padding-top, ($width - $height) / 2, ($width - $height) / 2);
+  @include adaptive(padding-bottom, ($width - $height) / 2, ($width - $height) / 2);
   cursor: pointer;
   transition: all 0.25s ease;
   transform-origin: center;
   z-index: 89;
-  div, &:before, &:after {
+  .menu-button-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: inherit;
+  }
+  .menu-button-part, .menu-button-inner:before, .menu-button-inner:after {
     position: absolute;
     right: 0;
     transition: inherit;
@@ -318,41 +326,43 @@
     background-color: $color01;
     width: 100%;
     @include adaptive(height, 4, 4);
-    //height: 4px;
   }
-  .menu-button-top {
-    top: 0;
-    width: 74.1%;
+  .menu-button-part {
+    &._top {
+      top: 0;
+      width: 74.1%;
+    }
+    &._bot {
+      bottom: 0;
+      width: 81.49%;
+    }
   }
-  .menu-button-bot {
-    bottom: 0;
-    width: 81.49%;
-  }
-  &:before, &:after {
+  .menu-button-inner:before, .menu-button-inner:after {
     content: '';
     top: 50%;
     transform: translateY(-50%);
   }
   &:hover {
-    .menu-button-top {
-      top: 0;
-      width: 81.49%;
-    }
-    .menu-button-bot {
-      bottom: 0;
-      width: 74.1%;
+    .menu-button-part {
+      &._top {
+        top: 0;
+        width: 81.49%;
+      }
+      &._bot {
+        bottom: 0;
+        width: 74.1%;
+      }
     }
   }
-  &.menu-open {
-    transform: rotate(45deg);
-    //div, &:before, &:after {
-    //  height: 6px;
-    //}
-    div {
-      background-color: transparent;
-    }
-    &:after {
-      transform: translateY(-50%) rotate(-90deg);
+  &._menu-open {
+    .menu-button-inner {
+      transform: rotate(45deg);
+      .menu-button-part {
+        background-color: transparent;
+      }
+      &:after {
+        transform: translateY(-50%) rotate(-90deg);
+      }
     }
   }
 }

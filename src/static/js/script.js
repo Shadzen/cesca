@@ -188,7 +188,7 @@ popupOwners.forEach(owner => {
 
 
 $('.menu-button').on('click', function (e) {
-    $(this).toggleClass('menu-open')
+    $(this).toggleClass('_menu-open')
     $('body').toggleClass('_lock _disable-scrolling')
     $('.header').toggleClass('_show-menu')
 })
