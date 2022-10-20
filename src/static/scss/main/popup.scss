@@ -14,6 +14,13 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  @media screen and (max-width: $mobileWidth + px) {
+    width: 100vw !important;
+    height: 100vh !important;
+    //top: 0;
+    //left: 0;
+    //animation: opacity0to1 0.5s ease forwards, scale05to1 0.5s ease forwards;
+  }
   .popup-content-inner {
     position: relative;
     width: 100%;
@@ -41,7 +48,6 @@
     @include adaptive(margin-bottom, 40, 40);
     width: auto;
   }
-
   &._news {
     @include adaptive(width, 1840, 1840);
     .popup-content-title {
@@ -53,18 +59,12 @@
       }
     }
   }
-
   &._darken:before {
     content: '';
     display: block;
     @extend %absDefault;
     background: #000;
     opacity: 0.5;
-  }
-
-  @media screen and (max-width: $mobileWidth + px) {
-    width: 100% !important;
-    height: 100vh !important;
   }
 }
 
