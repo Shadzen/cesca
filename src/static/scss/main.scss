@@ -68,6 +68,10 @@ h1 {
 h2 {
   @include adaptive(font-size, 92, 46);
   line-height: 105%;
+  .logo-2 {
+    @include adaptive(min-width, 340, 170);
+    @include adaptive(padding-left, 18, 9);
+  }
 }
 
 h3 {
@@ -78,6 +82,10 @@ h3 {
 h4 {
   @include adaptive(font-size, 47, 32);
   line-height: 118%;
+  .logo-2 {
+    @include adaptive(min-width, 180, 122);
+    @include adaptive(padding-left, 13, 8);
+  }
 }
 
 p, ul, li, input, textarea {
@@ -107,6 +115,11 @@ ul {
   margin-left: 7%;
 }
 
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
 ._bold {
   font-weight: 600;
 }
@@ -130,8 +143,11 @@ ul {
 .logo-2 {
   display: inline-block;
   border-radius: 160px;
-  padding: 0 2%;
-  margin: 0 2%;
+  //padding-: 0 2%;
+  //margin: 0 2%;
+  @include adaptive(margin-left, 13, 8);
+  @include adaptive(margin-right, 13, 8);
+  color: #fff !important;
    * {
      color: #fff !important;
    }

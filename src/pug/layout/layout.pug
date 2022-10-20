@@ -7,8 +7,9 @@ html(lang="ru-RU")
         title #{title}
         include ./links.pug
     body(class=bodyClass)
-        block header
+        .container
+            block header
 
-        block main
+            block main
 
-        block footer
+            block footer

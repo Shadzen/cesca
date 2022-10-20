@@ -2,14 +2,15 @@
   .section-2 {
     .box-item {
       @include adaptive(height, 552, 236);
-      //@media screen and (max-width: $mobileWidth + px) {
-      //  &:nth-child(1) {
-      //    order: 2;
-      //  }
-      //  &:nth-child(2) {
-      //    order: 1;
-      //  }
-      //}
+      @media screen and (max-width: $mobileWidth + px) {
+        &:nth-child(1) {
+          order: 2;
+          @include adaptive(margin-top, 15, 15);
+        }
+        &:nth-child(2) {
+          order: 1;
+        }
+      }
     }
   }
   .section-3 {

@@ -141,6 +141,10 @@
   flex-direction: column;
   @media screen and (max-width: $mobileWidth + px) {
     align-items: center;
+    padding-bottom: calc(100vw / (#{$mobileWidth} / 96)) !important;
+    @media (min-aspect-ratio: 21/9) {
+      padding-bottom: calc(75vw / (#{$mobileWidth} / 96)) !important;
+    }
   }
   > .button {
     display: none;

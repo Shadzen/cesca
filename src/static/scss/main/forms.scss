@@ -5,6 +5,12 @@
 //  }
 //}
 
+textarea,
+input[type="text"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
 form {
   input, textarea {
     width: 100%;
