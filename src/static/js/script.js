@@ -171,9 +171,9 @@ popupOwners.forEach(owner => {
                 classes: 'popup-content-inner',
                 innerHTML: popupContent,
             })
-            $('body').addClass('_show-popup')
+            $('body').addClass('_disable-scrolling')
             let closePopup = () => {
-                $('body').removeClass('_show-popup')
+                $('body').removeClass('_disable-scrolling')
                 shadowLayer.remove()
                 popup.remove()
             }
@@ -189,20 +189,35 @@ popupOwners.forEach(owner => {
 
 $('.menu-button').on('click', function (e) {
     $(this).toggleClass('menu-open')
-    $('body').toggleClass('_lock')
+    $('body').toggleClass('_lock _disable-scrolling')
     $('.header').toggleClass('_show-menu')
 })
 
-let submenuLinks = document.querySelectorAll('._submenu')
-let submenus = document.querySelectorAll('.header-menu-submenu')
 
-submenuLinks.forEach((link, idx) => {
-    $(link).on('click', e => {
-        e.preventDefault()
-        submenus.forEach(menu => menu.style.display = 'none')
-        submenus[idx].style.display = 'flex'
-    })
+$('._has-submenu').on('click', function (e) {
+    e.preventDefault()
+    // $(this).toggleClass('_active')
+    // console.log(e.currentTarget)
+    // console.log(this)
+    if (this.classList.contains('_active')) {
+        $(this).removeClass('_active')
+    } else {
+        $('._has-submenu').removeClass('_active')
+        $(this).addClass('_active')
+    }
+
 })
+
+// let submenuLinks = document.querySelectorAll('._submenu')
+// let submenus = document.querySelectorAll('.header-menu-submenu')
+//
+// submenuLinks.forEach((link, idx) => {
+//     $(link).on('click', e => {
+//         e.preventDefault()
+//         submenus.forEach(menu => menu.style.display = 'none')
+//         submenus[idx].style.display = 'flex'
+//     })
+// })
 
 // $('.become-partner-link').on('click', function (e) {
 //     $('.form-popup').show()

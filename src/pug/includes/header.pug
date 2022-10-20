@@ -6,7 +6,7 @@ header.header
         .header-main-middle
             a.button._type-1._size-1(href='#')
                 span Служба поддержки
-            .header-main-links
+            .header-contact-links
                 a(href='tel:+74951503845') +7 (495) 150-38-45
                 a(href='mailto:hello@cesca.ru') hello@cesca.ru
         .header-main-right
@@ -18,40 +18,67 @@ header.header
                 .menu-button-top
                 .menu-button-bot
     .header-menu
-        .header-menu-left
-            nav.header-menu-links
-                span.header-menu-link._submenu Направления
-                span.header-menu-link._submenu Разработки
-                a(href='products.html').header-menu-link Продукты
-                a(href='projects.html').header-menu-link проекты
-                a(href='news.html').header-menu-link Новости
-                a(href='vacancies.html').header-menu-link вакансии
-                a(href='contacts.html').header-menu-link контакты
-            span.separator._vertical
-        .header-menu-right
-            nav.header-menu-submenu
-                span.header-menu-link-wrap
-                    a(href='directions.html').header-menu-link ИКТ и инженерная инфраструктура
-                span.header-menu-link-wrap
-                    a(href='directions.html').header-menu-link Разработка программного обеспечения
-                span.header-menu-link-wrap
-                    a(href='directions.html').header-menu-link Интеграция, управление и безопасность
-                span.header-menu-link-wrap
-                    a(href='directions.html').header-menu-link Поставка IT и телеком оборудования
-                span.header-menu-link-wrap
-                    a(href='directions.html').header-menu-link Прикладные и бизнес-решения
-                span.header-menu-link-wrap
-                    a(href='directions.html').header-menu-link Разработка высокотехнологичного адаптивного оборудования
-            nav.header-menu-submenu
-                span.header-menu-link-wrap
-                    a(href='#').header-menu-link Разработка 1
-                span.header-menu-link-wrap
-                    a(href='#').header-menu-link Разработка 2
-                span.header-menu-link-wrap
-                    a(href='#').header-menu-link Разработка 3
-                span.header-menu-link-wrap
-                    a(href='#').header-menu-link Разработка 4
-                span.header-menu-link-wrap
-                    a(href='#').header-menu-link Разработка 5
-                span.header-menu-link-wrap
-                    a(href='#').header-menu-link Разработка 6
+        .header-menu-inner
+            .header-contact-links
+                a(href='tel:+74951503845') +7 (495) 150-38-45
+                a(href='mailto:hello@cesca.ru') hello@cesca.ru
+            nav.header-menu-items
+                .separator._vertical
+                .header-menu-item
+                    a(href='directions.html').header-menu-link._has-submenu._active
+                        span Направления
+                        span.header-submenu-arrow
+                    .submenu
+                        .submenu-links
+                            a(href='directions.html').submenu-link ИКТ и инженерная инфраструктура
+                            a(href='directions.html').submenu-link Разработка программного обеспечения
+                            a(href='directions.html').submenu-link Интеграция, управление и безопасность
+                            a(href='directions.html').submenu-link Поставка IT и телеком оборудования
+                            a(href='directions.html').submenu-link Прикладные и бизнес-решения
+                            a(href='directions.html').submenu-link Разработка высокотехнологичного адаптивного оборудования
+                        a.button._type-3(href='directions.html')
+                            span Смотреть все направления
+                .header-menu-item
+                    a(href='developments.html').header-menu-link._has-submenu
+                        span Разработки
+                        span.header-submenu-arrow
+                    .submenu
+                        .submenu-links
+                            a(href='developments.html').submenu-link Разработка и инженерная инфраструктура
+                            a(href='developments.html').submenu-link Разработка программного обеспечения
+                            a(href='developments.html').submenu-link Разработка, управление и безопасность
+                            a(href='developments.html').submenu-link Разработка IT и телеком оборудования
+                        a.button._type-3(href='developments.html')
+                            span Смотреть все разработки
+                .header-menu-item
+                    a(href='products.html').header-menu-link._has-submenu
+                        span Продукты
+                        span.header-submenu-arrow
+                    .submenu
+                        .submenu-links
+                            a(href='product.html').submenu-link Система мониторинга климатических условий серверной стойки и управления доступом AURA
+                            a(href='product.html').submenu-link CELERI – комплекс управления группой дронов
+                        a.button._type-3(href='products.html')
+                            span Смотреть все продукты
+                .header-menu-item
+                    a(href='projects.html').header-menu-link
+                        span проекты
+                        span.header-submenu-arrow
+                .header-menu-item
+                    a(href='news.html').header-menu-link
+                        span Новости
+                        span.header-submenu-arrow
+                .header-menu-item
+                    a(href='vacancies.html').header-menu-link
+                        span вакансии
+                        span.header-submenu-arrow
+                .header-menu-item
+                    a(href='contacts.html').header-menu-link
+                        span контакты
+                        span.header-submenu-arrow
+            a.button._type-1(href='#')
+                span Служба поддержки
+            .langs
+                a.lang._current(href='#') RU
+                span.separator._vertical
+                a.lang(href='#') EN
