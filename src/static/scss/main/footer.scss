@@ -3,7 +3,7 @@
   @include adaptive(height, 390, 390);
   position: relative;
   width: 100%;
-  z-index: 99;
+  z-index: 4;
   @media screen and (max-width: $mobileWidth + px) {
     height: auto !important;
   }

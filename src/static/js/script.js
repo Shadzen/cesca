@@ -208,6 +208,22 @@ $('._has-submenu').on('click', function (e) {
 
 })
 
+
+
+// function myFunction(x) {
+//     if (x.matches) { // If media query matches
+//         document.body.style.backgroundColor = "yellow";
+//     } else {
+//         document.body.style.backgroundColor = "pink";
+//     }
+// }
+//
+// var x = window.matchMedia("(min-aspect-ratio: 21/9)")
+// myFunction(x) // Call listener function at run time
+// x.addEventListener('change', myFunction) // Attach listener function on state changes
+
+
+
 // let submenuLinks = document.querySelectorAll('._submenu')
 // let submenus = document.querySelectorAll('.header-menu-submenu')
 //

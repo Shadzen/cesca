@@ -59,4 +59,7 @@ body.white {
     background-color: $color01;
     animation: fromBlueToGray 5s linear alternate infinite;
   }
+  .decor {
+    display: none;
+  }
 }
