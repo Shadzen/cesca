@@ -89,11 +89,11 @@
 
   //transform: translateY(100%);
 
-  //@include adaptive(padding, 80, 20);
-  @include adaptive(padding-top, 48, 20);
-  @include adaptive(padding-right, 80, 20);
-  @include adaptive(padding-bottom, 48, 20);
-  @include adaptive(padding-left, 80, 20);
+  @include adaptive(padding, 80, 20);
+  //@include adaptive(padding-top, 48, 20);
+  //@include adaptive(padding-right, 80, 20);
+  //@include adaptive(padding-bottom, 48, 20);
+  //@include adaptive(padding-left, 80, 20);
   background-color: #fff;
   transition: transform .25s ease;
   z-index: 80;
@@ -124,10 +124,22 @@
   .header-menu-item .button, .lang._current {
     color: #000 !important;
   }
-  .separator {
-    background-color: #000 !important;
+  //.separator {
+  //  background-color: #000 !important;
+  //}
+}
+
+.submenu .button {
+  color: #000;
+  transition: color 0.25s linear;
+  &:hover {
+    color: $color01;
+    @media screen and (max-width: $mobileWidth + px) {
+      color: #000;
+    }
   }
 }
+
 
 .header-menu-inner {
   position: relative;
@@ -137,10 +149,11 @@
   overflow: hidden;
   overflow-y: scroll;
   @extend %flexStart;
-  align-items: flex-start;
-  flex-direction: column;
+  align-items: stretch;
   @media screen and (max-width: $mobileWidth + px) {
     align-items: center;
+    flex-direction: column;
+    max-height: unset;
     padding-bottom: calc(100vw / (#{$mobileWidth} / 96)) !important;
     @media (min-aspect-ratio: 21/9) {
       padding-bottom: calc(75vw / (#{$mobileWidth} / 96)) !important;
@@ -185,30 +198,24 @@
   @extend %flexStart;
   flex-direction: column;
   width: 17%;
-  //border-right: 1px solid #D3D3D3;
+  border-right: 1px solid #D3D3D3;
   @media screen and (max-width: $mobileWidth + px) {
     width: 100%;
     border: none;
   }
-  .header-menu-link, .submenu-link {
-    transition: color 0.25s linear;
-    &:hover {
-      color: $color01;
-    }
-  }
-  .separator {
-    position: absolute;
-    display: block;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    background-color: #D3D3D3 !important;
-    height: 90%;
-    width: 1px;
-    @media screen and (max-width: $mobileWidth + px) {
-      display: none;
-    }
-  }
+  //.separator {
+  //  position: absolute;
+  //  display: block;
+  //  top: 50%;
+  //  right: 0;
+  //  transform: translateY(-50%);
+  //  background-color: #D3D3D3 !important;
+  //  height: 90%;
+  //  width: 1px;
+  //  @media screen and (max-width: $mobileWidth + px) {
+  //    display: none;
+  //  }
+  //}
   .header-menu-item {
     position: relative;
     display: flex;
@@ -216,75 +223,42 @@
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
-    //@include adaptive(margin-top, 62, 62);
-    //&:first-child {
-    //  margin-top: 0;
-    //}
-    //@media screen and (max-width: $mobileWidth + px) {
-    //  border-top: 1px solid #E5E5E5;
-    //  border-bottom: 1px solid #E5E5E5;
-    //}
-
+    @include adaptive(margin-top, 62, 62);
+    &:first-child {
+      margin-top: 0;
+    }
+    @media screen and (max-width: $mobileWidth + px) {
+      margin: 0;
+    }
 
 
 
     .submenu {
       display: none;
-      position: absolute;
-      top: 0;
-      left: 100%;
-
-
-      @include adaptive(padding-top, 30, 30);
-      @include adaptive(padding-bottom, 30, 30);
-      @include adaptive(padding-left, 60, 60);
-      height: 700%;
-      width: 490%;
-      justify-content: space-between;
+      position: relative;
       align-items: flex-start;
+      justify-content: flex-start;
       flex-direction: column;
+      width: 100%;
       pointer-events: none;
       transition: max-height 0.25s ease-out;
       overflow: hidden;
-      animation: opacity0to1 .25s ease forwards;
+      max-height: 0;
       @media screen and (max-width: $mobileWidth + px) {
-        display: flex !important;
-        justify-content: flex-start;
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        width: 100% !important;
-        padding: 0 !important;
-        animation: none !important;
-        height: auto;
-        max-height: 0;
+        display: flex;
       }
     }
-    @for $i from 0 through 10 {
-      //.section-#{$i} {
-      //  z-index: 20 - $i;
-      //}
-      &:nth-child(#{$i + 1}) {
-        $incr: ($i - 1) * -84;
-        .submenu {
-          @include adaptive(top, $incr, $incr);
-        }
-      }
-    }
-    .submenu-links {
-      width: 100%;
-      position: relative;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      @media screen and (max-width: $mobileWidth + px) {
-        width: 85%;
-        height: auto;
-        flex-direction: column;
-        flex-wrap: nowrap;
-      }
-    }
+    //@for $i from 0 through 10 {
+    //  //.section-#{$i} {
+    //  //  z-index: 20 - $i;
+    //  //}
+    //  &:nth-child(#{$i + 1}) {
+    //    $incr: ($i - 1) * -84;
+    //    .submenu {
+    //      @include adaptive(top, $incr, $incr);
+    //    }
+    //  }
+    //}
   }
   .header-menu-link {
     @extend %flexCenter;
@@ -292,12 +266,14 @@
     font-weight: 500;
     @include adaptive(font-size, 20, 32);
     text-decoration: none;
-    color: #000000;
+    color: #000;
     cursor: pointer;
     text-transform: uppercase;
-    //@include adaptive(height, 22, 100);
+    @include adaptive(height, 22, 100);
     transition: border-color 0.25s linear, color 0.25s linear;
-    @include adaptive(height, 84, 100);
+    //@include adaptive(height, 84, 100);
+    //@include adaptive(margin-top, 30, 30);
+    //@include adaptive(margin-bottom, 30, 30);
     @media screen and (max-width: $mobileWidth + px) {
       width: 100%;
       //height: 100%;
@@ -324,7 +300,10 @@
         }
       }
     }
-    &._active {
+    &._open-desktop-submenu {
+      color: $color01;
+    }
+    &._open-mobile-submenu {
       color: $color01;
       @media screen and (max-width: $mobileWidth + px) {
         border-color: $color01;
@@ -340,22 +319,72 @@
       }
     }
   }
-  .submenu-link {
-    font-family: $RalewayRegular;
-    font-weight: 400;
-    @include adaptive(font-size, 20, 22);
-    text-decoration: none;
-    color: #000000;
-    cursor: pointer;
-    width: 50%;
-    @include adaptive(margin-bottom, 60, 60);
-    @include adaptive(padding-right, 84, 84);
+}
+
+.header-menu-link, .submenu-link {
+  transition: color 0.25s linear;
+  &:hover {
+    color: $color01;
     @media screen and (max-width: $mobileWidth + px) {
-      @include adaptive(margin-top, 40, 40);
-      margin-bottom: 0 !important;
-      padding-right: 0 !important;
-      width: 100%;
+      color: #000;
     }
+  }
+}
+
+.submenus-desktop {
+  display: flex;
+  justify-content: flex-end;
+  width: 83%;
+  .submenu {
+    display: none;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 100%;
+    width: 96%;
+    //pointer-events: none;
+    //transition: max-height 0.25s ease-out;
+    //overflow: hidden;
+    animation: opacity0to1 .25s ease forwards;
+    //&:nth-child(3) {
+    //  display: flex;
+    //}
+    @media screen and (max-width: $mobileWidth + px) {
+      display: none !important;
+    }
+  }
+}
+
+.submenu-links {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  @media screen and (max-width: $mobileWidth + px) {
+    width: 85%;
+    height: auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
+
+.submenu-link {
+  font-family: $RalewayRegular;
+  font-weight: 400;
+  @include adaptive(font-size, 20, 22);
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+  width: 50%;
+  @include adaptive(margin-bottom, 60, 60);
+  @include adaptive(padding-right, 84, 84);
+  @media screen and (max-width: $mobileWidth + px) {
+    @include adaptive(margin-top, 40, 40);
+    margin-bottom: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
   }
 }
 

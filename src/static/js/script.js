@@ -1,4 +1,54 @@
 $(document).ready(function () {
+    const headerMain = document.querySelector('.header-main')
+    const headerMenuInner = document.querySelector('.header-menu-inner')
+    const submenuOwners = headerMenuInner.querySelectorAll('._has-submenu')
+    const submenusDesktop = headerMenuInner.querySelector('.submenus-desktop')
+    let clonedSubmenus = []
+
+    // let isWideScreen = false
+    let isMobile = false
+
+    // let matchWideScreen = window.matchMedia('(min-aspect-ratio: 21/9)')
+    let matchMobile = window.matchMedia('(max-width: 480px)')
+
+    // Menu
+    function cloneMenuElements() {
+        const supportButton = headerMain.querySelector('.button')
+        const contactLinks = headerMain.querySelector('.header-contact-links')
+        const langs = headerMain.querySelector('.langs')
+        headerMenuInner.prepend(contactLinks.cloneNode(true))
+        headerMenuInner.appendChild(supportButton.cloneNode(true))
+        headerMenuInner.appendChild(langs.cloneNode(true))
+
+        const submenus = headerMenuInner.querySelectorAll('.submenu')
+        submenus.forEach(submenu => {
+            let clone = submenu.cloneNode(true)
+            clonedSubmenus.push(clone)
+            submenusDesktop.appendChild(clone)
+        })
+    }
+
+    cloneMenuElements()
+    submenuOwners.forEach((owner, idx) => {
+        $(owner).on('click', e => {
+            e.preventDefault()
+            if (isMobile) {
+                $(owner).toggleClass('_open-mobile-submenu')
+            } else {
+                $(submenuOwners).removeClass('_open-desktop-submenu')
+                $(owner).addClass('_open-desktop-submenu')
+                clonedSubmenus.forEach(s => s.style.display = 'none')
+                clonedSubmenus[idx].style.display = 'flex'
+            }
+        })
+    })
+    $('.menu-button').on('click', function (e) {
+        $(this).toggleClass('_menu-open')
+        $('body').toggleClass('_lock _disable-scrolling')
+        $('.header').toggleClass('_show-menu')
+    })
+
+    // Directions Page
     const sliderDirectionsNav = $('.slider-directions-nav')
     sliderDirectionsNav.slick({
         slidesToShow: 1,
@@ -16,6 +66,10 @@ $(document).ready(function () {
             </button>
         `,
     })
+
+    const refreshDirectionsNavSlider = () => {
+        if (sliderDirectionsNav && sliderDirectionsNav[0]) sliderDirectionsNav[0].slick.refresh()
+    }
 
     const sliderDirectionsInfo = document.querySelector('.slider-directions-info')
     let sliderDirectionsInfoSlides
@@ -73,9 +127,42 @@ $(document).ready(function () {
         })
     })
 
-    $(window).on('resize orientationchange', function() {
-        if (sliderDirectionsNav && sliderDirectionsNav[0]) sliderDirectionsNav[0].slick.refresh()
-    })
+    // $(window).on('resize orientationchange', function() {
+    //     if (sliderDirectionsNav && sliderDirectionsNav[0]) sliderDirectionsNav[0].slick.refresh()
+    // })
+
+
+
+    // function updateOnWideScreenChange(m) {
+    //     if (m.matches) {
+    //         isWideScreen = true
+    //     } else {
+    //         isWideScreen = false
+    //     }
+    // }
+
+    function updateOnMobileChange(m) {
+        refreshDirectionsNavSlider()
+        if (m.matches) {
+            isMobile = true
+            submenuOwners.forEach(owner => {
+                $(owner).removeClass('_open-mobile-submenu _open-desktop-submenu')
+            })
+        } else {
+            isMobile = false
+            submenuOwners.forEach(owner => {
+                $(owner).removeClass('_open-mobile-submenu _open-desktop-submenu')
+                $(submenuOwners[0]).addClass('_open-desktop-submenu')
+                clonedSubmenus.forEach(s => s.style.display = 'none')
+                clonedSubmenus[0].style.display = 'flex'
+            })
+        }
+    }
+
+    // updateOnWideScreenChange(matchWideScreen)
+    // matchWideScreen.addEventListener('change', updateOnWideScreenChange)
+    updateOnMobileChange(matchMobile)
+    matchMobile.addEventListener('change', updateOnMobileChange)
 })
 
 /* -------------------- Video Popup -------------------- */
@@ -187,66 +274,21 @@ popupOwners.forEach(owner => {
 
 
 
-$('.menu-button').on('click', function (e) {
-    $(this).toggleClass('_menu-open')
-    $('body').toggleClass('_lock _disable-scrolling')
-    $('.header').toggleClass('_show-menu')
-})
-
-
-$('._has-submenu').on('click', function (e) {
-    e.preventDefault()
-    // $(this).toggleClass('_active')
-    // console.log(e.currentTarget)
-    // console.log(this)
-    if (this.classList.contains('_active')) {
-        $(this).removeClass('_active')
-    } else {
-        $('._has-submenu').removeClass('_active')
-        $(this).addClass('_active')
-    }
-
-})
-
-
 
 // function myFunction(x) {
 //     if (x.matches) { // If media query matches
-//         document.body.style.backgroundColor = "yellow";
+//         document.body.style.backgroundColor = "yellow"
 //     } else {
-//         document.body.style.backgroundColor = "pink";
+//         document.body.style.backgroundColor = "pink"
 //     }
 // }
 //
 // var x = window.matchMedia("(min-aspect-ratio: 21/9)")
 // myFunction(x) // Call listener function at run time
 // x.addEventListener('change', myFunction) // Attach listener function on state changes
-
+//
 
 
 // let submenuLinks = document.querySelectorAll('._submenu')
 // let submenus = document.querySelectorAll('.header-menu-submenu')
 //
-// submenuLinks.forEach((link, idx) => {
-//     $(link).on('click', e => {
-//         e.preventDefault()
-//         submenus.forEach(menu => menu.style.display = 'none')
-//         submenus[idx].style.display = 'flex'
-//     })
-// })
-
-// $('.become-partner-link').on('click', function (e) {
-//     $('.form-popup').show()
-// })
-//
-// $('.form-close').on('click', function (e) {
-//     $('.form-popup').hide()
-// })
-//
-// $('.policy-link').on('click', function (e) {
-//     $('.policy-popup').show()
-// })
-//
-// $('.policy-close').on('click', function (e) {
-//     $('.policy-popup').hide()
-// })

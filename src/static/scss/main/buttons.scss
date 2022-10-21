@@ -303,11 +303,12 @@
 .menu-button {
   $width: 54;
   $height: 22;
+  $padding: calc(($width - $height) / 2);
   position: relative;
   @include adaptive(width, $width, $width);
   @include adaptive(height, $width, $width);
-  @include adaptive(padding-top, ($width - $height) / 2, ($width - $height) / 2);
-  @include adaptive(padding-bottom, ($width - $height) / 2, ($width - $height) / 2);
+  @include adaptive(padding-top, $padding, $padding);
+  @include adaptive(padding-bottom, $padding, $padding);
   cursor: pointer;
   transition: all 0.25s ease;
   transform-origin: center;
