@@ -117,7 +117,10 @@ ul {
 
 .container {
   position: relative;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
+  min-height: 100%;
 }
 
 ._bold {
@@ -147,8 +150,6 @@ ul {
 .logo-2 {
   display: inline-block;
   border-radius: 160px;
-  //padding-: 0 2%;
-  //margin: 0 2%;
   @include adaptive(margin-left, 13, 8);
   @include adaptive(margin-right, 13, 8);
   color: #fff !important;
@@ -257,48 +258,6 @@ ul {
   }
 }
 
-
-//section._decor {
-//  //position: absolute;
-//  //top: 0;
-//  //left: 0;
-//  //border-radius: 50%;
-//  //z-index: 1;
-//
-//  //@include adaptive(width, 878, 878);
-//  //@include adaptive(height, 878, 878);
-//
-//  //background: $color01;
-//  //filter: blur(650px);
-//  //opacity: 0.8;
-//
-//  //background: radial-gradient(37.41% 37.41% at 50% 50%, #2E27EB 21.25%, rgba(46, 39, 235, 0) 100%);
-//
-//
-//
-//  &:before {
-//    content: '';
-//    position: absolute;
-//    display: block;
-//    pointer-events: none;
-//    @include adaptive(width, 1800, 1800);
-//    @include adaptive(height, 1800, 1800);
-//    //width: 1800px;
-//    //height: 1800px;
-//    background: url('../img/decor-1.svg') center /100% auto no-repeat;
-//  }
-//
-//  &._right:before {
-//    right: -25%;
-//  }
-//  &._left:before {
-//    left: -25%;
-//  }
-//  &._bottom:before {
-//    top: -150%;
-//  }
-//}
-
 .separator {
   display: inline-block;
   position: relative;
@@ -395,6 +354,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   max-width: 100vw;
+  height: 100%;
   //@extend %flexSpaceBetween;
   //flex-direction: column;
   //min-height: 100vh;
@@ -430,13 +390,9 @@ body {
 }
 
 main {
-  //@extend %defaultPaddings;
   width: 100%;
-  //min-height: 100vh;
-  //overflow-x: hidden;
-  //background: url('../img/main-bg.jpg') 50% 50% /100% auto repeat-y;
   position: relative;
-  //margin: 0 auto;
+  flex: 1 1 auto;
   @include adaptive(padding-top, 130, 96);
   z-index: 8;
 }

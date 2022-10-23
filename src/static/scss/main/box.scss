@@ -22,12 +22,6 @@
     @include adaptive(margin-bottom, 20, 15);
     text-decoration: none;
     transition: transform 0.25s ease;
-    &:nth-child(even) {
-      z-index: 2;
-    }
-    &:nth-child(odd) {
-      z-index: 1;
-    }
     .box-item-inner {
       @extend %flexCenter;
       position: relative;
