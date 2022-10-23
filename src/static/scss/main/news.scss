@@ -2,6 +2,7 @@
   .section-news {
     .box-item {
       @include adaptive(height, 552, 336);
+      @include adaptive(min-height, 552, 336);
       &._width50 {
         .box-item-content {
           width: 80%;

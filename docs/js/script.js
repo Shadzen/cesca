@@ -5,10 +5,8 @@ $(document).ready(function () {
     const submenusDesktop = headerMenuInner.querySelector('.submenus-desktop')
     let clonedSubmenus = []
 
-    // let isWideScreen = false
     let isMobile = false
 
-    // let matchWideScreen = window.matchMedia('(min-aspect-ratio: 21/9)')
     let matchMobile = window.matchMedia('(max-width: 480px)')
 
     // Menu
@@ -127,22 +125,142 @@ $(document).ready(function () {
         })
     })
 
-    // $(window).on('resize orientationchange', function() {
-    //     if (sliderDirectionsNav && sliderDirectionsNav[0]) sliderDirectionsNav[0].slick.refresh()
-    // })
+    // Resizable Boxes
+    const resizableContainers = document.querySelectorAll('._resizable-boxes')
 
+    const resizeProps = {
+        duration: 0.5,
+        get delay() {
+            return this.duration * 1.5
+        },
+        expand: 96,
+        shrink: 4,
+    }
 
+    const resizedBoxes = new Set()
 
-    // function updateOnWideScreenChange(m) {
-    //     if (m.matches) {
-    //         isWideScreen = true
-    //     } else {
-    //         isWideScreen = false
-    //     }
-    // }
+    Set.prototype.isAnimationActive = function() {
+        let state = false
+        this.forEach(i => {
+            if ((i.tlExpand && i.tlExpand.isActive()) || (i.tlShrink && i.tlShrink.isActive())) state = true
+        })
+        return state
+    }
+    Set.prototype.normalize = function() {
+        this.forEach(i => i.normalizeBox())
+    }
 
+    Element.prototype.expandBox = function() {
+        if (this.shrinked) this.normalizeBox()
+
+        resizedBoxes.add(this)
+
+        this.expanded = true
+
+        this.classList.add('_expand', '_disable-pointer-animations')
+        let boxText = this.querySelector('.box-item-content-text')
+        this.tlExpand = gsap.timeline({reversed: true, paused: true})
+            .to(this, {
+                height: 'auto',
+                width: this.hasWidth100() || isMobile ? '100%' : resizeProps.expand + '%',
+                duration: resizeProps.duration,
+                delay: this.shrinked ? resizeProps.delay : 0,
+                onReverseComplete: () => {
+                    this.classList.remove('_disable-pointer-animations')
+                    this.removeAttribute('style')
+                    boxText.removeAttribute('style')
+                    this.tlExpand.pause().kill()
+                    this.expanded = false
+                },
+            })
+            .to(boxText, {opacity: 1, duration: resizeProps.duration / 2})
+        this.tlExpand.play()
+    }
+
+    Element.prototype.shrinkBox = function() {
+        if (this.expanded) this.normalizeBox()
+
+        resizedBoxes.add(this)
+
+        this.shrinked = true
+
+        this.classList.add('_shrink')
+        this.tlShrink = gsap.timeline({reversed: true, paused: true})
+            .to(this, {
+                width: resizeProps.shrink + '%',
+                duration: resizeProps.duration,
+                delay: this.expanded ? resizeProps.delay : 0,
+                onReverseComplete: () => {
+                    this.tlShrink.pause().kill()
+                    this.shrinked = false
+                },
+            })
+        this.tlShrink.play()
+    }
+    Element.prototype.normalizeBox = function() {
+        if (this.expanded) {
+            this.classList.remove('_expand')
+            this.tlExpand.reverse()
+        }
+        if (this.shrinked) {
+            this.classList.remove('_shrink')
+            this.tlShrink.reverse().delay(resizeProps.duration / 2)
+        }
+    }
+
+    resizableContainers.forEach(container => {
+        container.onclick = (e) => {
+
+            const target = e.target
+            let currentBox
+
+            if (target.closest('.box-item')) {
+                currentBox = target.closest('.box-item')
+                if (!currentBox) return
+                if (currentBox.tagName === 'A') e.preventDefault()
+
+                let prevBox = currentBox.previousElementSibling
+                let nextBox = currentBox.nextElementSibling
+
+                if (!currentBox.expanded) {
+                    if (resizedBoxes.isAnimationActive()) return
+                    if (!currentBox.shrinked && !isMobile) resizedBoxes.normalize()
+
+                    currentBox.expandBox()
+
+                    if (isNextResizable(prevBox, currentBox, nextBox)) {
+                        nextBox.shrinkBox()
+                    }
+
+                    if (isPrevResizable(prevBox, currentBox, nextBox)) {
+                        prevBox.shrinkBox()
+                    }
+                }
+            }
+            if (target.classList.contains('close-button') && currentBox) {
+                isMobile ? currentBox.normalizeBox() : resizedBoxes.normalize()
+            }
+
+        }
+    })
+
+    Element.prototype.hasWidth100 = function() {
+        return this.classList.contains('_width100')
+    }
+
+    const isPrevResizable = (prev, current, next) => {
+        if (!prev || prev.hasWidth100() || current.hasWidth100() || isMobile) return false
+        return !(current.offsetLeft === 0 && prev.offsetLeft > 0)
+    }
+
+    const isNextResizable = (prev, current, next) => {
+        if (!next || next.hasWidth100() || current.hasWidth100() || isMobile) return false
+        return (current.offsetLeft === 0 && next.offsetLeft > 0)
+    }
+    // Changes on mobile
     function updateOnMobileChange(m) {
         refreshDirectionsNavSlider()
+        resizedBoxes.normalize()
         if (m.matches) {
             isMobile = true
             submenuOwners.forEach(owner => {
@@ -152,15 +270,15 @@ $(document).ready(function () {
             isMobile = false
             submenuOwners.forEach(owner => {
                 $(owner).removeClass('_open-mobile-submenu _open-desktop-submenu')
-                $(submenuOwners[0]).addClass('_open-desktop-submenu')
-                clonedSubmenus.forEach(s => s.style.display = 'none')
-                clonedSubmenus[0].style.display = 'flex'
+                if (clonedSubmenus.length !== 0) {
+                    $(submenuOwners[0]).addClass('_open-desktop-submenu')
+                    clonedSubmenus.forEach(s => s.style.display = 'none')
+                    clonedSubmenus[0].style.display = 'flex'
+                }
             })
         }
     }
 
-    // updateOnWideScreenChange(matchWideScreen)
-    // matchWideScreen.addEventListener('change', updateOnWideScreenChange)
     updateOnMobileChange(matchMobile)
     matchMobile.addEventListener('change', updateOnMobileChange)
 })
@@ -270,25 +388,14 @@ popupOwners.forEach(owner => {
     })
 })
 
-
-
-
-
-
-// function myFunction(x) {
-//     if (x.matches) { // If media query matches
-//         document.body.style.backgroundColor = "yellow"
-//     } else {
-//         document.body.style.backgroundColor = "pink"
-//     }
+// const tl = gsap.timeline({reversed: true, paused:true})
+//     .set(".open", {autoAlpha:0})
+//     .to(".test", {height: "auto", duration: 0.5})
+//     .from(".list", {autoAlpha:0, x:50, duration:1})
+//
+//
+// document.querySelector(".test").addEventListener("click", toggle);
+//
+// function toggle() {
+//     tl.reversed() ? tl.play() : tl.reverse();
 // }
-//
-// var x = window.matchMedia("(min-aspect-ratio: 21/9)")
-// myFunction(x) // Call listener function at run time
-// x.addEventListener('change', myFunction) // Attach listener function on state changes
-//
-
-
-// let submenuLinks = document.querySelectorAll('._submenu')
-// let submenus = document.querySelectorAll('.header-menu-submenu')
-//

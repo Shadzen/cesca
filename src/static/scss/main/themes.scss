@@ -41,7 +41,8 @@ body.white {
   .box._menu-links .link {
     color: #2B333A;
   }
-  .section-news .box-item-content {
+  .section-news .box-item-content,
+  .section-news .box-item-content-resizable {
     h1, h2, h3, h4, p {
       color: #fff;
     }

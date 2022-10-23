@@ -15,16 +15,25 @@
     flex-grow: 1;
   }
   .box-item {
+    $resizeDuration: 0.5;
     position: relative;
     @include adaptive(padding-left, 10, 10);
     @include adaptive(padding-right, 10, 10);
     @include adaptive(margin-bottom, 20, 15);
-    transition: all 0.25s ease;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+    &:nth-child(even) {
+      z-index: 2;
+    }
+    &:nth-child(odd) {
+      z-index: 1;
+    }
     .box-item-inner {
       @extend %flexCenter;
       position: relative;
       width: 100%;
       height: 100%;
+      min-height: inherit;
       border-radius: 3px;
       overflow: hidden;
       background: linear-gradient(261.75deg, #2E27EB 39.98%, #080541 142.5%);
@@ -35,6 +44,16 @@
       @extend %absDefault;
       width: 100%;
       height: 100%;
+    }
+    .box-item-content-resizable {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
     }
     .box-item-inner > img, .box-item-image {
       display: none;
@@ -50,29 +69,81 @@
       width: 100%;
       height: auto;
     }
-    .box-item-content {
+    .box-item-image:after {
+      content: '';
+      display: block;
+      @extend %absDefault;
+      background: #000;
+      opacity: 0;
+      transition: opacity $resizeDuration + s linear;
+    }
+    .box-item-content, .box-item-content-resizable {
       flex-direction: column;
       align-items: flex-start;
       justify-content: space-between;
-      @include adaptive(padding, 44, 26);
+      @include adaptive(padding, 40, 20);
+    }
+    .box-item-content-resizable {
+      transition: opacity $resizeDuration / 5 + s $resizeDuration * 1.5 + s linear;
+      .box-item-content-title {
+        //width: 80%;
+        @include adaptive(margin-bottom, 60, 30);
+        @include adaptive(max-width, 660, 480);
+      }
+      .close-button {
+        @include adaptive(margin-top, 34, 14);
+        @include adaptive(margin-right, 34, 14);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity $resizeDuration + s $resizeDuration / 2 + s linear;
+        &:before, &:after {
+          background-color: #fff;
+        }
+      }
+      .button-arrow {
+        position: absolute;
+        @include adaptive(left, 40, 20);
+        @include adaptive(bottom, 31, 15);
+        transition: opacity $resizeDuration + s $resizeDuration / 2 + s linear;
+      }
     }
     .box-item-info {
       flex-direction: column;
       align-items: flex-start;
       justify-content: space-between;
       @include adaptive(padding, 32, 20);
-      .box-item-info-text {
-        @extend %flexSpaceBetween;
-        flex-wrap: wrap;
+    }
+    .box-item-info-text, .box-item-content-text {
+      @extend %flexSpaceBetween;
+      flex-wrap: wrap;
+      width: 100%;
+      p {
+        margin-bottom: 0;
+        @include adaptive(margin-top, 14, 14);
+      }
+    }
+    .box-item-content-text {
+      justify-content: flex-start;
+      opacity: 0;
+      overflow: hidden;
+      pointer-events: none;
+      @include adaptive(width, 1670, 330);
+      @media screen and (max-width: $mobileWidth + px) {
         width: 100%;
-        &:after {
-          content: '';
-          flex-grow: 1;
+      }
+      p {
+        width: 33.333%;
+        @include adaptive(padding-right, 40, 20);
+        @media screen and (max-width: $mobileWidth + px) {
+          width: 100%;
+          padding: 0;
         }
-        p {
-          margin-bottom: 0;
-          @include adaptive(margin-top, 14, 14);
-        }
+      }
+    }
+    .box-item-info-text {
+      &:after {
+        content: '';
+        flex-grow: 1;
       }
     }
     .box-item-date {
@@ -141,10 +212,6 @@
         .box-item-info {
           position: static;
         }
-        //.box-item-info {
-        //  padding-right: 0 !important;
-        //  padding-left: 0 !important;
-        //}
       }
     }
     &._border {
@@ -163,10 +230,6 @@
     }
     &._darken {
       .box-item-image:after {
-        content: '';
-        display: block;
-        @extend %absDefault;
-        background: #000;
         opacity: 0.35;
       }
     }
@@ -294,6 +357,38 @@
         }
       }
     }
+    &._expand {
+      cursor: auto;
+      user-select: text;
+      .box-item-image:after {
+        opacity: 0.5;
+      }
+      .box-item-content-resizable {
+        .close-button {
+          opacity: 1;
+          pointer-events: all;
+          transition: opacity $resizeDuration + s linear;
+        }
+        .button-arrow {
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity $resizeDuration + s linear;
+        }
+        .box-item-content-text {
+          pointer-events: all;
+        }
+        .button-arrow {
+          pointer-events: none;
+        }
+      }
+    }
+    &._shrink {
+      .box-item-content-resizable {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0 + s linear;
+      }
+    }
     @media screen and (max-width: $mobileWidth + px) {
       &:last-child {
         margin-bottom: 0 !important;
@@ -318,7 +413,7 @@
       &._width80,
       &._width100 {
         width: 100% !important;
-        .box-item-content {
+        .box-item-content, .box-item-content-resizable {
           width: 100% !important;
         }
         .box-item-info-title {
@@ -415,10 +510,15 @@
     &:active {
       transform: scale(0.98) !important;
     }
+    &._disable-pointer-animations {
+      &:hover, &:active {
+        transform: scale(1) !important;
+      }
+    }
   }
 }
 
-.box, .box-item, .box-item-inner, .box-item-content, .box-item-info, .box-item-image {
+.box, .box-item, .box-item-inner, .box-item-content, .box-item-content-resizable, .box-item-info, .box-item-image {
   outline: none;
 }
 

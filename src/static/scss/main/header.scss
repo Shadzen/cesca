@@ -313,6 +313,7 @@
         max-height: 200vh;
         transition: max-height 0.25s ease-in;
         pointer-events: all;
+        overflow-y: scroll;
       }
       .header-submenu-arrow {
         transform: scaleY(-1);
