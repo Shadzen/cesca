@@ -133,8 +133,8 @@ $(document).ready(function () {
         get delay() {
             return this.duration * 1.5
         },
-        expand: 96,
-        shrink: 4,
+        expand: 95.95,
+        shrink: 3.95,
     }
 
     const resizedBoxes = new Set()
@@ -164,7 +164,7 @@ $(document).ready(function () {
                 height: 'auto',
                 width: this.hasWidth100() || isMobile ? '100%' : resizeProps.expand + '%',
                 duration: resizeProps.duration,
-                delay: this.shrinked ? resizeProps.delay : 0,
+                delay: this.shrinked ? resizeProps.delay : 0.01,
                 onReverseComplete: () => {
                     this.classList.remove('_disable-pointer-animations')
                     this.removeAttribute('style')
@@ -191,6 +191,7 @@ $(document).ready(function () {
                 duration: resizeProps.duration,
                 delay: this.expanded ? resizeProps.delay : 0,
                 onReverseComplete: () => {
+                    this.removeAttribute('style')
                     this.tlShrink.pause().kill()
                     this.shrinked = false
                 },
@@ -204,7 +205,7 @@ $(document).ready(function () {
         }
         if (this.shrinked) {
             this.classList.remove('_shrink')
-            this.tlShrink.reverse().delay(resizeProps.duration / 2)
+            this.tlShrink.reverse().delay(resizeProps.duration / 1.95)
         }
     }
 
