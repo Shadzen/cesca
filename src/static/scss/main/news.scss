@@ -8,6 +8,11 @@
           width: 80%;
         }
       }
+      @media screen and (max-width: $mobileWidth + px) {
+        &:hover, &:active {
+          transform: scale(1) !important;
+        }
+      }
     }
   }
 }
