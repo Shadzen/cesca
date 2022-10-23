@@ -84,7 +84,7 @@
       @include adaptive(padding, 40, 20);
     }
     .box-item-content-resizable {
-      transition: opacity $resizeDuration / 5 + s $resizeDuration * 1.5 + s linear;
+      transition: opacity calc($resizeDuration / 5) + s $resizeDuration * 1.5 + s linear;
       .box-item-content-title {
         //width: 80%;
         @include adaptive(margin-bottom, 60, 30);
@@ -95,7 +95,7 @@
         @include adaptive(margin-right, 34, 14);
         opacity: 0;
         pointer-events: none;
-        transition: opacity $resizeDuration + s $resizeDuration / 2 + s linear;
+        transition: opacity $resizeDuration + s calc($resizeDuration / 2) + s linear;
         &:before, &:after {
           background-color: #fff;
         }
@@ -104,7 +104,7 @@
         position: absolute;
         @include adaptive(left, 40, 20);
         @include adaptive(bottom, 31, 15);
-        transition: opacity $resizeDuration + s $resizeDuration / 2 + s linear;
+        transition: opacity $resizeDuration + s calc($resizeDuration / 2) + s linear;
       }
     }
     .box-item-info {
