@@ -283,55 +283,6 @@ $(document).ready(function () {
     matchMobile.addEventListener('change', updateOnMobileChange)
 })
 
-/* -------------------- Video Popup -------------------- */
-
-// (function ($) {
-//     $.fn.videoPopup = function () {
-//         return this.each(function () {
-//             var video = $(this).attr("data-media")
-//             if (video) {
-//                 $(this).on("click", function () {
-//                     $("body").append(
-//                         '<div class="card-video-popup">' +
-//                         '<div class="close close-video-popup"></div>' +
-//                         '<video autoplay><source src="' + video + '" type="video/mp4" />Your browser does not support this video format.</video>' +
-//                         '</div>'
-//                     )
-//                 })
-//             }
-//             $(this).on('click', function (event) {
-//                 event.preventDefault()
-//                 $(".close-video-popup, .card-video-popup").click(function (event) {
-//                     if (event.target.tagName !== 'VIDEO') $(".card-video-popup").remove()
-//                 })
-//             })
-//             $(document).keyup(function (event) {
-//                 if (event.keyCode === 27) {
-//                     $(".card-video-popup").remove()
-//                 }
-//             })
-//         })
-//     }
-// }(jQuery))
-//
-// $(".card-video-link").videoPopup()
-// $(".instruction-link").videoPopup()
-
-//------------------------------ Elements ------------------------------//
-
-// $('.selected').on('click', function (e) {
-//     var select = this.parentNode
-//     if (select.classList.contains('close')) {
-//         select.classList.remove('close')
-//         select.classList.add('open')
-//         select.style.height = $('.select-option').length * 100 + '%'
-//     } else if (select.classList.contains('open')) {
-//         select.classList.remove('open')
-//         select.classList.add('close')
-//         select.style.height = 100 + '%'
-//     }
-// })
-
 function createEl({where = document.body, tag = 'div', elId,  classes, styles, innerHTML, innerText}) {
     let el = document.createElement(tag)
     if (elId) el.id = elId
@@ -388,14 +339,3 @@ popupOwners.forEach(owner => {
     })
 })
 
-// const tl = gsap.timeline({reversed: true, paused:true})
-//     .set(".open", {autoAlpha:0})
-//     .to(".test", {height: "auto", duration: 0.5})
-//     .from(".list", {autoAlpha:0, x:50, duration:1})
-//
-//
-// document.querySelector(".test").addEventListener("click", toggle);
-//
-// function toggle() {
-//     tl.reversed() ? tl.play() : tl.reverse();
-// }
