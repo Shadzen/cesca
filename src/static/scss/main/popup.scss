@@ -19,15 +19,15 @@
   background: #fff;
   @include adaptive(width, 680, 680);
   @include adaptive(border-radius, 30, 15);
-  @include adaptive(padding, 90, 15);
+  @include adaptive(padding, 90, 20);
 }
 
 .popup-content {
   @include adaptive(width, 1480, 1480);
   @include adaptive(padding-top, 38, 18);
   @include adaptive(padding-bottom, 38, 18);
-  @include adaptive(padding-left, 28, 8);
-  @include adaptive(padding-right, 28, 8);
+  @include adaptive(padding-left, 28, 10);
+  @include adaptive(padding-right, 28, 10);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

@@ -67,19 +67,23 @@ form {
 }
 
 .modal-content {
+  @media screen and (max-width: $mobileWidth + px) {
+    display: flex;
+    align-items: center;
+  }
   input[type='text'], textarea {
     color: #2B333A !important;
     border-bottom: 1px solid #000 !important;
   }
   .contacts-form-title {
-    @include adaptive(margin-top, 30, 15);
-    @include adaptive(margin-bottom, 30, 15);
+    @include adaptive(margin-top, 30, 30);
+    @include adaptive(margin-bottom, 30, 30);
     color: #2B333A !important;
   }
   .button {
     width: 90%;
-    @include adaptive(margin-top, 30, 15);
-    @include adaptive(margin-bottom, 30, 15);
+    @include adaptive(margin-top, 30, 30);
+    @include adaptive(margin-bottom, 30, 30);
     margin-right: auto;
     margin-left: auto;
     @media screen and (max-width: $mobileWidth + px) {
