@@ -1,3 +1,14 @@
+function createEl({where = document.body, tag = 'div', elId,  classes, styles, innerHTML, innerText}) {
+    let el = document.createElement(tag)
+    if (elId) el.id = elId
+    if (classes) el.className = classes
+    if (styles) el.style.cssText = styles
+    if (innerHTML) el.innerHTML = innerHTML
+    if (innerText) el.innerText = innerText
+    where.appendChild(el)
+    return el
+}
+
 $(document).ready(function () {
     const headerMain = document.querySelector('.header-main')
     const headerMenuInner = document.querySelector('.header-menu-inner')
@@ -10,6 +21,7 @@ $(document).ready(function () {
     let matchMobile = window.matchMedia('(max-width: 480px)')
 
     // Menu
+
     function cloneMenuElements() {
         const supportButton = headerMain.querySelector('.button')
         const contactLinks = headerMain.querySelector('.header-contact-links')
@@ -28,7 +40,7 @@ $(document).ready(function () {
 
     cloneMenuElements()
     submenuOwners.forEach((owner, idx) => {
-        $(owner).on('click', e => {
+        owner.onclick = (e) => {
             e.preventDefault()
             if (isMobile) {
                 $(owner).toggleClass('_open-mobile-submenu')
@@ -38,7 +50,7 @@ $(document).ready(function () {
                 clonedSubmenus.forEach(s => s.style.display = 'none')
                 clonedSubmenus[idx].style.display = 'flex'
             }
-        })
+        }
     })
     $('.menu-button').on('click', function (e) {
         $(this).toggleClass('_menu-open')
@@ -47,6 +59,7 @@ $(document).ready(function () {
     })
 
     // Directions Page
+
     const sliderDirectionsNav = $('.slider-directions-nav')
     sliderDirectionsNav.slick({
         slidesToShow: 1,
@@ -101,7 +114,7 @@ $(document).ready(function () {
     let currentSwitcherIdx = null
 
     allContentSwitchers.forEach((switcher, idx) => {
-        $(switcher).on('click', e => {
+        switcher.onclick = (e) => {
             e.preventDefault()
             let currentBlock = switcher.closest('.slide-direction-content')
             if (!currentBlock) return
@@ -122,10 +135,11 @@ $(document).ready(function () {
                     blockSwitchContents[currentSwitcherIdx].style.display = 'block'
                 }
             })
-        })
+        }
     })
 
     // Resizable Boxes
+
     const resizableContainers = document.querySelectorAll('._resizable-boxes')
 
     const resizeProps = {
@@ -257,7 +271,114 @@ $(document).ready(function () {
         if (!next || next.hasWidth100() || current.hasWidth100() || isMobile) return false
         return (current.offsetLeft === 0 && next.offsetLeft > 0)
     }
+
+    // Popups
+
+    const popupOwners = document.querySelectorAll('._has-popup')
+
+    popupOwners.forEach(owner => {
+        owner.onclick = (e) => {
+            e.preventDefault()
+            let additionalPopupClasses = ''
+            let popupContentBackground = ''
+            if (owner.classList.contains('_news')) {
+                additionalPopupClasses += ' _news _darken'
+                popupContentBackground = owner.querySelector('.box-item-image').style.backgroundImage
+            }
+            let popupBlock = owner.querySelector('.popup-content-inner')
+            if (!popupBlock) return
+            let popupContent = popupBlock.innerHTML
+            if (popupContent) {
+                let shadowLayer = createEl({
+                    classes: 'shadow-layer',
+                })
+                let popup = createEl({
+                    classes: 'popup-content' + additionalPopupClasses,
+                    styles: `
+                    background-image: ${popupContentBackground};
+                `,
+                })
+                let popupCloseButton = createEl({
+                    where: popup,
+                    classes: 'close-button',
+                })
+                createEl({
+                    where: popup,
+                    classes: 'popup-content-inner',
+                    innerHTML: popupContent,
+                })
+                $('body').addClass('_disable-scrolling')
+                let closePopup = () => {
+                    $('body').removeClass('_disable-scrolling')
+                    shadowLayer.remove()
+                    popup.remove()
+                }
+                shadowLayer.onclick = () => closePopup()
+                popupCloseButton.onclick = () => closePopup()
+            }
+        }
+    })
+
+    // Contact Modal
+
+    const modalOwners = document.querySelectorAll('._contact-modal')
+
+    const createModal = ({title = 'Заполните форму и мы с вами свяжемся', button = 'Отправить'} = {}) => {
+        const shadowLayer = createEl({
+            classes: 'shadow-layer',
+        })
+        const modal = createEl({
+            classes: 'modal-content',
+        })
+        const modalCloseButton = createEl({
+            where: modal,
+            classes: 'close-button',
+        })
+        const form = createEl({
+            tag: 'form',
+            where: modal,
+            classes: 'contacts-form',
+            innerHTML: `
+                <h4 class='contacts-form-title'>${title}</h4> 
+                <input type="text" placeholder="Имя" required="required">
+                <input type="text" placeholder="Электронная почта" required="required">
+                <textarea placeholder="Сообщение" required="required" rows="1"></textarea>
+                <label>
+                    <input type="checkbox" required="required">
+                    <span>Нажимая кнопку, я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и для целей, определенных в Согласии на обработку персональных данных.</span>
+                </label>
+            `,
+        })
+        createEl({
+            tag: 'button',
+            where: form,
+            classes: 'button _type-2 _active _size-4',
+            innerHTML: `
+                <span>${button}</span>
+            `,
+        })
+
+
+        $('body').addClass('_disable-scrolling')
+        let closePopup = () => {
+            $('body').removeClass('_disable-scrolling')
+            shadowLayer.remove()
+            modal.remove()
+        }
+        // form.onsubmit = () => closePopup()
+        shadowLayer.onclick = () => closePopup()
+        modalCloseButton.onclick = () => closePopup()
+    }
+
+    modalOwners.forEach(owner => {
+        owner.onclick = (e) => {
+            e.preventDefault()
+            createModal()
+        }
+    })
+
     // Changes on mobile
+
     function updateOnMobileChange(m) {
         refreshDirectionsNavSlider()
         resizedBoxes.normalize()
@@ -283,59 +404,4 @@ $(document).ready(function () {
     matchMobile.addEventListener('change', updateOnMobileChange)
 })
 
-function createEl({where = document.body, tag = 'div', elId,  classes, styles, innerHTML, innerText}) {
-    let el = document.createElement(tag)
-    if (elId) el.id = elId
-    if (classes) el.className = classes
-    if (styles) el.style.cssText = styles
-    if (innerHTML) el.innerHTML = innerHTML
-    if (innerText) el.innerText = innerText
-    where.appendChild(el)
-    return el
-}
-
-const popupOwners = document.querySelectorAll('._has-popup')
-
-popupOwners.forEach(owner => {
-    $(owner).on('click', e => {
-        e.preventDefault()
-        let additionalPopupClasses = ''
-        let popupContentBackground = ''
-        if (owner.classList.contains('_news')) {
-            additionalPopupClasses += ' _news _darken'
-            popupContentBackground = owner.querySelector('.box-item-image').style.backgroundImage
-        }
-        let popupBlock = owner.querySelector('.popup-content-inner')
-        if (!popupBlock) return
-        let popupContent = popupBlock.innerHTML
-        if (popupContent) {
-            let shadowLayer = createEl({
-                classes: 'shadow-layer',
-            })
-            let popup = createEl({
-                classes: 'popup-content' + additionalPopupClasses,
-                styles: `
-                    background-image: ${popupContentBackground};
-                `,
-            })
-            let popupCloseButton = createEl({
-                where: popup,
-                classes: 'close-button',
-            })
-            createEl({
-                where: popup,
-                classes: 'popup-content-inner',
-                innerHTML: popupContent,
-            })
-            $('body').addClass('_disable-scrolling')
-            let closePopup = () => {
-                $('body').removeClass('_disable-scrolling')
-                shadowLayer.remove()
-                popup.remove()
-            }
-            shadowLayer.onclick = () => closePopup()
-            popupCloseButton.onclick = () => closePopup()
-        }
-    })
-})
 

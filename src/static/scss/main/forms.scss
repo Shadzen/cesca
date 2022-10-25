@@ -33,11 +33,55 @@ form {
   textarea {
     resize: none;
   }
+  label {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    @include adaptive(font-size, 12, 12);
+    line-height: 110%;
+    font-family: $RalewayRegular;
+    font-weight: 400;
+    color: #3D3D3D;
+    @include adaptive(padding-left, 38, 38);
+    @include adaptive(padding-right, 38, 38);
+    @include adaptive(margin-top, 30, 15);
+    input {
+      position: absolute;
+      display: inline-block;
+      @include adaptive(width, 18, 18);
+      @include adaptive(height, 18, 18);
+      margin: 0;
+      top: 0;
+      left: 0;
+    }
+  }
 }
 
 .contacts-form {
   .button {
     width: 50%;
+    @media screen and (max-width: $mobileWidth + px) {
+      width: 100%;
+    }
+  }
+}
+
+.modal-content {
+  input[type='text'], textarea {
+    color: #2B333A !important;
+    border-bottom: 1px solid #000 !important;
+  }
+  .contacts-form-title {
+    @include adaptive(margin-top, 30, 15);
+    @include adaptive(margin-bottom, 30, 15);
+    color: #2B333A !important;
+  }
+  .button {
+    width: 90%;
+    @include adaptive(margin-top, 30, 15);
+    @include adaptive(margin-bottom, 30, 15);
+    margin-right: auto;
+    margin-left: auto;
     @media screen and (max-width: $mobileWidth + px) {
       width: 100%;
     }
