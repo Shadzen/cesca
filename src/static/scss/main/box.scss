@@ -21,7 +21,7 @@
     @include adaptive(padding-right, 10, 10);
     @include adaptive(margin-bottom, 20, 15);
     text-decoration: none;
-    transition: transform 0.25s ease;
+    transition: transform 0.25s ease, opacity $resizeDuration + s linear;
     .box-item-inner {
       @extend %flexCenter;
       position: relative;
@@ -78,7 +78,7 @@
       @include adaptive(padding, 40, 20);
     }
     .box-item-content-resizable {
-      transition: opacity calc($resizeDuration / 5) + s $resizeDuration * 1.5 + s linear;
+      transition: opacity calc($resizeDuration / 2) + s linear;
       .box-item-content-title {
         //width: 80%;
         @include adaptive(margin-bottom, 60, 30);
@@ -151,7 +151,7 @@
     .popup-content, .popup-content-inner {
       display: none;
     }
-    &._center-content {
+    &._center-content, &._center-numbers {
       .box-item-content {
         justify-content: space-between;
         align-items: center;
@@ -170,6 +170,17 @@
           flex-direction: column;
           padding: 0 8%;
           text-align: center;
+        }
+      }
+    }
+    &._center-numbers {
+      .box-item-info {
+        justify-content: flex-start;
+        .box-item-info-title {
+          @include adaptive(margin-top, 20, 20);
+          @media screen and (max-width: $mobileWidth + px) {
+            margin-top: 0;
+          }
         }
       }
     }
@@ -377,10 +388,12 @@
       }
     }
     &._shrink {
+      padding: 0;
+      //opacity: 0;
+      pointer-events: none;
       .box-item-content-resizable {
-        opacity: 0;
-        pointer-events: none;
         transition: opacity 0 + s linear;
+        opacity: 0;
       }
     }
     @media screen and (max-width: $mobileWidth + px) {

@@ -133,8 +133,10 @@ $(document).ready(function () {
         get delay() {
             return this.duration * 1.5
         },
-        expand: 95.95,
-        shrink: 3.95,
+        // expand: 95.95,
+        // shrink: 3.95,
+        expand: 99.99,
+        shrink: 0.01,
     }
 
     const resizedBoxes = new Set()
@@ -167,6 +169,7 @@ $(document).ready(function () {
                 delay: this.shrinked ? resizeProps.delay : 0.01,
                 onReverseComplete: () => {
                     this.classList.remove('_disable-pointer-animations')
+                    this.classList.remove('_expand')
                     this.removeAttribute('style')
                     boxText.removeAttribute('style')
                     this.tlExpand.pause().kill()
@@ -188,10 +191,12 @@ $(document).ready(function () {
         this.tlShrink = gsap.timeline({reversed: true, paused: true})
             .to(this, {
                 width: resizeProps.shrink + '%',
+                opacity: 0,
                 duration: resizeProps.duration,
                 delay: this.expanded ? resizeProps.delay : 0,
                 onReverseComplete: () => {
                     this.removeAttribute('style')
+                    this.classList.remove('_shrink')
                     this.tlShrink.pause().kill()
                     this.shrinked = false
                 },
@@ -199,14 +204,8 @@ $(document).ready(function () {
         this.tlShrink.play()
     }
     Element.prototype.normalizeBox = function() {
-        if (this.expanded) {
-            this.classList.remove('_expand')
-            this.tlExpand.reverse()
-        }
-        if (this.shrinked) {
-            this.classList.remove('_shrink')
-            this.tlShrink.reverse().delay(resizeProps.duration / 1.95)
-        }
+        if (this.expanded) this.tlExpand.reverse()
+        if (this.shrinked) this.tlShrink.reverse().delay(resizeProps.duration / 1.95)
     }
 
     resizableContainers.forEach(container => {

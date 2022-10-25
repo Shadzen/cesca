@@ -40,8 +40,10 @@
     @include adaptive(font-size, 14, 14);
     font-family: $RalewayRegular;
     text-decoration: none;
-    text-transform: uppercase;
     line-height: 115%;
+  }
+  .mail-links span {
+    text-transform: uppercase;
   }
   .mail-links, .mail-link {
     display: flex;
@@ -74,20 +76,31 @@
       }
     }
     .links-title, .link {
-      font-family: $RalewayRegular;
       text-decoration: none;
+      //max-width: 85%;
     }
     .links-title {
+      font-family: $RalewayMedium;
+      font-weight: 500;
       @include adaptive(font-size, 20, 20);
       text-transform: uppercase;
       color: $color01;
       line-height: 115%;
-      @include adaptive(margin-bottom, 4, 4);
+      //@include adaptive(margin-bottom, 4, 4);
     }
     .link {
+      font-family: $RalewayRegular;
       @include adaptive(font-size, 14, 14);
       @include adaptive(margin-top, 16, 16);
       line-height: 100%;
+      .link-image {
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include adaptive(width, 108, 108);
+        @include adaptive(height, 26, 26);
+        margin-top: -2%;
+      }
       @media screen and (max-width: $mobileWidth + px) {
         display: none;
       }
