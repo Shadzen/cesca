@@ -93,18 +93,18 @@ $(document).ready(function () {
         sliderDirectionsContentSlides = sliderDirectionsContent.querySelectorAll('.slide')
     }
 
-    sliderDirectionsNav.on('click', function(e) {
-        let activeSlide = $(this).find('.slick-active').attr('data-slick-index')
+    sliderDirectionsNav.on('click swipe', function(e) {
+        let currentSlide = $(this).find('.slick-active').attr('data-slick-index')
         if (sliderDirectionsInfoSlides) {
             sliderDirectionsInfoSlides.forEach(slide => slide.style.display = 'none')
-            if (sliderDirectionsInfoSlides[activeSlide]) {
-                sliderDirectionsInfoSlides[activeSlide].style.display = 'flex'
+            if (sliderDirectionsInfoSlides[currentSlide]) {
+                sliderDirectionsInfoSlides[currentSlide].style.display = 'flex'
             }
         }
         if (sliderDirectionsContentSlides) {
             sliderDirectionsContentSlides.forEach(slide => slide.style.display = 'none')
-            if (sliderDirectionsContentSlides[activeSlide]) {
-                sliderDirectionsContentSlides[activeSlide].style.display = 'block'
+            if (sliderDirectionsContentSlides[currentSlide]) {
+                sliderDirectionsContentSlides[currentSlide].style.display = 'block'
             }
         }
     })

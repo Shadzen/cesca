@@ -25,12 +25,39 @@
   }
 }
 
-//@keyframes translateMinus5050 {
+//@keyframes scale1to11 {
 //  from {
-//    transform: translate(-50%, -50%);
+//    transform: translate(-50%, -50%) scale(1);
+//  }
+//  50% {
+//    transform: translate(-50%, -50%) scale(1.1);
 //  }
 //  to {
-//    transform: translate(-50%, -50%);
+//    transform: translate(-50%, -50%) scale(1);
+//  }
+//}
+//
+//@keyframes scale1to107 {
+//  from {
+//    transform: translate(-50%, -50%) scale(1);
+//  }
+//  50% {
+//    transform: translate(-50%, -50%) scale(1.07);
+//  }
+//  to {
+//    transform: translate(-50%, -50%) scale(1);
+//  }
+//}
+//
+//@keyframes scale1to105 {
+//  from {
+//    transform: translate(-50%, -50%) scale(1);
+//  }
+//  50% {
+//    transform: translate(-50%, -50%) scale(1.05);
+//  }
+//  to {
+//    transform: translate(-50%, -50%) scale(1);
 //  }
 //}
 
