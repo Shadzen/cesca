@@ -10,6 +10,7 @@ function createEl({where = document.body, tag = 'div', elId,  classes, styles, i
 }
 
 $(document).ready(function () {
+    const mainBlock = document.querySelector('main')
     const headerMain = document.querySelector('.header-main')
     const headerMenuInner = document.querySelector('.header-menu-inner')
     const submenuOwners = headerMenuInner.querySelectorAll('._has-submenu')
@@ -60,10 +61,13 @@ $(document).ready(function () {
 
     // Directions Page
 
+    const currentDirectionSlide = Object.fromEntries(new URL(window.location).searchParams.entries()).index || 0
+
     const sliderDirectionsNav = $('.slider-directions-nav')
     sliderDirectionsNav.slick({
         slidesToShow: 1,
         slidesToScroll: 1,
+        initialSlide: currentDirectionSlide,
         dots: false,
         arrows: true,
         prevArrow: `
@@ -93,20 +97,27 @@ $(document).ready(function () {
         sliderDirectionsContentSlides = sliderDirectionsContent.querySelectorAll('.slide')
     }
 
-    sliderDirectionsNav.on('click swipe', function(e) {
-        let currentSlide = $(this).find('.slick-active').attr('data-slick-index')
+    const sliderSwitchDependentContent = (to) => {
+        if (sliderDirectionsNav.length !== 0) window.history.pushState(null, document.title, `${window.location.pathname}?index=${to}${window.location.hash}`)
         if (sliderDirectionsInfoSlides) {
             sliderDirectionsInfoSlides.forEach(slide => slide.style.display = 'none')
-            if (sliderDirectionsInfoSlides[currentSlide]) {
-                sliderDirectionsInfoSlides[currentSlide].style.display = 'flex'
+            if (sliderDirectionsInfoSlides[to]) {
+                sliderDirectionsInfoSlides[to].style.display = 'flex'
             }
         }
         if (sliderDirectionsContentSlides) {
             sliderDirectionsContentSlides.forEach(slide => slide.style.display = 'none')
-            if (sliderDirectionsContentSlides[currentSlide]) {
-                sliderDirectionsContentSlides[currentSlide].style.display = 'block'
+            if (sliderDirectionsContentSlides[to]) {
+                sliderDirectionsContentSlides[to].style.display = 'block'
             }
         }
+    }
+
+    sliderSwitchDependentContent(currentDirectionSlide)
+
+    sliderDirectionsNav.on('click swipe', function(e) {
+        let currentSlide = $(this).find('.slick-active').attr('data-slick-index')
+        sliderSwitchDependentContent(currentSlide)
     })
 
     const allContentSwitchers = document.querySelectorAll('._content-switcher')
@@ -402,6 +413,7 @@ $(document).ready(function () {
 
     updateOnMobileChange(matchMobile)
     matchMobile.addEventListener('change', updateOnMobileChange)
+    mainBlock.classList.remove('_loading')
 })
 
 

@@ -400,6 +400,29 @@ main {
   flex: 1 1 auto;
   @include adaptive(padding-top, 130, 96);
   z-index: 8;
+  .loader-image {
+    @extend %flexCenter;
+    display: none;
+    width: 100%;
+    @include adaptive(height, 600, 400);
+    img {
+      @include adaptive(height, 64, 64);
+      @include adaptive(width, 64, 64);
+    }
+  }
+  &._loading {
+    .separator, section, .slider, .decor {
+      opacity: 0;
+    }
+    ~ .footer {
+      .decor {
+        opacity: 0;
+      }
+    }
+    .loader-image {
+      display: flex;
+    }
+  }
 }
 
 @import "main/slider";
@@ -411,3 +434,4 @@ main {
 @import "main/vacancies";
 @import "main/contacts";
 @import "main/directions";
+@import "main/404";

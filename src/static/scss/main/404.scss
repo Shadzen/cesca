@@ -1,0 +1,15 @@
+.page-404 {
+  .section-404 {
+    @extend %flexCenter;
+    flex-direction: column;
+    min-height: 80vh;
+    h1 {
+      @include adaptive(font-size, 326, 232);
+      color: $color01 !important;
+      text-shadow: 0 0 50px rgba(56, 50, 212, 0.5);
+    }
+    .button {
+      @include adaptive(margin-top, 60, 50);
+    }
+  }
+}

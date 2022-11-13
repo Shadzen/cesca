@@ -1,0 +1,24 @@
+extends ../layout/layout.pug
+block vars
+    - var title = 'CESCA - Страница не найдена'
+    - var bodyClass = "black"
+block header
+    - var name = "404"
+    include ../includes/header.pug
+    include ../includes/mixins.pug
+block main
+    main.page-404
+        section.section-404
+            .decor._bottom._right
+                .decor-part
+                .decor-part
+                .decor-part
+                .decor-part
+            h1._font-number 404
+            h3 Страница не найдена
+            a.button._type-1._size-2(href='index.html')
+                span Перейти на главную
+        .separator._horizontal._large
+
+block footer
+    include ../includes/footer.pug
