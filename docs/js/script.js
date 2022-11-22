@@ -352,7 +352,7 @@ $(document).ready(function () {
             innerHTML: `
                 <h4 class='contacts-form-title'>${title}</h4> 
                 <input type="text" placeholder="Имя" required="required">
-                <input type="text" placeholder="Электронная почта" required="required">
+                <input type="email" placeholder="Электронная почта" required="required">
                 <textarea placeholder="Сообщение" required="required" rows="1"></textarea>
                 <label>
                     <input type="checkbox" required="required">

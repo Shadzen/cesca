@@ -169,12 +169,12 @@
     &:first-child {
       &:after {
         transform: rotate(90deg);
-        transform-origin: 100% 0;
+        transform-origin: calc(100% - 1px) 1px;
       }
     }
     &:last-child {
       &:before {
-        transform-origin: 100% 50%;
+        transform-origin: 100% calc(50% - 2px);
         transform: rotate(45deg);
       }
       &:after {
@@ -215,12 +215,12 @@
       transform-origin: 90% -25%;
       &:before, &:after {
         width: 43%;
-        height: 3px;
+        height: 2px;
       }
       &:last-child {
         &:before {
           width: 100%;
-          height: 3px;
+          height: 2px;
         }
       }
     }

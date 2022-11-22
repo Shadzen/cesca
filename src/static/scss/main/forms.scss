@@ -6,6 +6,7 @@
 //}
 
 textarea,
+input[type="email"],
 input[type="text"] {
   -webkit-appearance: none;
   border-radius: 0;
@@ -71,7 +72,7 @@ form {
     display: flex;
     align-items: center;
   }
-  input[type='text'], textarea {
+  input[type='text'], input[type="email"], textarea {
     color: #2B333A !important;
     border-bottom: 1px solid #000 !important;
   }
