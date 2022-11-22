@@ -169,7 +169,7 @@
     &:first-child {
       &:after {
         transform: rotate(90deg);
-        transform-origin: calc(100% - 1px) 1px;
+        transform-origin: calc(100% - 0.9px) 1px;
       }
     }
     &:last-child {
