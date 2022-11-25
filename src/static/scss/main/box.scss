@@ -121,18 +121,32 @@
       opacity: 0;
       overflow: hidden;
       pointer-events: none;
-      @include adaptive(width, 1670, 330);
+      @include adaptive(width, 1760, 400);
       @media screen and (max-width: $mobileWidth + px) {
         width: 100%;
       }
-      p {
+      .text-column {
         width: 33.333%;
         @include adaptive(padding-right, 40, 20);
         @media screen and (max-width: $mobileWidth + px) {
           width: 100%;
           padding: 0;
         }
+        li {
+          color: #fff;
+        }
       }
+      //p {
+      //  width: 33.333%;
+      //  @include adaptive(padding-right, 40, 20);
+      //  ul {
+      //    width: 100%;
+      //  }
+      //  @media screen and (max-width: $mobileWidth + px) {
+      //    width: 100%;
+      //    padding: 0;
+      //  }
+      //}
     }
     .box-item-info-text {
       &:after {
