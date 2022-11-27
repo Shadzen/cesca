@@ -107,13 +107,16 @@
       justify-content: space-between;
       @include adaptive(padding, 32, 20);
     }
-    .box-item-info-text, .box-item-content-text {
+    .box-item-info-text, .box-item-content-text, .wp-block-columns {
       @extend %flexSpaceBetween;
       flex-wrap: wrap;
       width: 100%;
       p {
         margin-bottom: 0;
         @include adaptive(margin-top, 14, 14);
+      }
+      li {
+        color: #fff;
       }
     }
     .box-item-content-text {
@@ -125,15 +128,12 @@
       @media screen and (max-width: $mobileWidth + px) {
         width: 100%;
       }
-      .text-column {
+      .text-column, .wp-block-column {
         width: 33.333%;
         @include adaptive(padding-right, 40, 20);
         @media screen and (max-width: $mobileWidth + px) {
           width: 100%;
           padding: 0;
-        }
-        li {
-          color: #fff;
         }
       }
       //p {
